@@ -10,8 +10,8 @@ func _ready() -> void:
 
 
 
-func _process(_delta: float) -> void:
-	inp.update()
+func _process(delta: float) -> void:
+	inp.update(delta)
 	move.dir = inp.move_dir
 	move.move(self)
 	
