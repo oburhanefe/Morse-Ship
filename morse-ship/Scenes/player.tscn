@@ -29,3 +29,5 @@ centered = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=322076456]
 position = Vector2(64, 64)
 shape = SubResource("RectangleShape2D_4kxuq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1610266851]
