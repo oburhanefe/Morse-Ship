@@ -1,13 +1,47 @@
 [gd_scene format=3 uid="uid://chxvt5qej2d6d"]
 
 [ext_resource type="Script" uid="uid://jcbwyg5mfb82" path="res://Scripts/player.gd" id="1_6t5aa"]
+[ext_resource type="Script" uid="uid://b6jlt83s4rq5w" path="res://Scripts/camera_2d.gd" id="2_fkybt"]
 [ext_resource type="Script" uid="uid://d2wekah50lvd4" path="res://Scripts/input.gd" id="2_vgqql"]
 [ext_resource type="Script" uid="uid://dalxrh464o2vh" path="res://Scripts/movement.gd" id="3_fkybt"]
 [ext_resource type="Texture2D" uid="uid://cwvqbr6noy5ti" path="res://assets/sprites/karakter aydılı 1.png" id="4_vgqql"]
+[ext_resource type="Script" uid="uid://bnqw2du0reg0" path="res://Scripts/animation_component.gd" id="5_x3wgy"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8ffim"]
-radius = 18.18182
-height = 36.36364
+[sub_resource type="Animation" id="Animation_fkybt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_x3wgy"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3smsa"]
+_data = {
+&"RESET": SubResource("Animation_fkybt"),
+&"idle": SubResource("Animation_x3wgy")
+}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fkybt"]
 atlas = ExtResource("4_vgqql")
@@ -54,25 +88,34 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tx1dd")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"aydıl",
-"speed": 5.0
-}, {
-"frames": [],
-"loop": 1,
-"name": &"new_animation",
 "speed": 5.0
 }]
 
-[node name="Player" type="CharacterBody2D" unique_id=1629573154 node_paths=PackedStringArray("inp", "move")]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8ffim"]
+radius = 27.272728
+height = 72.72727
+
+[node name="Player" type="CharacterBody2D" unique_id=1629573154 node_paths=PackedStringArray("inp", "move", "anim", "anim_player")]
 scale = Vector2(0.11, 0.11)
 script = ExtResource("1_6t5aa")
 inp = NodePath("input_comp")
 move = NodePath("movement_comp")
+anim = NodePath("anim_comp")
+anim_player = NodePath("AnimationPlayer")
+left_limit = 5.0
+right_limit = 155.0
+up_limit = -16.0
+bottom_limit = 60.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2122221056]
 scale = Vector2(9.090909, 9.090909)
 zoom = Vector2(8, 8)
+script = ExtResource("2_fkybt")
+cam_right_limit = 160.0
+cam_top_limit = -16.0
+cam_bottom_limit = 64.0
 
 [node name="input_comp" type="Node" parent="." unique_id=1624166998]
 script = ExtResource("2_vgqql")
@@ -83,14 +126,18 @@ script = ExtResource("3_fkybt")
 speed = Vector2(180, 180)
 metadata/_custom_type_script = "uid://dalxrh464o2vh"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=322076456]
-position = Vector2(72.72727, 72.72727)
-shape = SubResource("CapsuleShape2D_8ffim")
+[node name="anim_comp" type="Node" parent="." unique_id=2137019945]
+script = ExtResource("5_x3wgy")
+metadata/_custom_type_script = "uid://bnqw2du0reg0"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1610266851]
+libraries/ = SubResource("AnimationLibrary_3smsa")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2112379286]
-position = Vector2(72.727264, 36.363636)
 scale = Vector2(8.772725, 8.528659)
 sprite_frames = SubResource("SpriteFrames_dm18x")
 animation = &"aydıl"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=322076456]
+position = Vector2(0, 9.090909)
+shape = SubResource("CapsuleShape2D_8ffim")
