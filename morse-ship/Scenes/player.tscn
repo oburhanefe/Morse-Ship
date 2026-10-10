@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://chxvt5qej2d6d"]
+
+[ext_resource type="Script" uid="uid://jcbwyg5mfb82" path="res://Scripts/player.gd" id="1_6t5aa"]
+[ext_resource type="Script" uid="uid://d2wekah50lvd4" path="res://Scripts/input.gd" id="2_vgqql"]
+[ext_resource type="Script" uid="uid://dalxrh464o2vh" path="res://Scripts/movement.gd" id="3_fkybt"]
+[ext_resource type="Texture2D" uid="uid://4v2ki2ma302p" path="res://icon.svg" id="4_vgqql"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4kxuq"]
+size = Vector2(116, 116)
+
+[node name="Player" type="CharacterBody2D" unique_id=1629573154 node_paths=PackedStringArray("inp", "move")]
+script = ExtResource("1_6t5aa")
+inp = NodePath("input_comp")
+move = NodePath("movement_comp")
+
+[node name="input_comp" type="Node" parent="." unique_id=1624166998]
+script = ExtResource("2_vgqql")
+metadata/_custom_type_script = "uid://d2wekah50lvd4"
+
+[node name="movement_comp" type="Node" parent="." unique_id=302003714]
+script = ExtResource("3_fkybt")
+speed = Vector2(180, 180)
+metadata/_custom_type_script = "uid://dalxrh464o2vh"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1451279950]
+texture = ExtResource("4_vgqql")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=322076456]
+position = Vector2(64, 64)
+shape = SubResource("RectangleShape2D_4kxuq")
