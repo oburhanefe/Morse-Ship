@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://dalxrh464o2vh" path="res://Scripts/movement.gd" id="4_kiru7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_moenx"]
-radius = 56.22276
+radius = 48.564392
 
 [node name="move_signal_bot" type="CharacterBody2D" unique_id=1158500834 node_paths=PackedStringArray("move_comp", "nav")]
 scale = Vector2(0.08, 0.08)
@@ -35,5 +35,8 @@ speed = Vector2(30, 30)
 metadata/_custom_type_script = "uid://dalxrh464o2vh"
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=2100498039]
+path_desired_distance = 64.0
+avoidance_enabled = true
+radius = 40.0
 debug_enabled = true
 debug_path_custom_color = Color(1, 0, 0, 1)
