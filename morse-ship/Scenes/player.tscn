@@ -190,6 +190,7 @@ metadata/_custom_type_script = "uid://bnqw2du0reg0"
 [node name="pivot" type="Node2D" parent="." unique_id=540047450]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="pivot" unique_id=2112379286]
+modulate = Color(0.73300546, 0.7330054, 0.7330054, 1)
 light_mask = 0
 scale = Vector2(8.772725, 8.528659)
 sprite_frames = SubResource("SpriteFrames_dm18x")
