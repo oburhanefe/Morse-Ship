@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dalxrh464o2vh" path="res://Scripts/movement.gd" id="3_fkybt"]
 [ext_resource type="Texture2D" uid="uid://cwvqbr6noy5ti" path="res://assets/sprites/karakter aydılı 1.png" id="4_vgqql"]
 [ext_resource type="Script" uid="uid://bnqw2du0reg0" path="res://Scripts/animation_component.gd" id="5_x3wgy"]
+[ext_resource type="Script" uid="uid://414iwvrvr8n0" path="res://Scenes/morse_decipher.gd" id="6_3smsa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gymyn"]
 atlas = ExtResource("4_vgqql")
@@ -155,12 +156,13 @@ animations = [{
 radius = 27.272728
 height = 72.72727
 
-[node name="Player" type="CharacterBody2D" unique_id=1629573154 node_paths=PackedStringArray("inp", "move", "anim", "sprite") groups=["Player"]]
+[node name="Player" type="CharacterBody2D" unique_id=1629573154 node_paths=PackedStringArray("inp", "move", "anim", "decipher", "sprite") groups=["Player"]]
 scale = Vector2(0.11, 0.11)
 script = ExtResource("1_6t5aa")
 inp = NodePath("input_comp")
 move = NodePath("movement_comp")
 anim = NodePath("anim_comp")
+decipher = NodePath("MorseDecipher")
 sprite = NodePath("pivot/AnimatedSprite2D")
 left_limit = 5.0
 right_limit = 155.0
@@ -187,6 +189,9 @@ metadata/_custom_type_script = "uid://dalxrh464o2vh"
 [node name="anim_comp" type="Node" parent="." unique_id=2137019945]
 script = ExtResource("5_x3wgy")
 metadata/_custom_type_script = "uid://bnqw2du0reg0"
+
+[node name="MorseDecipher" type="Node" parent="." unique_id=819531110]
+script = ExtResource("6_3smsa")
 
 [node name="pivot" type="Node2D" parent="." unique_id=540047450]
 

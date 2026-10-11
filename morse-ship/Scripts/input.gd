@@ -33,14 +33,14 @@ func update(delta) -> void:
 			
 		if click_time >= CLICK_THRESHOLD:
 			is_long = true
-			print("long")
+
 		else:
 			is_long = false
-			print("short")
-		
 	if Input.is_action_just_released("click"):
-		click_time = 0.00
-		is_long = false
+		return_click()
+		click_time = 0.0
 
 	
-	
+
+func return_click() -> bool:
+	return is_long

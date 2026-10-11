@@ -1,0 +1,78 @@
+[gd_scene format=4 uid="uid://e7e182dlpxpq"]
+
+[ext_resource type="PackedScene" uid="uid://chxvt5qej2d6d" path="res://Scenes/player.tscn" id="1_vk57k"]
+[ext_resource type="Texture2D" uid="uid://4ffue2mqjapk" path="res://assets/sprites/tiayl set.png" id="2_8ffim"]
+[ext_resource type="PackedScene" uid="uid://rplcv4woaoy5" path="res://Scenes/move_signal_bot.tscn" id="3_xfk5q"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_xfk5q"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_7p6j4"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_6444e"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_evi0p"]
+texture = ExtResource("2_8ffim")
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:1/0 = 0
+7:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/0 = 0
+1:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_xfk5q")
+2:2/0 = 0
+2:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_xfk5q")
+3:2/0 = 0
+3:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_xfk5q")
+4:2/0 = 0
+7:2/0 = 0
+7:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_6444e")
+1:3/0 = 0
+1:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_7p6j4")
+2:3/0 = 0
+2:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_7p6j4")
+3:3/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_dm18x"]
+physics_layer_0/collision_layer = 1
+navigation_layer_0/layers = 1
+sources/0 = SubResource("TileSetAtlasSource_evi0p")
+
+[node name="Level1" type="Node2D" unique_id=352136879]
+
+[node name="TileMap" type="TileMap" parent="." unique_id=1454644484]
+tile_set = SubResource("TileSet_dm18x")
+format = 2
+
+[node name="TileMapLayer" type="TileMapLayer" parent="TileMap" unique_id=1236054387]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAAAAAAAAAABAAIAAAAAAAEAAAADAAIAAAABAAAAAAABAAIAAAACAAAAAAACAAIAAAACAAEAAAADAAIAAAADAAAAAAACAAIAAAADAAEAAAADAAIAAAAEAAEAAAADAAIAAAADAAIAAAACAAIAAAACAAIAAAABAAIAAAAAAAIAAAABAAIAAAAEAAIAAAABAAIAAAAEAAAAAAADAAIAAAAFAAAAAAADAAIAAAAFAAEAAAADAAIAAAAFAAIAAAACAAIAAAAGAAIAAAABAAIAAAAGAAEAAAABAAIAAAAGAAAAAAADAAIAAAAHAAEAAAABAAMAAAAHAAIAAAACAAIAAAAIAAEAAAABAAMAAAAIAAIAAAABAAIAAAAJAAEAAAACAAMAAAAJAAIAAAACAAIAAAAHAAAAAAABAAIAAAAIAAAAAAABAAIAAAAJAAAAAAACAAIAAAAIAAMAAAABAAMAAAAJAAMAAAACAAMAAAAGAAMAAAABAAMAAAAHAAMAAAACAAMAAAAEAAMAAAABAAMAAAAFAAMAAAACAAMAAAACAAMAAAABAAMAAAADAAMAAAACAAMAAAAAAAMAAAABAAMAAAABAAMAAAACAAMAAAAAAP//AAAAAAEAAAABAP//AAADAAEAAAACAP//AAADAAEAAAADAP//AAABAAEAAAAEAP//AAABAAEAAAAFAP//AAAFAAEAAAAGAP//AAACAAEAAAAHAP//AAABAAEAAAAIAP//AAABAAEAAAAJAP//AAACAAEAAAAKAP//AAAEAAIAAAAKAAAAAAAEAAIAAAAKAAEAAAAEAAIAAAAKAAIAAAAEAAIAAAAKAAMAAAAEAAIAAAABAAIAAAAHAAEAAAABAAEAAAAHAAEAAAA=")
+tile_set = SubResource("TileSet_dm18x")
+
+[node name="Player" parent="." unique_id=1629573154 instance=ExtResource("1_vk57k")]
+position = Vector2(8, 7)
+
+[node name="move_signal_bot" parent="." unique_id=1158500834 instance=ExtResource("3_xfk5q")]
+position = Vector2(48.999996, 15.999999)
