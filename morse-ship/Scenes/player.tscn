@@ -169,7 +169,6 @@ bottom_limit = 60.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2122221056]
 scale = Vector2(9.090909, 9.090909)
-zoom = Vector2(8, 8)
 script = ExtResource("2_fkybt")
 cam_right_limit = 160.0
 cam_top_limit = -16.0
@@ -181,7 +180,7 @@ metadata/_custom_type_script = "uid://d2wekah50lvd4"
 
 [node name="movement_comp" type="Node" parent="." unique_id=302003714]
 script = ExtResource("3_fkybt")
-speed = Vector2(90, 90)
+speed = Vector2(50, 50)
 metadata/_custom_type_script = "uid://dalxrh464o2vh"
 
 [node name="anim_comp" type="Node" parent="." unique_id=2137019945]
@@ -191,6 +190,7 @@ metadata/_custom_type_script = "uid://bnqw2du0reg0"
 [node name="pivot" type="Node2D" parent="." unique_id=540047450]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="pivot" unique_id=2112379286]
+light_mask = 0
 scale = Vector2(8.772725, 8.528659)
 sprite_frames = SubResource("SpriteFrames_dm18x")
 animation = &"idle_up"
