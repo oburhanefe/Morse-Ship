@@ -23,7 +23,7 @@ func _process(delta: float) -> void:
 	inp.update(delta)
 	if not inp.move_dir == Vector2.ZERO:
 		look_dir = inp.move_dir
-	anim.update_anim(sprite, inp.move_dir, look_dir)
+	anim.update_anim(sprite, inp.move_dir)
 	move.dir = inp.move_dir
 	move.move(self)
 	

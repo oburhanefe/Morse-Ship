@@ -155,7 +155,7 @@ animations = [{
 radius = 27.272728
 height = 72.72727
 
-[node name="Player" type="CharacterBody2D" unique_id=1629573154 node_paths=PackedStringArray("inp", "move", "anim", "sprite")]
+[node name="Player" type="CharacterBody2D" unique_id=1629573154 node_paths=PackedStringArray("inp", "move", "anim", "sprite") groups=["Player"]]
 scale = Vector2(0.11, 0.11)
 script = ExtResource("1_6t5aa")
 inp = NodePath("input_comp")

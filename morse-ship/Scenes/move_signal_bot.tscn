@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://rplcv4woaoy5"]
+
+[ext_resource type="Script" uid="uid://c88pinxcx3vmx" path="res://Scripts/move_sensor.gd" id="1_fq1gx"]
+[ext_resource type="Texture2D" uid="uid://4v2ki2ma302p" path="res://icon.svg" id="1_ura3x"]
+[ext_resource type="Script" uid="uid://c2eggfwhti07i" path="res://Scripts/nav_comp.gd" id="3_ap1r1"]
+[ext_resource type="Script" uid="uid://dalxrh464o2vh" path="res://Scripts/movement.gd" id="4_kiru7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_moenx"]
+radius = 56.22276
+
+[node name="move_signal_bot" type="CharacterBody2D" unique_id=1158500834 node_paths=PackedStringArray("move_comp", "nav")]
+scale = Vector2(0.08, 0.08)
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_fq1gx")
+move_comp = NodePath("movement_comp")
+nav = NodePath("nav_comp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=928692296]
+texture = ExtResource("1_ura3x")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1780283814]
+position = Vector2(64, 65)
+shape = SubResource("CircleShape2D_moenx")
+
+[node name="nav_comp" type="Node" parent="." unique_id=1859873513 node_paths=PackedStringArray("nav_agent")]
+script = ExtResource("3_ap1r1")
+nav_agent = NodePath("../NavigationAgent2D")
+metadata/_custom_type_script = "uid://c2eggfwhti07i"
+
+[node name="movement_comp" type="Node" parent="." unique_id=1559412377]
+script = ExtResource("4_kiru7")
+speed = Vector2(30, 30)
+metadata/_custom_type_script = "uid://dalxrh464o2vh"
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=2100498039]
+debug_enabled = true
+debug_path_custom_color = Color(1, 0, 0, 1)
