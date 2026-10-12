@@ -12,9 +12,15 @@ var is_long = false
 var click_time := 0.00
 var click_cd := 1.00
 var click_on_cd = false
+var is_clicking = false
+var is_clicking_cd = 3
 
 func update(delta) -> void:
 	move_dir = Input.get_vector("left","right","up","down")
+	
+
+	
+	
 	
 	if click_on_cd:
 		click_cd -= delta

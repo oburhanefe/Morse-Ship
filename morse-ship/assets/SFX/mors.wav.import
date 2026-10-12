@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://wa08yji8o3a0"
-path="res://.godot/imported/mors.wav-fb4d4eac4ea30b4cf01f54ce775780be.sample"
+path="res://.godot/imported/mors.wav-79694d511b586a43f5df57d1b17b1702.sample"
 
 [deps]
 
-source_file="res://assets/SFX/mors.wav"
-dest_files=["res://.godot/imported/mors.wav-fb4d4eac4ea30b4cf01f54ce775780be.sample"]
+source_file="res://Assets/SFX/mors.wav"
+dest_files=["res://.godot/imported/mors.wav-79694d511b586a43f5df57d1b17b1702.sample"]
 
 [params]
 
