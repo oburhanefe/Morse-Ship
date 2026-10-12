@@ -5,9 +5,6 @@
 [ext_resource type="Script" uid="uid://c2eggfwhti07i" path="res://Scripts/nav_comp.gd" id="3_ap1r1"]
 [ext_resource type="Script" uid="uid://dalxrh464o2vh" path="res://Scripts/movement.gd" id="4_kiru7"]
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_fq1gx"]
-light_mode = 2
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_moenx"]
 radius = 48.564392
 
@@ -20,8 +17,6 @@ move_comp = NodePath("movement_comp")
 nav = NodePath("nav_comp")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=928692296]
-modulate = Color(0.73333335, 0.73333335, 0.73333335, 1)
-material = SubResource("CanvasItemMaterial_fq1gx")
 texture = ExtResource("1_ura3x")
 centered = false
 
