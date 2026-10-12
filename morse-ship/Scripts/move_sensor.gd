@@ -1,3 +1,4 @@
+class_name Bot
 extends CharacterBody2D
 
 
@@ -10,7 +11,7 @@ var code : String
 
 func _ready() -> void:
 	nav.nav_agent.velocity_computed.connect(_on_velocity_computed)
-	code = pass_code.generate_code()
+	code = pass_code.code
 
 func _physics_process(_delta: float) -> void:
 	nav.make_path()

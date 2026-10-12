@@ -124,10 +124,10 @@ environment = SubResource("Environment_y1nys")
 [node name="move_signal_bot" parent="." unique_id=1158500834 instance=ExtResource("3_xfk5q")]
 position = Vector2(66, 12.999999)
 
-[node name="move_signal_bot2" parent="." unique_id=1237662657 instance=ExtResource("3_xfk5q")]
-position = Vector2(85, 52)
-pass_code = ExtResource("4_7p6j4")
-
 [node name="move_signal_bot3" parent="." unique_id=1155249216 instance=ExtResource("3_xfk5q")]
 position = Vector2(61, 33)
 pass_code = ExtResource("5_lsmp6")
+
+[node name="move_signal_bot2" parent="." unique_id=1237662657 instance=ExtResource("3_xfk5q")]
+position = Vector2(85, 52)
+pass_code = ExtResource("4_7p6j4")

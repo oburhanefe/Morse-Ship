@@ -15,7 +15,8 @@ var click_cd := 1.00
 var click_on_cd = false
 var is_clicking = false
 var not_clicked_time = 5.0
-
+var code : String = ""
+var code_length : int = 3
 func update(delta) -> void:
 	move_dir = Input.get_vector("left","right","up","down")
 	
@@ -64,16 +65,23 @@ func update(delta) -> void:
 func return_click() -> bool:
 	return is_long
 
-func update_command(plr : player, cmd : String) -> void:
+func update_command(cmd : String) -> void:
 	if Input.is_action_just_released("click"):
-		plr.decipher.command.append("1" if plr.inp.is_long else "0")
-		print(plr.decipher.command.back())
-		print(plr.decipher.command)
-		cmd = plr.decipher.build_command()
-		if cmd in plr.decipher.valid_commands:
-			print(plr.decipher.valid_commands[cmd])
-			plr.decipher.command.clear()
+		morse.command.append("1" if is_long else "0")
+		print(morse.command)
+		cmd = morse.build_command()
+		if cmd in morse.valid_commands:
+			print(morse.valid_commands[cmd])
+			morse.command.clear()
 	if Input.is_action_just_pressed("Delete"):
-		if not plr.decipher.command.is_empty():
-			plr.decipher.command.pop_back()
+		if not morse.command.is_empty():
+			morse.command.pop_back()
 			print("deleted")
+
+func update_code() -> String:
+	if Input.is_action_just_released("click"):
+		if len(code) >= code_length:
+			code = code.substr(1)
+		code += "1" if is_long else "0"
+		print(code)
+	return code
