@@ -44,3 +44,16 @@ func update(delta) -> void:
 
 func return_click() -> bool:
 	return is_long
+
+func update_command(plr : player, cmd : String) -> void:
+	if Input.is_action_just_released("click"):
+		plr.decipher.command.append("1" if plr.inp.is_long else "0")
+		print(plr.decipher.command.back())
+		cmd = plr.decipher.build_command()
+		if cmd in plr.decipher.valid_commands:
+			print(plr.decipher.valid_commands[cmd])
+			plr.decipher.command.clear()
+	if Input.is_action_just_pressed("Delete"):
+		if not plr.decipher.command.is_empty():
+			plr.decipher.command.pop_back()
+			print("deleted")

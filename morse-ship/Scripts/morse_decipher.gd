@@ -5,10 +5,7 @@ var command : Array[String] = []
 var valid_commands = {
 		"1010" : "stun",
 }
-func _ready() -> void:
-	command.resize(4)
-	
-	
+
 
 
 func build_command() -> String:
@@ -16,4 +13,6 @@ func build_command() -> String:
 	for letter in command:
 		if not letter.is_empty():
 			cmd += letter
+	if len(command) >=4:
+		command.pop_front()
 	return cmd
