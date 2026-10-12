@@ -155,6 +155,17 @@ animations = [{
 radius = 27.272728
 height = 72.72727
 
+[sub_resource type="Gradient" id="Gradient_xfk5q"]
+offsets = PackedFloat32Array(0, 0.14848486, 0.8606061)
+colors = PackedColorArray(1, 1, 1, 1, 0.03979186, 0.03979186, 0.03979186, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_x3wgy"]
+gradient = SubResource("Gradient_xfk5q")
+width = 512
+height = 512
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="Player" type="CharacterBody2D" unique_id=1629573154 node_paths=PackedStringArray("inp", "move", "anim", "sprite") groups=["Player"]]
 scale = Vector2(0.11, 0.11)
 script = ExtResource("1_6t5aa")
@@ -190,8 +201,6 @@ metadata/_custom_type_script = "uid://bnqw2du0reg0"
 [node name="pivot" type="Node2D" parent="." unique_id=540047450]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="pivot" unique_id=2112379286]
-modulate = Color(0.73300546, 0.7330054, 0.7330054, 1)
-light_mask = 0
 scale = Vector2(8.772725, 8.528659)
 sprite_frames = SubResource("SpriteFrames_dm18x")
 animation = &"idle_up"
@@ -199,3 +208,10 @@ animation = &"idle_up"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=322076456]
 position = Vector2(0, 9.090909)
 shape = SubResource("CapsuleShape2D_8ffim")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=457987546]
+color = Color(0.9997311, 0.9999997, 0.9002049, 1)
+shadow_enabled = true
+shadow_filter = 1
+texture = SubResource("GradientTexture2D_x3wgy")
+texture_scale = 8.0

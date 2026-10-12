@@ -77,21 +77,6 @@ physics_layer_0/collision_layer = 1
 navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_evi0p")
 
-[sub_resource type="Gradient" id="Gradient_xfk5q"]
-offsets = PackedFloat32Array(0, 0.14848486, 0.18181819)
-colors = PackedColorArray(1, 1, 1, 1, 0.03979186, 0.03979186, 0.03979186, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ycyol"]
-gradient = SubResource("Gradient_xfk5q")
-width = 512
-height = 512
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-
-[sub_resource type="Environment" id="Environment_y1nys"]
-background_mode = 3
-tonemap_mode = 3
-
 [node name="Level1" type="Node2D" unique_id=352136879]
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1454644484]
@@ -99,7 +84,6 @@ tile_set = SubResource("TileSet_dm18x")
 format = 2
 
 [node name="TileMapLayer" type="TileMapLayer" parent="TileMap" unique_id=1236054387]
-modulate = Color(0.35906908, 0.35906908, 0.35906908, 1)
 use_parent_material = true
 tile_map_data = PackedByteArray("AAAAAAAAAAABAAIAAAAAAAEAAAADAAIAAAABAAAAAAABAAIAAAACAAAAAAACAAIAAAACAAEAAAADAAIAAAADAAAAAAACAAIAAAADAAEAAAADAAIAAAAEAAEAAAADAAIAAAADAAIAAAACAAIAAAACAAIAAAABAAIAAAAAAAIAAAABAAIAAAAEAAIAAAABAAIAAAAEAAAAAAADAAIAAAAFAAAAAAADAAIAAAAFAAEAAAADAAIAAAAFAAIAAAAHAAEAAAAGAAIAAAABAAIAAAAGAAEAAAABAAIAAAAGAAAAAAADAAIAAAAHAAEAAAABAAMAAAAHAAIAAAAHAAEAAAAIAAEAAAABAAMAAAAIAAIAAAABAAIAAAAJAAEAAAACAAMAAAAJAAIAAAACAAIAAAAHAAAAAAABAAIAAAAIAAAAAAABAAIAAAAJAAAAAAACAAIAAAAIAAMAAAABAAMAAAAJAAMAAAACAAMAAAAGAAMAAAABAAMAAAAHAAMAAAACAAMAAAAEAAMAAAABAAMAAAAFAAMAAAACAAMAAAACAAMAAAABAAMAAAADAAMAAAACAAMAAAAAAAMAAAABAAMAAAABAAMAAAACAAMAAAAAAP//AAAAAAEAAAABAP//AAADAAEAAAACAP//AAADAAEAAAADAP//AAABAAEAAAAEAP//AAABAAEAAAAFAP//AAAFAAEAAAAGAP//AAACAAEAAAAHAP//AAABAAEAAAAIAP//AAABAAEAAAAJAP//AAACAAEAAAAKAP//AAAEAAIAAAAKAAAAAAAEAAIAAAAKAAEAAAAEAAIAAAAKAAIAAAAEAAIAAAAKAAMAAAAEAAIAAAABAAIAAAAHAAEAAAABAAEAAAAHAAEAAAA=")
 tile_set = SubResource("TileSet_dm18x")
@@ -107,16 +91,8 @@ tile_set = SubResource("TileSet_dm18x")
 [node name="Player" parent="." unique_id=1629573154 instance=ExtResource("1_vk57k")]
 position = Vector2(8, 7)
 
-[node name="PointLight2D" type="PointLight2D" parent="Player" unique_id=1901824320]
-color = Color(0.1584723, 0.15847233, 0.1584723, 1)
-energy = 6.0
-shadow_enabled = true
-shadow_filter = 2
-texture = SubResource("GradientTexture2D_ycyol")
-texture_scale = 8.0
-
 [node name="move_signal_bot" parent="." unique_id=1158500834 instance=ExtResource("3_xfk5q")]
 position = Vector2(48.999996, 15.999999)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1351934862]
-environment = SubResource("Environment_y1nys")
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=89020441]
+color = Color(0.09019608, 0.11764706, 0.16862746, 1)
