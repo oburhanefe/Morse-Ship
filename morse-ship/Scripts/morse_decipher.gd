@@ -6,6 +6,12 @@ var valid_commands = {
 		"1010" : "stun",
 }
 
+func is_empty() -> bool:
+	if len(command) == 0:
+		return true
+	else:
+		return false
+
 
 
 func build_command() -> String:
