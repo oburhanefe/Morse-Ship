@@ -14,7 +14,7 @@ var click_time := 0.00
 var click_cd := 1.00
 var click_on_cd = false
 var is_clicking = false
-var not_clicked_time = 5
+var not_clicked_time = 5.0
 
 func update(delta) -> void:
 	move_dir = Input.get_vector("left","right","up","down")
@@ -22,18 +22,15 @@ func update(delta) -> void:
 	if not Input.is_action_pressed("click"):
 		is_clicking = false
 	
-	if not morse.is_empty() and not is_clicking:
+	if not morse.command.is_empty() and not is_clicking:
 		not_clicked_time -= delta
 		if not_clicked_time <= 0:
 			morse.command.clear()
+			print("cleared")
 			click_on_cd = true
-			not_clicked_time = 5
+			not_clicked_time = 5.0
 			
 
-		
-	
-	
-	
 	if click_on_cd:
 		click_cd -= delta
 		if click_cd <= 0:
@@ -43,6 +40,7 @@ func update(delta) -> void:
 	
 	if Input.is_action_pressed("click") and not click_on_cd:
 		is_clicking = true
+		not_clicked_time = 5.0
 		
 		if click_time == click_cancel:
 			click_time = 0
