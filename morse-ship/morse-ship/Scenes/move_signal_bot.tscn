@@ -1,0 +1,157 @@
+[gd_scene format=3 uid="uid://rplcv4woaoy5"]
+
+[ext_resource type="Script" uid="uid://c88pinxcx3vmx" path="res://Scripts/move_sensor.gd" id="1_fq1gx"]
+[ext_resource type="Texture2D" uid="uid://dqcw10oq4mx58" path="res://assets/sprites/dron enemypng.png" id="2_fq1gx"]
+[ext_resource type="Script" uid="uid://c2eggfwhti07i" path="res://Scripts/nav_comp.gd" id="3_ap1r1"]
+[ext_resource type="Script" uid="uid://dalxrh464o2vh" path="res://Scripts/movement.gd" id="4_kiru7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ap1r1"]
+atlas = ExtResource("2_fq1gx")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kiru7"]
+atlas = ExtResource("2_fq1gx")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ucwsu"]
+atlas = ExtResource("2_fq1gx")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4kdl"]
+atlas = ExtResource("2_fq1gx")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fq1gx"]
+atlas = ExtResource("2_fq1gx")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m551u"]
+atlas = ExtResource("2_fq1gx")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jne24"]
+atlas = ExtResource("2_fq1gx")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhjfo"]
+atlas = ExtResource("2_fq1gx")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5p7ks"]
+atlas = ExtResource("2_fq1gx")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eamfu"]
+atlas = ExtResource("2_fq1gx")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chmqn"]
+atlas = ExtResource("2_fq1gx")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4kxuq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ap1r1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kiru7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ucwsu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4kdl")
+}],
+"loop": 1,
+"name": &"drone_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fq1gx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m551u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jne24")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhjfo")
+}],
+"loop": 1,
+"name": &"drone_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5p7ks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eamfu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_chmqn")
+}],
+"loop": 1,
+"name": &"drone_up",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_62yky"]
+radius = 10.825317
+height = 68.30127
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mm1bc"]
+radius = 25.0
+height = 125.0
+
+[node name="move_signal_bot" type="CharacterBody2D" unique_id=1158500834 node_paths=PackedStringArray("area", "move_comp", "nav") groups=["Bot"]]
+scale = Vector2(0.08, 0.08)
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_fq1gx")
+area = NodePath("Area2D")
+move_comp = NodePath("movement_comp")
+nav = NodePath("nav_comp")
+
+[node name="DroneSprite2D" type="AnimatedSprite2D" parent="." unique_id=999250526]
+position = Vector2(62.499992, 62.5)
+scale = Vector2(3.7656243, 7.7666)
+sprite_frames = SubResource("SpriteFrames_4kxuq")
+animation = &"drone_up"
+autoplay = "drone_idle"
+frame = 1
+frame_progress = 0.5405999
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1780283814]
+visible = false
+position = Vector2(62.50001, 62.499992)
+rotation = 3.1351626
+shape = SubResource("CapsuleShape2D_62yky")
+
+[node name="nav_comp" type="Node" parent="." unique_id=1859873513 node_paths=PackedStringArray("nav_agent")]
+script = ExtResource("3_ap1r1")
+nav_agent = NodePath("../NavigationAgent2D")
+metadata/_custom_type_script = "uid://c2eggfwhti07i"
+
+[node name="movement_comp" type="Node" parent="." unique_id=1559412377]
+script = ExtResource("4_kiru7")
+speed = Vector2(20, 20)
+metadata/_custom_type_script = "uid://dalxrh464o2vh"
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=2100498039]
+path_desired_distance = 64.0
+avoidance_enabled = true
+radius = 40.0
+debug_path_custom_color = Color(1, 0, 0, 1)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1301452621]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1698315759]
+visible = false
+position = Vector2(62.5, 62.5)
+shape = SubResource("CapsuleShape2D_mm1bc")
+debug_color = Color(0.9538885, 0.1598025, 0.3763967, 0.41960785)
