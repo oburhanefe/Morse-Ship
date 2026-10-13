@@ -29,10 +29,10 @@ func update_anim(anim_sprite : AnimatedSprite2D, move_dir : Vector2, look_dir : 
 			if anim_sprite.frame != last_frame:
 				last_frame = anim_sprite.frame
 				step_frame += 1
-				if step_frame >= 4:
+				if step_frame >= 5:
 					step_frame = 0
 					step_audio.stop()
 					step_audio.play()
 		else:
-			step_frame = 0
+			step_frame = 4
 			last_frame = -1

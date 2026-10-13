@@ -16,6 +16,9 @@ random_volume_offset_db = 0.1
 streams_count = 1
 stream_0/stream = ExtResource("4_3smsa")
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_f1ek2"]
+light_mode = 1
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_8erm5"]
 atlas = ExtResource("7_3smsa")
 region = Rect2(48, 16, 16, 16)
@@ -278,8 +281,8 @@ radius = 27.272728
 height = 72.72727
 
 [sub_resource type="Gradient" id="Gradient_xfk5q"]
-offsets = PackedFloat32Array(0, 0.14848486, 0.8606061)
-colors = PackedColorArray(1, 1, 1, 1, 0.03979186, 0.03979186, 0.03979186, 1, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0, 0.036144577, 0.11445783, 0.28915662, 0.5, 0.8674699)
+colors = PackedColorArray(1, 1, 1, 1, 0.59693444, 0.59693444, 0.59693444, 1, 0.14908385, 0.14908385, 0.14908385, 1, 0.03979186, 0.03979186, 0.03979186, 1, 0.008331072, 0.008331072, 0.008331072, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_x3wgy"]
 gradient = SubResource("Gradient_xfk5q")
@@ -335,6 +338,8 @@ script = ExtResource("6_3smsa")
 [node name="pivot" type="Node2D" parent="." unique_id=540047450]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="pivot" unique_id=2112379286]
+light_mask = 2
+material = SubResource("CanvasItemMaterial_f1ek2")
 scale = Vector2(8.772725, 8.528659)
 sprite_frames = SubResource("SpriteFrames_dm18x")
 animation = &"walk_up"
@@ -346,6 +351,7 @@ shape = SubResource("CapsuleShape2D_8ffim")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=457987546]
 color = Color(0.9997311, 0.9999997, 0.9002049, 1)
+energy = 2.0
 shadow_enabled = true
 shadow_filter = 1
 texture = SubResource("GradientTexture2D_x3wgy")
@@ -354,5 +360,5 @@ texture_scale = 8.0
 [node name="Walk_Audio" type="AudioStreamPlayer2D" parent="." unique_id=1603634841]
 scale = Vector2(8.772725, 8.528659)
 stream = SubResource("AudioStreamRandomizer_y1nys")
-volume_db = 0.2
-pitch_scale = 1.1
+volume_db = 1.0
+bus = &"Walk Sfx"
