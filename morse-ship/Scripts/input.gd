@@ -24,7 +24,6 @@ var ilk_deger_silme = true
 func update(delta) -> void:
 	
 	move_dir = Input.get_vector("left","right","up","down")
-
 	
 	if not Input.is_action_pressed("click"):
 		is_clicking = false

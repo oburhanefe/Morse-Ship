@@ -3,8 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://chxvt5qej2d6d" path="res://Scenes/player.tscn" id="1_vk57k"]
 [ext_resource type="Texture2D" uid="uid://4ffue2mqjapk" path="res://Assets/sprites/tiayl set.png" id="2_8ffim"]
 [ext_resource type="PackedScene" uid="uid://rplcv4woaoy5" path="res://Scenes/move_signal_bot.tscn" id="3_xfk5q"]
-[ext_resource type="Resource" uid="uid://bsv431abfyiup" path="res://Resources/ResFiles/pass_code2.tres" id="4_7p6j4"]
-[ext_resource type="Resource" uid="uid://1pu6406klqrq" path="res://Resources/ResFiles/pass_code3.tres" id="5_lsmp6"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_xfk5q"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -201,12 +199,10 @@ color = Color(0.09019608, 0.11764706, 0.16862746, 1)
 environment = SubResource("Environment_y1nys")
 
 [node name="move_signal_bot" parent="." unique_id=1158500834 instance=ExtResource("3_xfk5q")]
-position = Vector2(66, 12.999999)
+position = Vector2(83, 10)
 
-[node name="move_signal_bot2" parent="." unique_id=1237662657 instance=ExtResource("3_xfk5q")]
-position = Vector2(85, 52)
-pass_code = ExtResource("4_7p6j4")
+[node name="move_signal_bot2" parent="." unique_id=1243660488 instance=ExtResource("3_xfk5q")]
+position = Vector2(117, 20)
 
-[node name="move_signal_bot3" parent="." unique_id=1155249216 instance=ExtResource("3_xfk5q")]
-position = Vector2(61, 33)
-pass_code = ExtResource("5_lsmp6")
+[node name="move_signal_bot3" parent="." unique_id=1781377972 instance=ExtResource("3_xfk5q")]
+position = Vector2(51, 31)
