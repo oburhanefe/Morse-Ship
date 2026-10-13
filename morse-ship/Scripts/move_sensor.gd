@@ -1,3 +1,5 @@
+class_name Bot
+
 extends CharacterBody2D
 
 
@@ -7,10 +9,13 @@ extends CharacterBody2D
 @export var pass_code : PassCode
 
 var code : String 
+var mouse_ustunde_mi = false
 
 func _ready() -> void:
 	nav.nav_agent.velocity_computed.connect(_on_velocity_computed)
 	code = pass_code.generate_code()
+	mouse_entered.connect(func(): mouse_ustunde_mi = true)
+	mouse_exited.connect(func(): mouse_ustunde_mi = false)
 
 func _physics_process(_delta: float) -> void:
 	nav.make_path()

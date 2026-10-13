@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://cgefrbesddwfw"]
+
+[ext_resource type="Texture2D" uid="uid://dosvs040qw0u4" path="res://assets/sprites/sol ui.png" id="1_sd512"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=834787371]
+
+[node name="Control" type="Control" parent="." unique_id=1127011909]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=1446863342]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 56.0
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_sd512")
+
+[node name="LeftPanel" type="VBoxContainer" parent="Control" unique_id=1421221110]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 56.0
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/LeftPanel" unique_id=2065733072]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/LeftPanel/HBoxContainer" unique_id=607241834]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/LeftPanel" unique_id=417875979]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/LeftPanel/HBoxContainer2" unique_id=660350660]
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Control/LeftPanel" unique_id=863759624]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/LeftPanel/HBoxContainer3" unique_id=1568177237]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Control/LeftPanel" unique_id=214462133]
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control/LeftPanel/Control" unique_id=2022418585]
+
+[node name="Control" type="Control" parent="Control" unique_id=866544304]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
