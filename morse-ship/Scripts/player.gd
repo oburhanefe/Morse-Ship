@@ -12,31 +12,40 @@ extends CharacterBody2D
 @export var up_limit : float
 @export var bottom_limit : float
 
+
 var cmd : String = ""
-var bots : Array[Bot]
-var bots_code : Array[String] = []
 var current_accessed_bot : Bot
+var bots : Array[Bot]
 
 func _ready() -> void:
 	bots.assign(get_tree().get_nodes_in_group("Bot"))
-	for i in bots:
-		var new_code = i.pass_code.generate_code()
-		bots_code.append(new_code)
-	print(bots_code)
+	
 
 func _process(delta: float) -> void:
 	position.x = clamp(position.x, left_limit, right_limit)
 	position.y = clamp(position.y, up_limit, bottom_limit) 
 	inp.update(delta)
-	if current_accessed_bot == null:
-		var curr_code = inp.update_code()
-		if curr_code in bots_code and curr_code != "": 
-			var bot_index = bots_code.find(curr_code)
-			current_accessed_bot = bots[bot_index]
+	for i in bots:
+		if i.mouse_ustunde_mi and Input.is_action_just_pressed("click"):
+			if current_accessed_bot == null:
+				current_accessed_bot = i
+			else:
+				if current_accessed_bot != i:
+					current_accessed_bot = i
+					inp.ilk_deger_silme = true
+			print(current_accessed_bot.name)
 			
-	else:
+
+
+	
+	if current_accessed_bot:
 		inp.update_command(cmd)
+		
+		if cmd in decipher.valid_commands:
+			decipher.execute_com(current_accessed_bot,decipher.valid_commands[cmd], delta)
+			print(current_accessed_bot.move_comp.speed)
 	
 	anim.update_anim(sprite, inp.move_dir)
 	move.dir = inp.move_dir
 	move.move(self)
+	

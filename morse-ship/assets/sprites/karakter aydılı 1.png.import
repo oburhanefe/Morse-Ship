@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cwvqbr6noy5ti"
-path="res://.godot/imported/karakter aydılı 1.png-16fc8a4062a8cd4d24ae727d8be5f556.ctex"
+path="res://.godot/imported/karakter aydılı 1.png-969e70005b89851476b7b84cff41a656.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/karakter aydılı 1.png"
-dest_files=["res://.godot/imported/karakter aydılı 1.png-16fc8a4062a8cd4d24ae727d8be5f556.ctex"]
+source_file="res://Assets/sprites/karakter aydılı 1.png"
+dest_files=["res://.godot/imported/karakter aydılı 1.png-969e70005b89851476b7b84cff41a656.ctex"]
 
 [params]
 

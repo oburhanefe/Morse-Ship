@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://b6jlt83s4rq5w" path="res://Scripts/camera_2d.gd" id="2_fkybt"]
 [ext_resource type="Script" uid="uid://d2wekah50lvd4" path="res://Scripts/input.gd" id="2_vgqql"]
 [ext_resource type="Script" uid="uid://dalxrh464o2vh" path="res://Scripts/movement.gd" id="3_fkybt"]
-[ext_resource type="Texture2D" uid="uid://cwvqbr6noy5ti" path="res://assets/sprites/karakter aydılı 1.png" id="4_vgqql"]
+[ext_resource type="Texture2D" uid="uid://cwvqbr6noy5ti" path="res://Assets/sprites/karakter aydılı 1.png" id="4_vgqql"]
 [ext_resource type="Script" uid="uid://bnqw2du0reg0" path="res://Scripts/animation_component.gd" id="5_x3wgy"]
 [ext_resource type="Script" uid="uid://414iwvrvr8n0" path="res://Scripts/morse_decipher.gd" id="6_3smsa"]
 

@@ -2,10 +2,12 @@ class_name Decipher
 extends Node
 
 var command : Array[String] = []
-var bot_access_code : Array[String] = []
 var valid_commands = {
 		"1010" : "stun",
+		"0010" : "slow",
 }
+
+var stun_dur = 1.5
 
 
 func build_command() -> String:
@@ -18,7 +20,16 @@ func build_command() -> String:
 	return cmd
 
 
-func check_code(given_code : String, correct_code: String) -> bool:
-	if given_code == correct_code:
-		return true
-	return false
+func execute_com(bot : Bot, cmd : String, delta : float):
+	match cmd:
+		
+		"stun":
+			var orj_speed = bot.move_comp.speed
+			bot.move_comp.speed = Vector2.ZERO
+			while stun_dur > 0:
+				stun_dur -= delta
+			stun_dur = 1.5
+			bot.move_comp.speed = orj_speed
+			
+		
+	

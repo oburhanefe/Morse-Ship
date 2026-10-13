@@ -17,8 +17,14 @@ var is_clicking = false
 var not_clicked_time = 5.0
 var code : String = ""
 var code_length : int = 3
+var ilk_deger_silme = true
+
+
+
 func update(delta) -> void:
+	
 	move_dir = Input.get_vector("left","right","up","down")
+	var _mouse_pos := get_viewport().get_mouse_position() 
 	
 	if not Input.is_action_pressed("click"):
 		is_clicking = false
@@ -43,7 +49,7 @@ func update(delta) -> void:
 		is_clicking = true
 		not_clicked_time = 5.0
 		
-		if click_time == click_cancel:
+		if click_time >= click_cancel:
 			click_time = 0
 			click_on_cd = true
 			return
@@ -66,22 +72,36 @@ func return_click() -> bool:
 	return is_long
 
 func update_command(cmd : String) -> void:
+	
+	
 	if Input.is_action_just_released("click"):
 		morse.command.append("1" if is_long else "0")
+		if ilk_deger_silme:
+			morse.command.clear()
+			ilk_deger_silme = false
+		
 		print(morse.command)
 		cmd = morse.build_command()
+		
+		
 		if cmd in morse.valid_commands:
 			print(morse.valid_commands[cmd])
 			morse.command.clear()
+		
 	if Input.is_action_just_pressed("Delete"):
 		if not morse.command.is_empty():
 			morse.command.pop_back()
 			print("deleted")
+			
+	
 
-func update_code() -> String:
-	if Input.is_action_just_released("click"):
-		if len(code) >= code_length:
-			code = code.substr(1)
-		code += "1" if is_long else "0"
-		print(code)
-	return code
+#func update_code() -> String:
+	#if Input.is_action_just_released("click"):
+		#if len(code) >= code_length:
+			#code = code.substr(1)
+		#code += "1" if is_long else "0"
+		#print(code)
+	#return code
+
+	
+	

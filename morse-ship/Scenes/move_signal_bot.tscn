@@ -2,21 +2,23 @@
 
 [ext_resource type="Script" uid="uid://c88pinxcx3vmx" path="res://Scripts/move_sensor.gd" id="1_fq1gx"]
 [ext_resource type="Texture2D" uid="uid://4v2ki2ma302p" path="res://icon.svg" id="1_ura3x"]
-[ext_resource type="Resource" uid="uid://ckg2uhu8g8csk" path="res://Resources/ResFiles/pass_code1.tres" id="2_ap1r1"]
 [ext_resource type="Script" uid="uid://c2eggfwhti07i" path="res://Scripts/nav_comp.gd" id="3_ap1r1"]
 [ext_resource type="Script" uid="uid://dalxrh464o2vh" path="res://Scripts/movement.gd" id="4_kiru7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_moenx"]
-radius = 48.564392
+radius = 147.65584
 
-[node name="move_signal_bot" type="CharacterBody2D" unique_id=1158500834 node_paths=PackedStringArray("move_comp", "nav") groups=["Bot"]]
+[sub_resource type="CircleShape2D" id="CircleShape2D_4kxuq"]
+radius = 51.538822
+
+[node name="move_signal_bot" type="CharacterBody2D" unique_id=1158500834 node_paths=PackedStringArray("area", "move_comp", "nav") groups=["Bot"]]
 scale = Vector2(0.08, 0.08)
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_fq1gx")
+area = NodePath("Area2D")
 move_comp = NodePath("movement_comp")
 nav = NodePath("nav_comp")
-pass_code = ExtResource("2_ap1r1")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=928692296]
 texture = ExtResource("1_ura3x")
@@ -24,6 +26,7 @@ centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1780283814]
 position = Vector2(64, 65)
+rotation = 1.0471976
 shape = SubResource("CircleShape2D_moenx")
 
 [node name="nav_comp" type="Node" parent="." unique_id=1859873513 node_paths=PackedStringArray("nav_agent")]
@@ -42,3 +45,10 @@ avoidance_enabled = true
 radius = 40.0
 debug_enabled = true
 debug_path_custom_color = Color(1, 0, 0, 1)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1576592209]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1470892407]
+position = Vector2(62.5, 62.5)
+shape = SubResource("CircleShape2D_4kxuq")
+debug_color = Color(0.9663066, 0.14890781, 0.2865806, 0.41960785)
