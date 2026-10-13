@@ -30,6 +30,3 @@ func execute_com(bot : Bot, cmd : String, delta : float):
 				stun_dur -= delta
 			stun_dur = 1.5
 			bot.move_comp.speed = orj_speed
-			
-		
-	

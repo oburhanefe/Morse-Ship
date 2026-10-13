@@ -6,12 +6,12 @@
 [ext_resource type="Script" uid="uid://dalxrh464o2vh" path="res://Scripts/movement.gd" id="4_kiru7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_moenx"]
-radius = 147.65584
+radius = 76.213524
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4kxuq"]
 radius = 72.8869
 
-[node name="move_signal_bot" type="CharacterBody2D" unique_id=1158500834 node_paths=PackedStringArray("move_comp", "nav") groups=["Bot"]]
+[node name="move_signal_bot" type="CharacterBody2D" unique_id=1158500834 node_paths=PackedStringArray("area", "move_comp", "nav") groups=["Bot"]]
 scale = Vector2(0.08, 0.08)
 motion_mode = 1
 wall_min_slide_angle = 0.0

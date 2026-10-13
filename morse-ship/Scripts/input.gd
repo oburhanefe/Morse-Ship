@@ -91,16 +91,3 @@ func update_command(cmd : String) -> void:
 		if not morse.command.is_empty():
 			morse.command.pop_back()
 			print("deleted")
-			
-	
-
-#func update_code() -> String:
-	#if Input.is_action_just_released("click"):
-		#if len(code) >= code_length:
-			#code = code.substr(1)
-		#code += "1" if is_long else "0"
-		#print(code)
-	#return code
-
-	
-	

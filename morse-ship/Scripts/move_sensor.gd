@@ -6,6 +6,8 @@ extends CharacterBody2D
 @export var move_comp : movement_comp
 @export var nav : nav_comp
 
+var plr : player
+
 
 var code : String 
 var mouse_ustunde_mi = false
@@ -13,9 +15,8 @@ var mouse_ustunde_mi = false
 func _ready() -> void:
 	plr = get_tree().get_first_node_in_group("Player")
 	nav.nav_agent.velocity_computed.connect(_on_velocity_computed)
-	code = pass_code.generate_code()
-	mouse_entered.connect(func(): mouse_ustunde_mi = true)
-	mouse_exited.connect(func(): mouse_ustunde_mi = false)
+	area.mouse_entered.connect(func(): mouse_ustunde_mi = true)
+	area.mouse_exited.connect(func(): mouse_ustunde_mi = false)
 
 func _physics_process(_delta: float) -> void:
 	nav.make_path()
