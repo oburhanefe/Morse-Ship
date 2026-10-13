@@ -2,19 +2,21 @@
 
 [ext_resource type="Script" uid="uid://c88pinxcx3vmx" path="res://Scripts/move_sensor.gd" id="1_fq1gx"]
 [ext_resource type="Texture2D" uid="uid://4v2ki2ma302p" path="res://icon.svg" id="1_ura3x"]
+[ext_resource type="Resource" uid="uid://ckg2uhu8g8csk" path="res://Resources/ResFiles/pass_code1.tres" id="2_ap1r1"]
 [ext_resource type="Script" uid="uid://c2eggfwhti07i" path="res://Scripts/nav_comp.gd" id="3_ap1r1"]
 [ext_resource type="Script" uid="uid://dalxrh464o2vh" path="res://Scripts/movement.gd" id="4_kiru7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_moenx"]
 radius = 48.564392
 
-[node name="move_signal_bot" type="CharacterBody2D" unique_id=1158500834 node_paths=PackedStringArray("move_comp", "nav")]
+[node name="move_signal_bot" type="CharacterBody2D" unique_id=1158500834 node_paths=PackedStringArray("move_comp", "nav") groups=["Bot"]]
 scale = Vector2(0.08, 0.08)
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_fq1gx")
 move_comp = NodePath("movement_comp")
 nav = NodePath("nav_comp")
+pass_code = ExtResource("2_ap1r1")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=928692296]
 texture = ExtResource("1_ura3x")

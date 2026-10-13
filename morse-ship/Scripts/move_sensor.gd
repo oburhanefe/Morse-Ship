@@ -4,11 +4,13 @@ extends CharacterBody2D
 
 @export var move_comp : movement_comp
 @export var nav : nav_comp
+@export var pass_code : PassCode
 
+var code : String 
 
 func _ready() -> void:
 	nav.nav_agent.velocity_computed.connect(_on_velocity_computed)
-	
+	code = pass_code.generate_code()
 
 func _physics_process(_delta: float) -> void:
 	nav.make_path()
