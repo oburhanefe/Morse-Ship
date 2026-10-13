@@ -191,6 +191,7 @@ bottom_limit = 60.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2122221056]
 scale = Vector2(9.090909, 9.090909)
+zoom = Vector2(4, 4)
 script = ExtResource("2_fkybt")
 cam_right_limit = 160.0
 cam_top_limit = -16.0
