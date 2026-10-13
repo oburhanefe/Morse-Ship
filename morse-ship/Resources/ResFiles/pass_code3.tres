@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="PassCode" format=3 uid="uid://1pu6406klqrq"]
-
-[ext_resource type="Script" uid="uid://4mycu0w3ne6l" path="res://Resources/ResScripts/pass_code.gd" id="1_nf41q"]
-
-[resource]
-script = ExtResource("1_nf41q")
-length = 3
-metadata/_custom_type_script = "uid://4mycu0w3ne6l"
