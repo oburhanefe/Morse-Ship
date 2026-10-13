@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var anim : anim_comp
 
 @export var sprite : AnimatedSprite2D
+@onready var walk_audio: AudioStreamPlayer2D = $Walk_Audio
 
 @export var left_limit : float
 @export var right_limit : float
@@ -23,7 +24,7 @@ func _process(delta: float) -> void:
 	inp.update(delta)
 	if not inp.move_dir == Vector2.ZERO:
 		look_dir = inp.move_dir
-	anim.update_anim(sprite, inp.move_dir)
+	anim.update_anim(sprite, inp.move_dir, look_dir, walk_audio)
 	move.dir = inp.move_dir
 	move.move(self)
 	

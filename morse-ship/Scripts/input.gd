@@ -31,6 +31,7 @@ func update(delta) -> void:
 	
 	if Input.is_action_pressed("click") and not click_on_cd:
 		
+		
 		if not morse_audio.playing:
 			morse_audio.play()
 		
