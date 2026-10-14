@@ -7,6 +7,7 @@ extends CharacterBody2D
 @export var decipher : Decipher
 @export var sprite : AnimatedSprite2D
 
+
 @onready var walk_audio: AudioStreamPlayer2D = $Walk_Audio
 
 @export var left_limit : float

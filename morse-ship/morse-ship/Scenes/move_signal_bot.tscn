@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dqcw10oq4mx58" path="res://assets/sprites/dron enemypng.png" id="2_fq1gx"]
 [ext_resource type="Script" uid="uid://c2eggfwhti07i" path="res://Scripts/nav_comp.gd" id="3_ap1r1"]
 [ext_resource type="Script" uid="uid://dalxrh464o2vh" path="res://Scripts/movement.gd" id="4_kiru7"]
+[ext_resource type="Script" uid="uid://bnqw2du0reg0" path="res://Scripts/animation_component.gd" id="5_ap1r1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ap1r1"]
 atlas = ExtResource("2_fq1gx")
@@ -65,7 +66,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_i4kdl")
 }],
 "loop": 1,
-"name": &"drone_idle",
+"name": &"walk_down",
 "speed": 5.0
 }, {
 "frames": [{
@@ -82,7 +83,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_qhjfo")
 }],
 "loop": 1,
-"name": &"drone_right",
+"name": &"walk_sides",
 "speed": 5.0
 }, {
 "frames": [{
@@ -96,7 +97,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_chmqn")
 }],
 "loop": 1,
-"name": &"drone_up",
+"name": &"walk_up",
 "speed": 5.0
 }]
 
@@ -108,7 +109,7 @@ height = 68.30127
 radius = 25.0
 height = 125.0
 
-[node name="move_signal_bot" type="CharacterBody2D" unique_id=1158500834 node_paths=PackedStringArray("area", "move_comp", "nav") groups=["Bot"]]
+[node name="move_signal_bot" type="CharacterBody2D" unique_id=1158500834 node_paths=PackedStringArray("area", "move_comp", "nav", "drone_sprite") groups=["Bot"]]
 scale = Vector2(0.08, 0.08)
 motion_mode = 1
 wall_min_slide_angle = 0.0
@@ -116,15 +117,15 @@ script = ExtResource("1_fq1gx")
 area = NodePath("Area2D")
 move_comp = NodePath("movement_comp")
 nav = NodePath("nav_comp")
+drone_sprite = NodePath("DroneSprite2D")
 
 [node name="DroneSprite2D" type="AnimatedSprite2D" parent="." unique_id=999250526]
 position = Vector2(62.499992, 62.5)
 scale = Vector2(3.7656243, 7.7666)
 sprite_frames = SubResource("SpriteFrames_4kxuq")
-animation = &"drone_up"
-autoplay = "drone_idle"
-frame = 1
-frame_progress = 0.5405999
+animation = &"walk_up"
+autoplay = "walk_down"
+frame_progress = 0.01606646
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1780283814]
 visible = false
@@ -141,6 +142,10 @@ metadata/_custom_type_script = "uid://c2eggfwhti07i"
 script = ExtResource("4_kiru7")
 speed = Vector2(20, 20)
 metadata/_custom_type_script = "uid://dalxrh464o2vh"
+
+[node name="anim_comp" type="Node" parent="." unique_id=1267135995]
+script = ExtResource("5_ap1r1")
+metadata/_custom_type_script = "uid://bnqw2du0reg0"
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=2100498039]
 path_desired_distance = 64.0

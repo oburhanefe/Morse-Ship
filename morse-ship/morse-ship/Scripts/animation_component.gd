@@ -4,7 +4,8 @@ extends Node
 var step_frame: int = 0
 var last_frame: int = -1
 
-func update_anim(anim_sprite : AnimatedSprite2D, move_dir : Vector2, look_dir : Vector2, step_audio : AudioStreamPlayer2D = null):
+func update_anim(anim_sprite : AnimatedSprite2D, move_dir : Vector2, look_dir : Vector2,
+ step_audio : AudioStreamPlayer2D = null):
 	
 	if move_dir != Vector2.ZERO:
 		if move_dir.x != 0:
@@ -26,3 +27,6 @@ func update_anim(anim_sprite : AnimatedSprite2D, move_dir : Vector2, look_dir : 
 	if step_audio:
 		if move_dir != Vector2.ZERO and not step_audio.playing:
 			step_audio.play()
+	
+	
+	
