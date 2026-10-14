@@ -120,6 +120,7 @@ nav = NodePath("nav_comp")
 drone_sprite = NodePath("DroneSprite2D")
 
 [node name="DroneSprite2D" type="AnimatedSprite2D" parent="." unique_id=999250526]
+light_mask = 3
 position = Vector2(62.499992, 62.5)
 scale = Vector2(3.7656243, 7.7666)
 sprite_frames = SubResource("SpriteFrames_4kxuq")
