@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://wa08yji8o3a0"
-path="res://.godot/imported/mors.wav-fb4d4eac4ea30b4cf01f54ce775780be.sample"
+uid="uid://hsodfi3gk4x1"
+path="res://.godot/imported/morslong.wav-e82e1169b9e2027fbd7d7b6d24b45689.sample"
 
 [deps]
 
-source_file="res://assets/SFX/mors.wav"
-dest_files=["res://.godot/imported/mors.wav-fb4d4eac4ea30b4cf01f54ce775780be.sample"]
+source_file="res://assets/SFX/morslong.wav"
+dest_files=["res://.godot/imported/morslong.wav-e82e1169b9e2027fbd7d7b6d24b45689.sample"]
 
 [params]
 

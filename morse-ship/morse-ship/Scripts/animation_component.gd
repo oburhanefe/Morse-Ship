@@ -24,15 +24,5 @@ func update_anim(anim_sprite : AnimatedSprite2D, move_dir : Vector2, look_dir : 
 		elif look_dir.y == 1:
 			anim_sprite.play("idle_down")
 	if step_audio:
-		if move_dir != Vector2.ZERO:
-			
-			if anim_sprite.frame != last_frame:
-				last_frame = anim_sprite.frame
-				step_frame += 1
-				if step_frame >= 5:
-					step_frame = 0
-					step_audio.stop()
-					step_audio.play()
-		else:
-			step_frame = 4
-			last_frame = -1
+		if move_dir != Vector2.ZERO and not step_audio.playing:
+			step_audio.play()

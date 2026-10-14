@@ -6,6 +6,7 @@ const CLICK_THRESHOLD = 0.5
 const click_cancel = 3
 
 @export var morse : Decipher
+@onready var morse_audio: AudioStreamPlayer2D = $morse_audio
 
 
 var move_dir = Vector2.ZERO
@@ -43,10 +44,13 @@ func update(delta) -> void:
 			click_on_cd = false
 			click_cd = 1
 		return
-	
+		
+		
 	if Input.is_action_pressed("click") and not click_on_cd:
 		is_clicking = true
 		not_clicked_time = 5.0
+		if not morse_audio.playing:
+			morse_audio.play()
 		
 		if click_time >= click_cancel:
 			click_time = 0
@@ -62,6 +66,7 @@ func update(delta) -> void:
 		else:
 			is_long = false
 	if Input.is_action_just_released("click"):
+		morse_audio.stop()
 		return_click()
 		click_time = 0.0
 
@@ -91,3 +96,4 @@ func update_command(cmd : String) -> void:
 		if not morse.command.is_empty():
 			morse.command.pop_back()
 			print("deleted")
+			

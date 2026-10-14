@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://b7l7am0dw1y8s"
-path="res://.godot/imported/metal_walk.wav-a45ef54d3122511bf6682a38a0ba3be9.sample"
+uid="uid://cqfibu1kflwuj"
+path="res://.godot/imported/walk.wav-252bac7759dd834b16ac87b66b4ef921.sample"
 
 [deps]
 
-source_file="res://assets/SFX/metal_walk.wav"
-dest_files=["res://.godot/imported/metal_walk.wav-a45ef54d3122511bf6682a38a0ba3be9.sample"]
+source_file="res://assets/SFX/walk.wav"
+dest_files=["res://.godot/imported/walk.wav-252bac7759dd834b16ac87b66b4ef921.sample"]
 
 [params]
 
