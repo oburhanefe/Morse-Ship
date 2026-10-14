@@ -1,11 +1,13 @@
 class_name Bot
 extends CharacterBody2D
 
-
+@onready var anim_comp = $anim_comp
 @export var area : Area2D
 @export var move_comp : movement_comp
 @export var nav : nav_comp
+@export var drone_sprite : AnimatedSprite2D
 
+var look_dir : Vector2
 var plr : player
 
 
@@ -25,6 +27,10 @@ func _physics_process(_delta: float) -> void:
 	if nav.plr.velocity != Vector2.ZERO:
 		move_comp.move(self)
 		
+	if not move_comp.dir == Vector2.ZERO:
+		look_dir = move_comp.dir
+
+	anim_comp.update_anim(drone_sprite, move_comp.dir, look_dir)
 
 func _on_velocity_computed(safe_speed : Vector2):
 	self.velocity = safe_speed
