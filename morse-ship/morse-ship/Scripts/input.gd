@@ -75,7 +75,7 @@ func update(delta) -> void:
 func return_click() -> bool:
 	return is_long
 
-func update_command(cmd : String) -> void:
+func update_command(cmd : String) -> String:
 	
 	
 	if Input.is_action_just_released("click"):
@@ -96,4 +96,5 @@ func update_command(cmd : String) -> void:
 		if not morse.command.is_empty():
 			morse.command.pop_back()
 			print("deleted")
-			
+	
+	return cmd

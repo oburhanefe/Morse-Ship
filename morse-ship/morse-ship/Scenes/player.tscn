@@ -334,8 +334,9 @@ metadata/_custom_type_script = "uid://dalxrh464o2vh"
 script = ExtResource("5_x3wgy")
 metadata/_custom_type_script = "uid://bnqw2du0reg0"
 
-[node name="MorseDecipher" type="Node" parent="." unique_id=819531110]
+[node name="MorseDecipher" type="Node" parent="." unique_id=819531110 node_paths=PackedStringArray("inp")]
 script = ExtResource("6_3smsa")
+inp = NodePath("../input_comp")
 
 [node name="pivot" type="Node2D" parent="." unique_id=540047450]
 

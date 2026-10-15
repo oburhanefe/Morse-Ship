@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cadogm74l7ap7" path="res://assets/sprites/tile_set_main_hall.png" id="1_6444e"]
 [ext_resource type="PackedScene" uid="uid://chxvt5qej2d6d" path="res://Scenes/player.tscn" id="1_vk57k"]
-[ext_resource type="Script" uid="uid://cn51blpja1dsh" path="res://Scenes/decoration_layer.gd" id="2_7p6j4"]
+[ext_resource type="Script" uid="uid://cn51blpja1dsh" path="res://Scripts/decoration_layer.gd" id="2_7p6j4"]
 [ext_resource type="PackedScene" uid="uid://rplcv4woaoy5" path="res://Scenes/move_signal_bot.tscn" id="3_xfk5q"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_lsmp6"]

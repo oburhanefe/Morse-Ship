@@ -26,7 +26,7 @@ func _physics_process(_delta: float) -> void:
 	move_comp.dir = global_position.direction_to(next_pos)
 	if nav.plr.velocity != Vector2.ZERO:
 		move_comp.move(self)
-		
+
 	if not move_comp.dir == Vector2.ZERO:
 		look_dir = move_comp.dir
 

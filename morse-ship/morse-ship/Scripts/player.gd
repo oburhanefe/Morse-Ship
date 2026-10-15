@@ -41,15 +41,12 @@ func _process(delta: float) -> void:
 					current_accessed_bot = i
 					inp.ilk_deger_silme = true
 			print(current_accessed_bot.name)
-			
 
-
-	
 	if current_accessed_bot:
-		inp.update_command(cmd)
+		var new_cmd = inp.update_command(cmd)
 		
-		if cmd in decipher.valid_commands:
-			decipher.execute_com(current_accessed_bot,decipher.valid_commands[cmd], delta)
+		if new_cmd in decipher.valid_commands:
+			decipher.execute_com(current_accessed_bot,decipher.valid_commands[new_cmd], delta)
 			print(current_accessed_bot.move_comp.speed)
 	
 	anim.update_anim(sprite, inp.move_dir, look_dir, walk_audio)
