@@ -126,7 +126,6 @@ autoplay = "walk_down"
 frame_progress = 0.01606646
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1780283814]
-position = Vector2(100, 62.500004)
 rotation = 3.1351626
 shape = SubResource("CircleShape2D_kiru7")
 
@@ -155,6 +154,5 @@ debug_path_custom_color = Color(1, 0, 0, 1)
 [node name="Area2D" type="Area2D" parent="." unique_id=1301452621]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1698315759]
-position = Vector2(100, 62.5)
 shape = SubResource("CircleShape2D_ap1r1")
 debug_color = Color(0.9538885, 0.1598025, 0.3763967, 0.41960785)
