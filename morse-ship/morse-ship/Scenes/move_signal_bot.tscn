@@ -2,9 +2,52 @@
 
 [ext_resource type="Script" uid="uid://c88pinxcx3vmx" path="res://Scripts/move_sensor.gd" id="1_fq1gx"]
 [ext_resource type="Texture2D" uid="uid://dqcw10oq4mx58" path="res://assets/sprites/dron enemypng.png" id="2_fq1gx"]
-[ext_resource type="Script" uid="uid://c2eggfwhti07i" path="res://Scripts/nav_comp.gd" id="3_ap1r1"]
 [ext_resource type="Script" uid="uid://dalxrh464o2vh" path="res://Scripts/movement.gd" id="4_kiru7"]
 [ext_resource type="Script" uid="uid://bnqw2du0reg0" path="res://Scripts/animation_component.gd" id="5_ap1r1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f5io1"]
+atlas = ExtResource("2_fq1gx")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gm22w"]
+atlas = ExtResource("2_fq1gx")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ir6xi"]
+atlas = ExtResource("2_fq1gx")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4o3e"]
+atlas = ExtResource("2_fq1gx")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p073r"]
+atlas = ExtResource("2_fq1gx")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ktap"]
+atlas = ExtResource("2_fq1gx")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ewb5"]
+atlas = ExtResource("2_fq1gx")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xh5mt"]
+atlas = ExtResource("2_fq1gx")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xq4be"]
+atlas = ExtResource("2_fq1gx")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8q8e7"]
+atlas = ExtResource("2_fq1gx")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2kiyh"]
+atlas = ExtResource("2_fq1gx")
+region = Rect2(32, 32, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ap1r1"]
 atlas = ExtResource("2_fq1gx")
@@ -52,6 +95,54 @@ region = Rect2(32, 32, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4kxuq"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f5io1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gm22w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ir6xi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k4o3e")
+}],
+"loop": 1,
+"name": &"idle_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p073r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ktap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ewb5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xh5mt")
+}],
+"loop": 1,
+"name": &"idle_sides",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xq4be")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8q8e7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2kiyh")
+}],
+"loop": 1,
+"name": &"idle_up",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ap1r1")
@@ -107,52 +198,50 @@ radius = 62.5
 [sub_resource type="CircleShape2D" id="CircleShape2D_ap1r1"]
 radius = 87.5
 
-[node name="move_signal_bot" type="CharacterBody2D" unique_id=1158500834 node_paths=PackedStringArray("area", "move_comp", "nav", "drone_sprite") groups=["Bot"]]
+[node name="move_signal_bot" type="CharacterBody2D" unique_id=1158500834 node_paths=PackedStringArray("area", "move_comp", "drone_sprite", "timer") groups=["Bot"]]
 scale = Vector2(0.08, 0.08)
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_fq1gx")
-area = NodePath("Area2D")
+area = NodePath("ClickArea")
 move_comp = NodePath("movement_comp")
-nav = NodePath("nav_comp")
 drone_sprite = NodePath("DroneSprite2D")
+timer = NodePath("Timer")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=2100498039]
+path_desired_distance = 8.0
+avoidance_enabled = true
+radius = 40.0
+debug_enabled = true
+debug_path_custom_color = Color(1, 0, 0, 1)
 
 [node name="DroneSprite2D" type="AnimatedSprite2D" parent="." unique_id=999250526]
 light_mask = 3
 scale = Vector2(8.132813, 7.7666)
 sprite_frames = SubResource("SpriteFrames_4kxuq")
-animation = &"walk_up"
+animation = &"idle_up"
 autoplay = "walk_down"
-frame_progress = 0.01606646
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1780283814]
 rotation = 3.1351626
+scale = Vector2(0.1, 0.1)
 shape = SubResource("CircleShape2D_kiru7")
-
-[node name="nav_comp" type="Node" parent="." unique_id=1859873513 node_paths=PackedStringArray("nav_agent")]
-script = ExtResource("3_ap1r1")
-nav_agent = NodePath("../NavigationAgent2D")
-metadata/_custom_type_script = "uid://c2eggfwhti07i"
 
 [node name="movement_comp" type="Node" parent="." unique_id=1559412377]
 script = ExtResource("4_kiru7")
-speed = Vector2(20, 20)
+speed = Vector2(100, 100)
 metadata/_custom_type_script = "uid://dalxrh464o2vh"
 
 [node name="anim_comp" type="Node" parent="." unique_id=1267135995]
 script = ExtResource("5_ap1r1")
 metadata/_custom_type_script = "uid://bnqw2du0reg0"
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=2100498039]
-path_desired_distance = 64.0
-path_postprocessing = 1
-avoidance_enabled = true
-radius = 40.0
-debug_enabled = true
-debug_path_custom_color = Color(1, 0, 0, 1)
+[node name="ClickArea" type="Area2D" parent="." unique_id=1301452621]
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1301452621]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1698315759]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickArea" unique_id=1698315759]
 shape = SubResource("CircleShape2D_ap1r1")
 debug_color = Color(0.9538885, 0.1598025, 0.3763967, 0.41960785)
+
+[node name="Timer" type="Timer" parent="." unique_id=1471329568]
+wait_time = 0.2
+autostart = true
