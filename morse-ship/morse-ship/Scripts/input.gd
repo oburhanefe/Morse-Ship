@@ -2,11 +2,12 @@ extends Node
 
 class_name input_comp
 
-const CLICK_THRESHOLD = 0.5
+const CLICK_THRESHOLD = 0.3
 const click_cancel = 3
 
 @export var morse : Decipher
-@onready var morse_audio: AudioStreamPlayer2D = $morse_audio
+@onready var morse_short: AudioStreamPlayer2D = $morse_short
+@onready var morse_long: AudioStreamPlayer2D = $morse_long
 
 
 var move_dir = Vector2.ZERO
@@ -49,8 +50,7 @@ func update(delta) -> void:
 	if Input.is_action_pressed("click") and not click_on_cd:
 		is_clicking = true
 		not_clicked_time = 5.0
-		if not morse_audio.playing:
-			morse_audio.play()
+		
 		
 		if click_time >= click_cancel:
 			click_time = 0
@@ -66,9 +66,12 @@ func update(delta) -> void:
 		else:
 			is_long = false
 	if Input.is_action_just_released("click"):
-		morse_audio.stop()
 		return_click()
 		click_time = 0.0
+		if is_long:
+			morse_long.play()
+		else:
+			morse_short.play()
 
 	
 
