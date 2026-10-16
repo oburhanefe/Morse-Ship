@@ -23,7 +23,6 @@ var look_dir : Vector2
 
 func _ready() -> void:
 	bots.assign(get_tree().get_nodes_in_group("Bot"))
-	
 
 func _process(delta: float) -> void:
 	position.x = clamp(position.x, left_limit, right_limit)
