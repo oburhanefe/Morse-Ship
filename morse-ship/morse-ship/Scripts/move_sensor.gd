@@ -8,24 +8,32 @@ extends CharacterBody2D
 @export var drone_sprite : AnimatedSprite2D
 @export var waypoints : Array[Node2D]
 @export var timer : Timer
+@export var outline_shader : Material
 
 var look_dir : Vector2
 var plr : player
+var curr_material : Material
 
 
 var code : String 
-var mouse_ustunde_mi = false
-
+var mouse_ustunde_mi : bool = false
+var accessed : bool = false
 func _ready() -> void:
-
+	if outline_shader:
+		outline_shader = outline_shader.duplicate()
+	drone_sprite.material = outline_shader
 	timer.timeout.connect(recalc)
 	plr = get_tree().get_first_node_in_group("Player")
 	nav.velocity_computed.connect(_on_velocity_computed)
+	nav.target_position = plr.global_position
 	area.mouse_entered.connect(func(): mouse_ustunde_mi = true)
 	area.mouse_exited.connect(func(): mouse_ustunde_mi = false)
 
 func _physics_process(_delta: float) -> void:
-
+	if accessed:
+		outline_shader.set_shader_parameter("outline_color", Color.RED)
+	else: 
+		outline_shader.set_shader_parameter("outline_color", Color.BLACK)
 	if nav.is_navigation_finished():
 		move_comp.dir = Vector2.ZERO
 		velocity = Vector2.ZERO
@@ -43,12 +51,17 @@ func _physics_process(_delta: float) -> void:
 		nav.set_velocity(desired_velocity)
 	else:
 		self.velocity = desired_velocity
-
+	
 
 	if not move_comp.dir == Vector2.ZERO:
 		look_dir = move_comp.dir
 
 	anim_comp.update_anim(drone_sprite, move_comp.dir, look_dir)
+	
+	#if accessed:
+	#	curr_material = outline_shader
+	#else:
+	#	curr_material = null
 
 func _on_velocity_computed(safe_speed : Vector2):
 	self.velocity = safe_speed

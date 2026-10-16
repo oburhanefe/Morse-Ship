@@ -27,6 +27,3 @@ func update_anim(anim_sprite : AnimatedSprite2D, move_dir : Vector2, look_dir : 
 	if step_audio:
 		if move_dir != Vector2.ZERO and not step_audio.playing:
 			step_audio.play()
-	
-	
-	

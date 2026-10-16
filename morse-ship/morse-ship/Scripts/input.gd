@@ -6,6 +6,7 @@ const CLICK_THRESHOLD = 0.3
 const click_cancel = 3
 
 @export var morse : Decipher
+@export var plr : player
 @onready var morse_short: AudioStreamPlayer2D = $morse_short
 @onready var morse_long: AudioStreamPlayer2D = $morse_long
 
@@ -29,6 +30,12 @@ func update(delta) -> void:
 	
 	if not Input.is_action_pressed("click"):
 		is_clicking = false
+	
+	if Input.is_action_just_pressed("Delete"):
+		plr.current_accessed_bot.accessed = false
+		plr.current_accessed_bot = null
+		morse.command.clear()
+		ilk_deger_silme = true
 	
 	if not morse.command.is_empty() and not is_clicking:
 		not_clicked_time -= delta
@@ -80,8 +87,7 @@ func return_click() -> bool:
 
 func update_command(cmd : String) -> String:
 	
-	
-	if Input.is_action_just_released("click"):
+	if Input.is_action_just_released("click") and plr.current_accessed_bot.accessed:
 		morse.command.append("1" if is_long else "0")
 		if ilk_deger_silme:
 			morse.command.clear()
@@ -95,9 +101,6 @@ func update_command(cmd : String) -> String:
 			print(morse.valid_commands[cmd])
 			morse.command.clear()
 		
-	if Input.is_action_just_pressed("Delete"):
-		if not morse.command.is_empty():
-			morse.command.pop_back()
-			print("deleted")
+	
 	
 	return cmd

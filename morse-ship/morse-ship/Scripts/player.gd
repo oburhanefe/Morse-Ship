@@ -36,9 +36,16 @@ func _process(delta: float) -> void:
 		if i.mouse_ustunde_mi and Input.is_action_just_pressed("click"):
 			if current_accessed_bot == null:
 				current_accessed_bot = i
+				current_accessed_bot.accessed = true
+				if  current_accessed_bot.accessed:
+					print("shader on")
 			else:
 				if current_accessed_bot != i:
+					current_accessed_bot.accessed = false
+					if not current_accessed_bot.accessed:
+						print("shader off")
 					current_accessed_bot = i
+					current_accessed_bot.accessed = true
 					inp.ilk_deger_silme = true
 			print(current_accessed_bot.name)
 
@@ -46,7 +53,7 @@ func _process(delta: float) -> void:
 		var new_cmd = inp.update_command(cmd)
 		
 		if new_cmd in decipher.valid_commands:
-			decipher.execute_com(current_accessed_bot,decipher.valid_commands[new_cmd], delta)
+			decipher.execute_com(current_accessed_bot,decipher.valid_commands[new_cmd])
 			print(current_accessed_bot.move_comp.speed)
 	
 	anim.update_anim(sprite, inp.move_dir, look_dir, walk_audio)

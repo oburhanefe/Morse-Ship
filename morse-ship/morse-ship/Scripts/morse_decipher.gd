@@ -8,6 +8,8 @@ var command : Array[String] = []
 var valid_commands = {
 		"1010" : "stun",
 		"0010" : "slow",
+		"1000" : "short_circuit",
+		"0101" : "mad_cow"
 }
 
 var stun_dur = 1.5
@@ -24,7 +26,7 @@ func build_command() -> String:
 	return cmd
 
 
-func execute_com(bot : Bot, cmd : String, delta : float):
+func execute_com(bot : Bot, cmd : String):
 	match cmd:
 		"stun":
 			print("Çalışdı")
@@ -53,5 +55,35 @@ func execute_com(bot : Bot, cmd : String, delta : float):
 			await  slow_timer.timeout
 			bot.move_comp.speed = orj_speed
 			slow_timer.queue_free()
+		
+
+		"short_circuit":
+			var confused_timer := Timer.new()
+			confused_timer.autostart = false
+			confused_timer.one_shot = true
+			confused_timer.wait_time = 3
+			bot.add_child(confused_timer)
+			confused_timer.start()
+			bot.move_comp.speed *= -1
+			await confused_timer.timeout
+			bot.move_comp.speed *= -1
+			confused_timer.queue_free()
+
+		"mad_cow":#Tam kafama oturmadı öylesine ekledim
+			var rand_range := 300
+			var mad_timer := Timer.new()
+			mad_timer.autostart = false
+			mad_timer.one_shot = true
+			mad_timer.wait_time = 3
+			bot.add_child(mad_timer)
+			mad_timer.start()
+			var orj_speed : Vector2 = bot.move_comp.speed
+			var elapsed_time := 0.0
+			while elapsed_time < 3:
+				bot.move_comp.speed = Vector2(randf_range(-rand_range, rand_range), randf_range(-rand_range, rand_range))
+				await bot.get_tree().create_timer(0.1).timeout
+				elapsed_time += 0.1
+			bot.move_comp.speed = orj_speed
+			mad_timer.queue_free()
 		_:
 			print("Komut Çalışmadı")

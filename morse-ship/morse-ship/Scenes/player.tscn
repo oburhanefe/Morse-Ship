@@ -312,9 +312,10 @@ cam_right_limit = 10000.0
 cam_top_limit = -10000.0
 cam_bottom_limit = 10000.0
 
-[node name="input_comp" type="Node" parent="." unique_id=1624166998 node_paths=PackedStringArray("morse")]
+[node name="input_comp" type="Node" parent="." unique_id=1624166998 node_paths=PackedStringArray("morse", "plr")]
 script = ExtResource("2_vgqql")
 morse = NodePath("../MorseDecipher")
+plr = NodePath("..")
 metadata/_custom_type_script = "uid://d2wekah50lvd4"
 
 [node name="morse_short" type="AudioStreamPlayer2D" parent="input_comp" unique_id=2059587338]

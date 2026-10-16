@@ -1,9 +1,15 @@
 [gd_scene format=3 uid="uid://rplcv4woaoy5"]
 
 [ext_resource type="Script" uid="uid://c88pinxcx3vmx" path="res://Scripts/move_sensor.gd" id="1_fq1gx"]
+[ext_resource type="Shader" uid="uid://bnircgc3jqkcg" path="res://Scripts/outline_shader.gdshader" id="2_ap1r1"]
 [ext_resource type="Texture2D" uid="uid://dqcw10oq4mx58" path="res://assets/sprites/dron enemypng.png" id="2_fq1gx"]
 [ext_resource type="Script" uid="uid://dalxrh464o2vh" path="res://Scripts/movement.gd" id="4_kiru7"]
 [ext_resource type="Script" uid="uid://bnqw2du0reg0" path="res://Scripts/animation_component.gd" id="5_ap1r1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ap1r1"]
+shader = ExtResource("2_ap1r1")
+shader_parameter/outline_color = Color(1, 1, 0.30588236, 1)
+shader_parameter/corners = true
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f5io1"]
 atlas = ExtResource("2_fq1gx")
@@ -193,7 +199,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kiru7"]
-radius = 62.5
+radius = 500.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ap1r1"]
 radius = 87.5
@@ -207,6 +213,7 @@ area = NodePath("ClickArea")
 move_comp = NodePath("movement_comp")
 drone_sprite = NodePath("DroneSprite2D")
 timer = NodePath("Timer")
+outline_shader = SubResource("ShaderMaterial_ap1r1")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=2100498039]
 path_desired_distance = 8.0
@@ -229,7 +236,7 @@ shape = SubResource("CircleShape2D_kiru7")
 
 [node name="movement_comp" type="Node" parent="." unique_id=1559412377]
 script = ExtResource("4_kiru7")
-speed = Vector2(100, 100)
+speed = Vector2(20, 20)
 metadata/_custom_type_script = "uid://dalxrh464o2vh"
 
 [node name="anim_comp" type="Node" parent="." unique_id=1267135995]
