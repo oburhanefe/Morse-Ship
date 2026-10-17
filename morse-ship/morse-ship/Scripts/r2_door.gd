@@ -5,7 +5,7 @@ extends Area2D
 func _ready() -> void:
 	body_entered.connect(r2_entered)
 
-func r2_entered(body: CharacterBody2D):
+func r2_entered(body: Node2D):
 	if body.is_in_group("Player"):
 		Transitioner.coming_from = get_tree().current_scene.name
 		get_tree().change_scene_to_file.call_deferred(target_room)
