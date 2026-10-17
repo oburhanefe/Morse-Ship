@@ -653,7 +653,7 @@ visibility_layer = 3
 color = Color(0.7205857, 0.764459, 0.8512126, 1)
 
 [node name="Player" parent="." unique_id=1629573154 instance=ExtResource("3_bhcnn")]
-position = Vector2(77, -15)
+position = Vector2(78, -18)
 
 [node name="Path2D" type="Path2D" parent="." unique_id=1747484391]
 position = Vector2(-368, -44)
