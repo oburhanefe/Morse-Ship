@@ -602,14 +602,14 @@ custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_rcrnv")
 sources/1 = SubResource("TileSetAtlasSource_2osvy")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wotta"]
-size = Vector2(6, 40)
-
 [sub_resource type="Curve2D" id="Curve2D_2osvy"]
 _data = {
 "points": PackedVector2Array(-11.874731, 6.1070046, 11.874731, -6.1070046, 44, 42, -8.1426735, -8.481951, 8.1426735, 8.481951, 179, 43, 9.499785, -8.821229, -9.499785, 8.821229, 179, 79, 9.499785, 9.499785, -9.499785, -9.499785, 43, 80, 0, 0, 0, 0, 44, 42)
 }
 point_count = 5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wotta"]
+size = Vector2(6, 40)
 
 [node name="L1" type="Node2D" unique_id=1596481671]
 script = ExtResource("1_ef5wv")
