@@ -293,6 +293,7 @@ stream_0/stream = ExtResource("9_f1ek2")
 [node name="Player" type="CharacterBody2D" unique_id=1629573154 node_paths=PackedStringArray("inp", "move", "anim", "decipher", "sprite") groups=["Player"]]
 modulate = Color(0.8992584, 0.8992584, 0.8992584, 1)
 scale = Vector2(0.11, 0.11)
+motion_mode = 1
 script = ExtResource("1_6t5aa")
 inp = NodePath("input_comp")
 move = NodePath("movement_comp")

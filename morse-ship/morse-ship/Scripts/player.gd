@@ -59,3 +59,14 @@ func _process(delta: float) -> void:
 	move.dir = inp.move_dir
 	move.move(self)
 	
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+	
+		
+		if collider and collider.is_in_group("box") and collider.has_method("hizi_aktar"):
+			var itme_yönü = -collision.get_normal()
+			var itme_gücü = 75
+			collider.hizi_aktar(itme_gücü * itme_yönü)
+		
+		
