@@ -8,8 +8,7 @@ func _ready() -> void:
 		"L1":
 			player.global_position = Vector2(-168, -48) 
 		"R1":
-			player.global_position = Vector2(-576, -110)
+			player.global_position = Vector2(175, -48)
 		"Command":
 			player.global_position = Vector2(-576, 80)
 	
-	Transitioner.coming_from = ""
