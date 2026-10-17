@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cmqn2teld68dv"
-path="res://.godot/imported/haRİTA.png-23e01963cbc1d73529626a3d0ed95974.ctex"
+path="res://.godot/imported/haRİTA.png-370eac0e7097c80a75fbf8586aa19b12.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/haRİTA.png"
-dest_files=["res://.godot/imported/haRİTA.png-23e01963cbc1d73529626a3d0ed95974.ctex"]
+source_file="res://assets/sprites/haRİTA.png"
+dest_files=["res://.godot/imported/haRİTA.png-370eac0e7097c80a75fbf8586aa19b12.ctex"]
 
 [params]
 
