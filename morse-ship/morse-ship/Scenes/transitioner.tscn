@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://duscscsleff86"]
+
+[ext_resource type="Script" uid="uid://iq2xocmloly0" path="res://Scripts/transitioner.gd" id="1_84jny"]
+
+[node name="transitioner" type="Node" unique_id=1242035340]
+script = ExtResource("1_84jny")
