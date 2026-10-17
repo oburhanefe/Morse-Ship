@@ -1,8 +1,10 @@
 [gd_scene format=4 uid="uid://csndxcm3v2mtr"]
 
 [ext_resource type="Texture2D" uid="uid://cadogm74l7ap7" path="res://assets/sprites/tile_set_main_hall.png" id="1_lftaq"]
+[ext_resource type="Script" uid="uid://eyss0v3elc12" path="res://Scripts/mainhall.gd" id="1_wotta"]
 [ext_resource type="Script" uid="uid://cn51blpja1dsh" path="res://Scripts/decoration_layer.gd" id="2_kpox6"]
 [ext_resource type="PackedScene" uid="uid://chxvt5qej2d6d" path="res://Scenes/player.tscn" id="3_wotta"]
+[ext_resource type="Script" uid="uid://cd1j73wdub6v" path="res://Scripts/l1_door.gd" id="4_kpox6"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_lsmp6"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -238,8 +240,14 @@ custom_data_layer_0/name = "light"
 custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_lftaq")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lftaq"]
+size = Vector2(11, 34)
+
 [node name="mainhall" type="Node2D" unique_id=1494574364]
 y_sort_enabled = true
+script = ExtResource("1_wotta")
+metadata/_edit_horizontal_guides_ = [-48.0]
+metadata/_edit_vertical_guides_ = [-168.0]
 
 [node name="Tilemap" type="TileMap" parent="." unique_id=465301770]
 light_mask = 3
@@ -280,3 +288,12 @@ position = Vector2(0, 140)
 light_mask = 3
 visibility_layer = 3
 color = Color(0.7205857, 0.764459, 0.8512126, 1)
+
+[node name="L1Door" type="Area2D" parent="." unique_id=501233465]
+position = Vector2(-191, -48)
+script = ExtResource("4_kpox6")
+target_room = "uid://by80lcpd8gfyi"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="L1Door" unique_id=493969753]
+position = Vector2(2.5, 0)
+shape = SubResource("RectangleShape2D_lftaq")
