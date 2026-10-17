@@ -22,6 +22,7 @@ var mouse_ustunde_mi : bool = false
 var accessed : bool = false
 var last_pos : Vector2
 func _ready() -> void:
+	last_pos = global_position
 	if outline_shader:
 		outline_shader = outline_shader.duplicate()
 	drone_sprite.material = outline_shader
@@ -57,18 +58,21 @@ func _physics_process(delta: float) -> void:
 			nav.set_velocity(desired_velocity)
 		else:
 			self.velocity = desired_velocity
+		
 	else:
 		if path_follow:
 			path_follow.progress += move_comp.speed.x * delta
-			var curr_dir = (global_position - last_pos).normalized()
-			move_comp.dir = curr_dir
-			last_pos = global_position
-
-	if not move_comp.dir == Vector2.ZERO:
+	var movement_delta = global_position - last_pos
+	if movement_delta.length_squared() > 0.0001:
+		move_comp.dir = movement_delta.normalized()
+	elif not patrol:
+		move_comp.dir = Vector2.ZERO
+	last_pos = global_position
+	if  move_comp.dir != Vector2.ZERO:
 		look_dir = move_comp.dir
 
 	anim_comp.update_anim(drone_sprite, move_comp.dir, look_dir)
-	
+
 
 func _on_velocity_computed(safe_speed : Vector2):
 	self.velocity = safe_speed

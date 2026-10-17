@@ -43,15 +43,19 @@ func execute_com(bot : Bot, cmd : String):
 
 		"slow":
 			var slow_timer := Timer.new()
+			var orj_speed : Vector2
 			slow_timer.autostart = false
 			slow_timer.one_shot = true
 			slow_timer.wait_time = slow_dur
-			bot.add_child(slow_timer)
-			var orj_speed = bot.move_comp.speed
-			bot.move_comp.speed = orj_speed / 2
+			var plr = inp.owner
+			plr.add_child(slow_timer)
+			for i in plr.bots:
+				orj_speed = i.move_comp.speed
+				i.move_comp.speed = orj_speed / 2
 			slow_timer.start()
 			await  slow_timer.timeout
-			bot.move_comp.speed = orj_speed
+			for i in plr.bots:
+				i.move_comp.speed = orj_speed
 			slow_timer.queue_free()
 		
 

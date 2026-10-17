@@ -604,7 +604,7 @@ sources/1 = SubResource("TileSetAtlasSource_2osvy")
 
 [sub_resource type="Curve2D" id="Curve2D_2osvy"]
 _data = {
-"points": PackedVector2Array(-11.874731, 6.1070046, 11.874731, -6.1070046, 44, 42, -8.1426735, -8.481951, 8.1426735, 8.481951, 179, 43, 9.499785, -8.821229, -9.499785, 8.821229, 179, 79, 9.499785, 9.499785, -9.499785, -9.499785, 43, 80, 0, 0, 0, 0, 44, 42)
+"points": PackedVector2Array(0, 0, 0, 0, 40, 28, 0, 0, 0, 0, 179, 28, 0, 0, 0, 0, 180, 87, 0, 0, 0, 0, 40, 88, 0, 0, 0, 0, 40, 28)
 }
 point_count = 5
 
@@ -660,8 +660,8 @@ position = Vector2(-368, -44)
 curve = SubResource("Curve2D_2osvy")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=173572690]
-position = Vector2(44, 42)
-rotation = -0.47501078
+position = Vector2(40, 28)
+rotates = false
 
 [node name="patrol_spider" parent="Path2D/PathFollow2D" unique_id=1210112188 node_paths=PackedStringArray("path_follow") instance=ExtResource("5_bhcnn")]
 path_follow = NodePath("..")

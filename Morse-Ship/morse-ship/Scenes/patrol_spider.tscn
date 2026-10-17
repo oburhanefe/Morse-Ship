@@ -197,14 +197,14 @@ outline_shader = SubResource("ShaderMaterial_aamul")
 
 [node name="SpiderSprite" type="AnimatedSprite2D" parent="." unique_id=240457880]
 sprite_frames = SubResource("SpriteFrames_ef5wv")
-animation = &"idle_sides"
-frame_progress = 0.55592716
+animation = &"walk_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1145939639]
 shape = SubResource("CircleShape2D_moenx")
 
 [node name="anim_comp" type="Node" parent="." unique_id=822724157]
 script = ExtResource("3_ehupv")
+invert_vertical_axis = true
 metadata/_custom_type_script = "uid://bnqw2du0reg0"
 
 [node name="ClickArea" type="Area2D" parent="." unique_id=1153735403]
