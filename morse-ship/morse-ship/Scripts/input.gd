@@ -92,7 +92,11 @@ func return_click() -> bool:
 
 func update_command(cmd : String) -> String:
 	
-	if Input.is_action_just_released("click") and plr.current_accessed_bot.accessed:
+	var target = plr.current_accessed_bot if plr.current_accessed_bot else plr.current_boss
+	if target == null:
+		return cmd
+	
+	if Input.is_action_just_released("click") and target.accessed:
 		morse.command.append("1" if is_long else "0")
 		if ilk_deger_silme:
 			morse.command.clear()

@@ -15,6 +15,7 @@ extends CharacterBody2D
 @export var up_limit : float
 @export var bottom_limit : float
 
+var current_boss : Boss
 
 var cmd : String = ""
 var current_accessed_bot : Bot
@@ -33,11 +34,12 @@ func _process(delta: float) -> void:
 	
 	for i in bots:
 		if i.mouse_ustunde_mi and Input.is_action_just_pressed("click"):
+			current_boss = null
 			if current_accessed_bot == null:
 				current_accessed_bot = i
 				current_accessed_bot.accessed = true
-				if  current_accessed_bot.accessed:
-					print("shader on")
+				inp.ilk_deger_silme = true
+				
 			else:
 				if current_accessed_bot != i:
 					current_accessed_bot.accessed = false
@@ -47,13 +49,28 @@ func _process(delta: float) -> void:
 					current_accessed_bot.accessed = true
 					inp.ilk_deger_silme = true
 			print(current_accessed_bot.name)
+			
+	for b in get_tree().get_nodes_in_group("Boss"):
+		if b.mouse_ustunde_mi and Input.is_action_just_pressed("click"):
+			if current_boss != b:
+				if current_accessed_bot:
+					current_accessed_bot.accessed = false
+				current_accessed_bot = null
+				current_boss = b
+				decipher.command.clear()
+				inp.ilk_deger_silme = true
+				print("boss seçildi")
 
-	if current_accessed_bot:
+	if current_accessed_bot or current_boss:
 		var new_cmd = inp.update_command(cmd)
-		
+
 		if new_cmd in decipher.valid_commands:
-			decipher.execute_com(current_accessed_bot,decipher.valid_commands[new_cmd])
-			print(current_accessed_bot.move_comp.speed)
+			var cmd_name = decipher.valid_commands[new_cmd]
+			if current_boss:
+				decipher.execute_on_boss(current_boss, cmd_name)
+			else:
+				decipher.execute_com(current_accessed_bot, cmd_name)
+				print(current_accessed_bot.move_comp.speed)
 	
 	anim.update_anim(sprite, inp.move_dir, look_dir, walk_audio)
 	move.dir = inp.move_dir
@@ -70,3 +87,18 @@ func _process(delta: float) -> void:
 			collider.hizi_aktar(itme_gücü * itme_yönü)
 		
 		
+func select_bot(b : Bot) -> void:
+	if current_accessed_bot == b and current_boss == null:
+		return
+	current_boss = null
+	current_accessed_bot = b
+	decipher.command.clear()
+	inp.ilk_deger_silme = true
+
+func select_boss(b : Boss) -> void:
+	if current_boss == b:
+		return
+	current_accessed_bot = null
+	current_boss = b
+	decipher.command.clear()
+	inp.ilk_deger_silme = true

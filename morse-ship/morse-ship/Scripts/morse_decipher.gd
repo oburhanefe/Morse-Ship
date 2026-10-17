@@ -29,6 +29,15 @@ func build_command() -> String:
 func execute_com(bot : Bot, cmd : String):
 	match cmd:
 		"stun":
+			
+
+			print("stun çalıştı, boss sayısı: ", bot.get_tree().get_nodes_in_group("Boss").size())
+			
+			for boss in bot.get_tree().get_nodes_in_group("Boss"):
+				if boss.mouse_ustunde_mi:
+					boss.take_hit()
+					print("boss hasar aldı")
+			
 			var stun_timer := Timer.new()
 			stun_timer.autostart = false
 			stun_timer.one_shot = true
@@ -89,3 +98,9 @@ func execute_com(bot : Bot, cmd : String):
 			mad_timer.queue_free()
 		_:
 			print("Komut Çalışmadı")
+
+func execute_on_boss(boss : Boss, cmd : String):
+	match cmd:
+		"stun":
+			boss.take_hit()
+			print("boss hasar aldı")
