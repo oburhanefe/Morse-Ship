@@ -241,6 +241,9 @@ custom_data_layer_0/name = "light"
 custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_geirw")
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mm3lw"]
+light_mode = 1
+
 [sub_resource type="LabelSettings" id="LabelSettings_ycyol"]
 font = ExtResource("5_hwjxs")
 font_size = 4
@@ -296,6 +299,8 @@ position = Vector2(-1, 92)
 script = ExtResource("5_rsiac")
 
 [node name="Label" type="Label" parent="NPC" unique_id=902184885]
+light_mask = 0
+material = SubResource("CanvasItemMaterial_mm3lw")
 offset_left = -36.0
 offset_top = -48.0
 offset_right = 38.0

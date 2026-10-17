@@ -6,6 +6,6 @@ extends Node2D
 func _ready() -> void:
 	match Transitioner.coming_from:
 		"R1":
-			player.global_position = Vector2(-8, 80) 
+			player.global_position = Vector2(0, 120) 
 		"botanic":
-			player.global_position = Vector2(-8, -295)
+			player.global_position = Vector2(0, -295)

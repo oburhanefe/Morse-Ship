@@ -1,9 +1,11 @@
 [gd_scene format=4 uid="uid://ch1nw05y656nl"]
 
+[ext_resource type="Script" uid="uid://bh8chxxqi8aq5" path="res://Scripts/r3.gd" id="1_1m313"]
 [ext_resource type="Texture2D" uid="uid://cadogm74l7ap7" path="res://assets/sprites/tile_set_main_hall.png" id="1_ioub2"]
 [ext_resource type="Texture2D" uid="uid://f4nnd6cla2fc" path="res://assets/sprites/Bilgisiyar_odası.png" id="2_eq8cy"]
 [ext_resource type="Script" uid="uid://cn51blpja1dsh" path="res://Scripts/decoration_layer.gd" id="3_1m313"]
 [ext_resource type="PackedScene" uid="uid://chxvt5qej2d6d" path="res://Scenes/player.tscn" id="4_6exai"]
+[ext_resource type="Script" uid="uid://co6vnb8vdlkhk" path="res://Scripts/r1_door.gd" id="6_1m313"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_lsmp6"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -376,7 +378,13 @@ custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_82jny")
 sources/1 = SubResource("TileSetAtlasSource_cwyav")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6exai"]
+size = Vector2(44, 14)
+
 [node name="R3" type="Node2D" unique_id=1984229177]
+script = ExtResource("1_1m313")
+metadata/_edit_horizontal_guides_ = [-75.0]
+metadata/_edit_vertical_guides_ = [-4.0]
 
 [node name="Tilemap" type="TileMap" parent="." unique_id=220965952]
 light_mask = 3
@@ -417,4 +425,13 @@ position = Vector2(5, 543)
 color = Color(0.7205857, 0.764459, 0.8512126, 1)
 
 [node name="Player" parent="." unique_id=1629573154 instance=ExtResource("4_6exai")]
-position = Vector2(-4, -83)
+position = Vector2(-4, -73)
+
+[node name="R1Door" type="Area2D" parent="." unique_id=146858939]
+position = Vector2(-4, -95)
+script = ExtResource("6_1m313")
+target_room = "uid://bpalk2llxvg1r"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="R1Door" unique_id=870163728]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_6exai")
