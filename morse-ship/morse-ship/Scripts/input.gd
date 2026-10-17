@@ -32,10 +32,11 @@ func update(delta) -> void:
 		is_clicking = false
 	
 	if Input.is_action_just_pressed("Delete"):
-		plr.current_accessed_bot.accessed = false
-		plr.current_accessed_bot = null
-		morse.command.clear()
-		ilk_deger_silme = true
+		if plr.current_accessed_bot:
+			plr.current_accessed_bot.accessed = false
+			plr.current_accessed_bot = null
+			morse.command.clear()
+			ilk_deger_silme = true
 	
 	if not morse.command.is_empty() and not is_clicking:
 		not_clicked_time -= delta
