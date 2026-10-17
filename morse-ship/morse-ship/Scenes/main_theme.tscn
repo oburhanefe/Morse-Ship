@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://odf5p8stsgug"]
+
+[ext_resource type="AudioStream" uid="uid://c88g3d0e3umg8" path="res://assets/SFX/Main Theme.wav" id="1_qrddh"]
+
+[node name="Main_Theme" type="AudioStreamPlayer2D" unique_id=1272635229]
+stream = ExtResource("1_qrddh")
+bus = &"Music"

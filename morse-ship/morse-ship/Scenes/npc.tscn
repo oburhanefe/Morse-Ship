@@ -1,6 +1,31 @@
 [gd_scene format=3 uid="uid://3k2cmgqieabb"]
 
 [ext_resource type="Texture2D" uid="uid://by3kd2xuoxhjc" path="res://assets/sprites/npc-Sheet.png" id="1_acqhf"]
+[ext_resource type="Texture2D" uid="uid://jydhwe255x7" path="res://assets/sprites/npc_final_moment.png" id="1_xxsvc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_adrll"]
+atlas = ExtResource("1_xxsvc")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cll5p"]
+atlas = ExtResource("1_xxsvc")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjn1g"]
+atlas = ExtResource("1_xxsvc")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvftw"]
+atlas = ExtResource("1_xxsvc")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_61wjb"]
+atlas = ExtResource("1_xxsvc")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7e4c4"]
+atlas = ExtResource("1_xxsvc")
+region = Rect2(80, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bokww"]
 atlas = ExtResource("1_acqhf")
@@ -106,6 +131,29 @@ region = Rect2(176, 0, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_adrll")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cll5p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sjn1g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yvftw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_61wjb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7e4c4")
+}],
+"loop": 1,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_bokww")
 }, {
 "duration": 1.0,
@@ -204,5 +252,6 @@ animations = [{
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=770475699]
 sprite_frames = SubResource("SpriteFrames_ycyol")
-animation = &"walk_side"
+animation = &"death"
 autoplay = "idle_down"
+frame_progress = 0.24874827

@@ -5,6 +5,7 @@ extends CharacterBody2D
 
 var step = 0
 var waiting = false
+var can_leave = false
 
 func _ready():
 	label.text = "Hey you, finally awake."
@@ -68,3 +69,4 @@ func _process(delta: float) -> void:
 		tween.tween_property(self, "position:y", position.y - 275, 2)
 		await tween.finished
 		hide()
+		can_leave = true

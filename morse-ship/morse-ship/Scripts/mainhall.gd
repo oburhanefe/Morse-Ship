@@ -9,6 +9,7 @@ func _ready() -> void:
 			player.global_position = Vector2(-168, -48) 
 		"R1":
 			player.global_position = Vector2(175, -48)
-		"Command":
-			player.global_position = Vector2(-576, 80)
-	
+		"Kaptan_odasi":
+			player.global_position = Vector2(0, -155)
+		"command":
+			player.global_position = Vector2(0, -155)
