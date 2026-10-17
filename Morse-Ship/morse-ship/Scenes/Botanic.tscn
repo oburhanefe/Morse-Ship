@@ -751,7 +751,7 @@ position = Vector2(-1, 224)
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=273316593]
 light_mask = 3
 visibility_layer = 3
-color = Color(0.7205857, 0.764459, 0.8512126, 1)
+color = Color(0.36078432, 0.41960785, 0.54509807, 1)
 
 [node name="R2door" type="Area2D" parent="." unique_id=476331468]
 position = Vector2(0, 256)

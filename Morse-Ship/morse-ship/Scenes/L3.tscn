@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cb5mq6wm8mcfw" path="res://assets/sprites/botanic_tile_set.png" id="3_ifksc"]
 [ext_resource type="Script" uid="uid://cn51blpja1dsh" path="res://Scripts/decoration_layer.gd" id="4_wjfmc"]
 [ext_resource type="PackedScene" uid="uid://chxvt5qej2d6d" path="res://Scenes/player.tscn" id="5_xbo50"]
+[ext_resource type="Script" uid="uid://cd1j73wdub6v" path="res://Scripts/l1_door.gd" id="6_48a18"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_lsmp6"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -458,8 +459,12 @@ sources/0 = SubResource("TileSetAtlasSource_lcym1")
 sources/1 = SubResource("TileSetAtlasSource_ei3l3")
 sources/2 = SubResource("TileSetAtlasSource_2ff8t")
 
-[node name="Node2D" type="Node2D" unique_id=1106388473]
-metadata/_edit_vertical_guides_ = [-221.0]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ifksc"]
+size = Vector2(52, 20)
+
+[node name="L3" type="Node2D" unique_id=1106388473]
+metadata/_edit_vertical_guides_ = [-221.0, 0.0]
+metadata/_edit_horizontal_guides_ = [-96.0]
 
 [node name="Tilemap" type="TileMap" parent="." unique_id=1608680681]
 light_mask = 3
@@ -499,4 +504,12 @@ position = Vector2(9, 543)
 color = Color(0.7205857, 0.764459, 0.8512126, 1)
 
 [node name="Player" parent="." unique_id=1629573154 instance=ExtResource("5_xbo50")]
-position = Vector2(3, -84)
+position = Vector2(0, -79)
+
+[node name="L1Door" type="Area2D" parent="." unique_id=950032476]
+position = Vector2(0, -96)
+script = ExtResource("6_48a18")
+target_room = "uid://by80lcpd8gfyi"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="L1Door" unique_id=78466955]
+shape = SubResource("RectangleShape2D_ifksc")
