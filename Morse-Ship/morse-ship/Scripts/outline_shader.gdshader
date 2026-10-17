@@ -20,7 +20,9 @@ void fragment() {
 			texture(TEXTURE, UV + vec2(image_pixel_size.x, -image_pixel_size.y)).a > 0.0 ||
 			texture(TEXTURE, UV + vec2(image_pixel_size.x, image_pixel_size.y)).a > 0.0;
 			
-		if(valid_side || (valid_corner && corners)){COLOR = outline_color;}
+		if(valid_side || (valid_corner && corners)){
+			COLOR = outline_color;
+		}
 	}
 
 }

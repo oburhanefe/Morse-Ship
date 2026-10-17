@@ -6,7 +6,6 @@ var last_frame: int = -1
 
 func update_anim(anim_sprite : AnimatedSprite2D, move_dir : Vector2, look_dir : Vector2,
  step_audio : AudioStreamPlayer2D = null):
-	
 	if move_dir != Vector2.ZERO:
 		if move_dir.x != 0:
 			anim_sprite.play("walk_sides")

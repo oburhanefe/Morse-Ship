@@ -204,11 +204,12 @@ radius = 500.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_ap1r1"]
 radius = 87.5
 
-[node name="move_signal_bot" type="CharacterBody2D" unique_id=1158500834 node_paths=PackedStringArray("area", "move_comp", "drone_sprite", "timer") groups=["Bot"]]
+[node name="move_signal_bot" type="CharacterBody2D" unique_id=1158500834 node_paths=PackedStringArray("nav", "area", "move_comp", "drone_sprite", "timer") groups=["Bot"]]
 scale = Vector2(0.08, 0.08)
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_fq1gx")
+nav = NodePath("NavigationAgent2D")
 area = NodePath("ClickArea")
 move_comp = NodePath("movement_comp")
 drone_sprite = NodePath("DroneSprite2D")

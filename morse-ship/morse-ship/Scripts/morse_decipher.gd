@@ -29,7 +29,6 @@ func build_command() -> String:
 func execute_com(bot : Bot, cmd : String):
 	match cmd:
 		"stun":
-			print("Çalışdı")
 			var stun_timer := Timer.new()
 			stun_timer.autostart = false
 			stun_timer.one_shot = true
@@ -43,7 +42,6 @@ func execute_com(bot : Bot, cmd : String):
 			stun_timer.queue_free()
 
 		"slow":
-			print("Çalışdı")
 			var slow_timer := Timer.new()
 			slow_timer.autostart = false
 			slow_timer.one_shot = true
