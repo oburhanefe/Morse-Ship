@@ -17,7 +17,7 @@ func _ready():
 func _process(delta: float) -> void:
 	if (Input.is_action_pressed("click") and waiting and step == 1):
 		waiting = false
-		label.text = "Robots gone wild."
+		label.text = "Robots have gone wild."
 		await get_tree().create_timer(1.0).timeout
 		step += 1
 		waiting = true

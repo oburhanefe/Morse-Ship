@@ -102,6 +102,7 @@ texture = ExtResource("1_ky6hw")
 0:6/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_a1cdw")
 0:7/0 = 0
 0:7/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_a1cdw")
+0:7/0/custom_data_0 = true
 1:7/0 = 0
 1:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:7/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_a1cdw")
@@ -374,6 +375,7 @@ texture = ExtResource("2_mh0pl")
 3:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_k0khm")
 4:3/0 = 0
 5:3/0 = 0
+5:3/0/custom_data_0 = true
 6:3/0 = 0
 7:3/0 = 0
 8:3/0 = 0
@@ -630,7 +632,7 @@ position = Vector2(0, 130)
 light_mask = 3
 visibility_layer = 3
 position = Vector2(8, 0)
-color = Color(0.58975106, 0.64775825, 0.76471376, 1)
+color = Color(0.3590673, 0.4202611, 0.5445321, 1)
 
 [node name="R1Door" type="Area2D" parent="." unique_id=1429255466]
 position = Vector2(0, 145)

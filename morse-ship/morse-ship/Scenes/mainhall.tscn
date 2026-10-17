@@ -318,6 +318,7 @@ shape = SubResource("RectangleShape2D_liflx")
 [node name="commanddoor" type="Area2D" parent="." unique_id=1442701981]
 position = Vector2(0, -176)
 script = ExtResource("7_ra73i")
+target_room = "uid://dwinb5yycjjcu"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="commanddoor" unique_id=541494852]
 shape = SubResource("RectangleShape2D_ycyol")

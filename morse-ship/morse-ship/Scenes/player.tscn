@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://jcbwyg5mfb82" path="res://Scripts/player.gd" id="1_6t5aa"]
 [ext_resource type="Script" uid="uid://b6jlt83s4rq5w" path="res://Scripts/camera_2d.gd" id="2_fkybt"]
+[ext_resource type="FontFile" uid="uid://cpsv1swaddatx" path="res://assets/fonts/PixelOperator8.ttf" id="2_gymyn"]
 [ext_resource type="Script" uid="uid://d2wekah50lvd4" path="res://Scripts/input.gd" id="2_vgqql"]
 [ext_resource type="Script" uid="uid://dalxrh464o2vh" path="res://Scripts/movement.gd" id="3_fkybt"]
 [ext_resource type="AudioStream" uid="uid://hsodfi3gk4x1" path="res://assets/SFX/morslong.wav" id="4_f1ek2"]
@@ -10,6 +11,16 @@
 [ext_resource type="Script" uid="uid://414iwvrvr8n0" path="res://Scripts/morse_decipher.gd" id="6_3smsa"]
 [ext_resource type="Texture2D" uid="uid://dkwamiule8ce6" path="res://assets/sprites/karakter aydılı 2.png" id="7_3smsa"]
 [ext_resource type="AudioStream" uid="uid://cqfibu1kflwuj" path="res://assets/SFX/walk.wav" id="9_f1ek2"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_y1nys"]
+light_mode = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_ycyol"]
+font = ExtResource("2_gymyn")
+font_size = 128
+font_color = Color(1, 0, 0, 1)
+outline_size = 32
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_f1ek2"]
 light_mode = 1
@@ -304,6 +315,18 @@ left_limit = -10000.0
 right_limit = 10000.0
 up_limit = -10000.0
 bottom_limit = 10000.0
+
+[node name="Label" type="Label" parent="." unique_id=1372750890]
+z_index = 1000
+material = SubResource("CanvasItemMaterial_y1nys")
+offset_left = -400.0
+offset_top = -818.1819
+offset_right = 400.0
+offset_bottom = -636.36365
+size_flags_vertical = 0
+label_settings = SubResource("LabelSettings_ycyol")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2122221056]
 scale = Vector2(9.090909, 9.090909)

@@ -9,6 +9,7 @@ const click_cancel = 3
 @export var plr : player
 @onready var morse_short: AudioStreamPlayer2D = $morse_short
 @onready var morse_long: AudioStreamPlayer2D = $morse_long
+@onready var label: Label = $"../Label"
 
 
 var move_dir = Vector2.ZERO
@@ -77,9 +78,12 @@ func update(delta) -> void:
 		return_click()
 		click_time = 0.0
 		if is_long:
+			label.text += "-"
 			morse_long.play()
 		else:
+			label.text += "."
 			morse_short.play()
+		label.text = label.text.right(4)
 
 	
 
