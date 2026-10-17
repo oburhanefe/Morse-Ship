@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://cn51blpja1dsh" path="res://Scripts/decoration_layer.gd" id="2_kpox6"]
 [ext_resource type="PackedScene" uid="uid://chxvt5qej2d6d" path="res://Scenes/player.tscn" id="3_wotta"]
 [ext_resource type="Script" uid="uid://cd1j73wdub6v" path="res://Scripts/l1_door.gd" id="4_kpox6"]
+[ext_resource type="Script" uid="uid://co6vnb8vdlkhk" path="res://Scripts/r1_door.gd" id="6_liflx"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_lsmp6"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -243,11 +244,14 @@ sources/0 = SubResource("TileSetAtlasSource_lftaq")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lftaq"]
 size = Vector2(11, 34)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_liflx"]
+size = Vector2(6, 36)
+
 [node name="mainhall" type="Node2D" unique_id=1494574364]
 y_sort_enabled = true
 script = ExtResource("1_wotta")
-metadata/_edit_horizontal_guides_ = [-48.0]
-metadata/_edit_vertical_guides_ = [-168.0]
+metadata/_edit_horizontal_guides_ = [-48.0, -48.0, -48.0]
+metadata/_edit_vertical_guides_ = [-168.0, 192.0, 175.0]
 
 [node name="Tilemap" type="TileMap" parent="." unique_id=465301770]
 light_mask = 3
@@ -297,3 +301,12 @@ target_room = "uid://by80lcpd8gfyi"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="L1Door" unique_id=493969753]
 position = Vector2(2.5, 0)
 shape = SubResource("RectangleShape2D_lftaq")
+
+[node name="R1Door" type="Area2D" parent="." unique_id=1193248939]
+position = Vector2(192, -48)
+script = ExtResource("6_liflx")
+target_room = "uid://bpalk2llxvg1r"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="R1Door" unique_id=2129716384]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_liflx")

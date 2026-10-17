@@ -12,4 +12,3 @@ func _ready() -> void:
 		"L3":
 			player.global_position = Vector2(-576, 80)
 	
-	Transitioner.coming_from = ""
