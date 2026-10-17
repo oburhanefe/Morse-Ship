@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Morse-Ship"
-run/main_scene="uid://e7e182dlpxpq"
+run/main_scene="uid://c7g6a6kajstsu"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
