@@ -34,6 +34,7 @@ func update(delta) -> void:
 	
 	if Input.is_action_just_pressed("Delete"):
 		if plr.current_accessed_bot:
+			label.text = ""
 			plr.current_accessed_bot.accessed = false
 			plr.current_accessed_bot = null
 			morse.command.clear()
@@ -43,7 +44,7 @@ func update(delta) -> void:
 		not_clicked_time -= delta
 		if not_clicked_time <= 0:
 			morse.command.clear()
-			print("cleared")
+			label.text = ""
 			click_on_cd = true
 			not_clicked_time = 5.0
 			
@@ -77,10 +78,10 @@ func update(delta) -> void:
 	if Input.is_action_just_released("click"):
 		return_click()
 		click_time = 0.0
-		if is_long:
+		if is_long and plr.current_accessed_bot:
 			label.text += "-"
 			morse_long.play()
-		else:
+		elif plr.current_accessed_bot:
 			label.text += "."
 			morse_short.play()
 		label.text = label.text.right(4)
