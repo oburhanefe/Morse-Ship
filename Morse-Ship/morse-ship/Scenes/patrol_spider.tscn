@@ -204,7 +204,6 @@ shape = SubResource("CircleShape2D_moenx")
 
 [node name="anim_comp" type="Node" parent="." unique_id=822724157]
 script = ExtResource("3_ehupv")
-invert_vertical_axis = true
 metadata/_custom_type_script = "uid://bnqw2du0reg0"
 
 [node name="ClickArea" type="Area2D" parent="." unique_id=1153735403]
@@ -215,7 +214,7 @@ debug_color = Color(0.5639831, 0.030558359, 0.17603019, 0.41960785)
 
 [node name="movement_comp" type="Node" parent="." unique_id=409945455]
 script = ExtResource("5_ehupv")
-speed = Vector2(50, 50)
+speed = Vector2(80, 80)
 metadata/_custom_type_script = "uid://dalxrh464o2vh"
 
 [node name="Timer" type="Timer" parent="." unique_id=1434045550]
