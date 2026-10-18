@@ -224,7 +224,6 @@ death_area = NodePath("DeathArea")
 path_desired_distance = 8.0
 avoidance_enabled = true
 radius = 40.0
-debug_enabled = true
 debug_path_custom_color = Color(1, 0, 0, 1)
 
 [node name="DroneSprite2D" type="AnimatedSprite2D" parent="." unique_id=999250526]

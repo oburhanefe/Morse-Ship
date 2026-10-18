@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://chxvt5qej2d6d" path="res://Scenes/player.tscn" id="6_t7v4t"]
 [ext_resource type="Script" uid="uid://co6vnb8vdlkhk" path="res://Scripts/r1_door.gd" id="7_kw4ur"]
 [ext_resource type="Script" uid="uid://bjyoq68fy8ax6" path="res://Scripts/botanicdoor.gd" id="9_mm3lw"]
+[ext_resource type="PackedScene" uid="uid://d0j0feqgdpwh7" path="res://Scenes/butterfly.tscn" id="10_nceea"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ofbfl"]
 polygon = PackedVector2Array(8, -8, 8, 8, -8, 8, -8, -8)
@@ -588,6 +589,18 @@ size = Vector2(60, 10)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mm3lw"]
 size = Vector2(30, 9)
 
+[sub_resource type="Curve2D" id="Curve2D_dsg4i"]
+_data = {
+"points": PackedVector2Array(-27.896088, -2.374135, 27.896088, 2.374135, 39, 4, 4.1547365, -9.298696, -4.1547365, 9.298696, 3, 50, 15.431878, -2.7698243, -15.431878, 2.7698243, -21, 159, 1.1870675, 11.870676, -1.1870675, -11.870676, -85, 137, -20.575838, 14.838345, 20.575838, -14.838345, -42, 44, -35.612026, 7.1224055, 35.612026, -7.1224055, 42, 104, 8.903007, 31.85298, -8.903007, -31.85298, 71, 47, 0, 0, 0, 0, 39, 4)
+}
+point_count = 8
+
+[sub_resource type="Curve2D" id="Curve2D_nceea"]
+_data = {
+"points": PackedVector2Array(-24.896765, 0.23939197, 24.896765, -0.23939197, -37, -33, -1.4363518, 18.911966, 1.4363518, -18.911966, -74, -74, -22.502846, 0.47878394, 22.502846, -0.47878394, -50, -118, -16.039263, -8.378719, 16.039263, 8.378719, 9, -87, -16.278654, 5.745407, 16.278654, -5.745407, 53, -75, 1.1969599, 19.151358, -1.1969599, -19.151358, 74, -139, 19.390749, 0.47878394, -19.390749, -0.47878394, 48, -168, 16.757439, -17.236221, -16.757439, 17.236221, -3, -123, 13.884734, -14.124126, -13.884734, 14.124126, -18, -53, 0, 0, 0, 0, -37, -33)
+}
+point_count = 10
+
 [node name="R2" type="Node2D" unique_id=1850076560]
 script = ExtResource("1_bqvti")
 metadata/_edit_horizontal_guides_ = [125.0]
@@ -651,3 +664,24 @@ target_room = "uid://dsk6npejjvcvc"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Botanicdoor" unique_id=254762329]
 position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_mm3lw")
+
+[node name="Path2D" type="Path2D" parent="." unique_id=1476442958]
+position = Vector2(0, -185)
+curve = SubResource("Curve2D_dsg4i")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=1755804294]
+position = Vector2(39, 4)
+rotates = false
+
+[node name="Butterfly" parent="Path2D/PathFollow2D" unique_id=1050861220 node_paths=PackedStringArray("path_follow") instance=ExtResource("10_nceea")]
+path_follow = NodePath("..")
+
+[node name="Path2D2" type="Path2D" parent="." unique_id=833785382]
+curve = SubResource("Curve2D_nceea")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D2" unique_id=216029452]
+position = Vector2(-37, -33)
+rotates = false
+
+[node name="Butterfly" parent="Path2D2/PathFollow2D" unique_id=1610496183 node_paths=PackedStringArray("path_follow") instance=ExtResource("10_nceea")]
+path_follow = NodePath("..")
