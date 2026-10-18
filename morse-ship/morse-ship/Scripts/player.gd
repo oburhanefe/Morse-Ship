@@ -35,6 +35,11 @@ func _ready() -> void:
 	bots.assign(get_tree().get_nodes_in_group("Bot"))
 
 func _process(delta: float) -> void:
+	
+	
+	if "slow" in SaveManager.unlocked_commands:
+		slow.visible = true
+	
 	if Input.is_action_just_pressed("Restart"):
 		var _reload = get_tree().reload_current_scene()
 		return
