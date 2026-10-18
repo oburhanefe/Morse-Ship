@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://cd1j73wdub6v" path="res://Scripts/l1_door.gd" id="6_48a18"]
 [ext_resource type="PackedScene" uid="uid://m6rtx2w1dvb5" path="res://Scenes/door.tscn" id="7_wjfmc"]
 [ext_resource type="PackedScene" uid="uid://dkbfdlusqg5k2" path="res://Scenes/salter.tscn" id="8_xbo50"]
+[ext_resource type="PackedScene" uid="uid://rplcv4woaoy5" path="res://Scenes/move_signal_bot.tscn" id="9_xbo50"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_lsmp6"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -464,9 +465,14 @@ sources/2 = SubResource("TileSetAtlasSource_2ff8t")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ifksc"]
 size = Vector2(52, 20)
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ycyol"]
+vertices = PackedVector2Array(-79.32031, 237.21094, -125, 236.21094, -125, 107.0625, -71.890625, 117.078125, 76.78125, 234, -72.89844, 8.3125, 70.203125, 12.703125, 72.21875, 104, 80.77344, 421.8203, -73.32031, 419.15625, 119.13281, 104, 120.859375, 234)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(3, 5, 6, 7), PackedInt32Array(4, 8, 9, 0), PackedInt32Array(4, 3, 7, 10, 11)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-83, 429, 91, 432, 87, 244, 131, 244, 129, 94, 82, 94, 80, 3, -83, -2, -82, 105, -135, 95, -135, 246, -89, 247)])
+
 [node name="L3" type="Node2D" unique_id=1106388473]
-metadata/_edit_vertical_guides_ = [-221.0, 0.0]
-metadata/_edit_horizontal_guides_ = [-96.0]
+metadata/_edit_vertical_guides_ = [-221.0, 0.0, -62.0]
+metadata/_edit_horizontal_guides_ = [-96.0, 225.0, 333.0]
 
 [node name="Tilemap" type="TileMap" parent="." unique_id=1608680681]
 light_mask = 3
@@ -527,3 +533,21 @@ position = Vector2(88, 104)
 
 [node name="şalter2" parent="şalter" unique_id=1171136741 instance=ExtResource("8_xbo50")]
 position = Vector2(-88, 104)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=2045096132]
+navigation_polygon = SubResource("NavigationPolygon_ycyol")
+
+[node name="move_signal_bot" parent="." unique_id=1158500834 instance=ExtResource("9_xbo50")]
+position = Vector2(100, 225)
+
+[node name="move_signal_bot2" parent="." unique_id=418465862 instance=ExtResource("9_xbo50")]
+position = Vector2(-100, 225)
+
+[node name="move_signal_bot3" parent="." unique_id=63109883 instance=ExtResource("9_xbo50")]
+position = Vector2(63, 333)
+
+[node name="move_signal_bot4" parent="." unique_id=1162668323 instance=ExtResource("9_xbo50")]
+position = Vector2(-62, 333)
+
+[node name="move_signal_bot5" parent="." unique_id=496686503 instance=ExtResource("9_xbo50")]
+position = Vector2(0, 375)

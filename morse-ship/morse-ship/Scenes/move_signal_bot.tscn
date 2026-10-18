@@ -240,7 +240,7 @@ shape = SubResource("CircleShape2D_kiru7")
 
 [node name="movement_comp" type="Node" parent="." unique_id=1559412377]
 script = ExtResource("4_kiru7")
-speed = Vector2(20, 20)
+speed = Vector2(25, 25)
 metadata/_custom_type_script = "uid://dalxrh464o2vh"
 
 [node name="anim_comp" type="Node" parent="." unique_id=1267135995]

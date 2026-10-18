@@ -187,7 +187,7 @@ radius = 5.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_1qvev"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k3g8s"]
-radius = 11.045361
+radius = 8.0
 
 [node name="patrol_spider" type="CharacterBody2D" unique_id=1210112188 node_paths=PackedStringArray("nav", "area", "move_comp", "drone_sprite", "timer", "death_area") groups=["Bot"]]
 script = ExtResource("1_lfgf6")

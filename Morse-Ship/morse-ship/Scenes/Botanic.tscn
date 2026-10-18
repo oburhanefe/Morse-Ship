@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://cuojgkdku0esg" path="res://Scripts/r2_door.gd" id="7_wtesn"]
 [ext_resource type="PackedScene" uid="uid://dkbfdlusqg5k2" path="res://Scenes/salter.tscn" id="8_grens"]
 [ext_resource type="PackedScene" uid="uid://m6rtx2w1dvb5" path="res://Scenes/door.tscn" id="9_rweay"]
+[ext_resource type="PackedScene" uid="uid://d0j0feqgdpwh7" path="res://Scenes/butterfly.tscn" id="10_rweay"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ofbfl"]
 polygon = PackedVector2Array(8, -8, 8, 8, -8, 8, -8, -8)
@@ -712,6 +713,12 @@ sources/3 = SubResource("TileSetAtlasSource_hn2k1")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ycyol"]
 size = Vector2(38, 7)
 
+[sub_resource type="Curve2D" id="Curve2D_pb851"]
+_data = {
+"points": PackedVector2Array(-27.896088, -2.374135, 27.896088, 2.374135, 39, 4, 4.1547365, -9.298696, -4.1547365, 9.298696, 3, 50, 15.431878, -2.7698243, -15.431878, 2.7698243, -21, 159, 1.1870675, 11.870676, -1.1870675, -11.870676, -85, 137, -20.575838, 14.838345, 20.575838, -14.838345, -42, 44, -35.612026, 7.1224055, 35.612026, -7.1224055, 42, 104, 8.903007, 31.85298, -8.903007, -31.85298, 71, 47, 0, 0, 0, 0, 39, 4)
+}
+point_count = 8
+
 [node name="botanic" type="Node2D" unique_id=939734268]
 metadata/_edit_vertical_guides_ = [0.0]
 metadata/_edit_horizontal_guides_ = [256.0]
@@ -781,3 +788,124 @@ position = Vector2(-148, -121)
 
 [node name="şalter4" parent="şalters" unique_id=792785920 instance=ExtResource("8_grens")]
 position = Vector2(168, -328)
+
+[node name="Path2D" type="Path2D" parent="." unique_id=670733668]
+position = Vector2(0, -220)
+curve = SubResource("Curve2D_pb851")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=1839554388]
+position = Vector2(39, 4)
+rotates = false
+
+[node name="Butterfly" parent="Path2D/PathFollow2D" unique_id=1050861220 node_paths=PackedStringArray("path_follow") instance=ExtResource("10_rweay")]
+path_follow = NodePath("..")
+
+[node name="Path2D2" type="Path2D" parent="." unique_id=936551790]
+position = Vector2(-150, -320)
+curve = SubResource("Curve2D_pb851")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D2" unique_id=345677073]
+position = Vector2(39, 4)
+rotates = false
+
+[node name="Butterfly" parent="Path2D2/PathFollow2D" unique_id=726830817 node_paths=PackedStringArray("path_follow") instance=ExtResource("10_rweay")]
+path_follow = NodePath("..")
+
+[node name="Path2D3" type="Path2D" parent="." unique_id=1427862596]
+position = Vector2(140, -320)
+curve = SubResource("Curve2D_pb851")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D3" unique_id=539922449]
+position = Vector2(39, 4)
+rotates = false
+
+[node name="Butterfly" parent="Path2D3/PathFollow2D" unique_id=1199879672 node_paths=PackedStringArray("path_follow") instance=ExtResource("10_rweay")]
+path_follow = NodePath("..")
+
+[node name="Path2D4" type="Path2D" parent="." unique_id=1403134585]
+position = Vector2(0, -300)
+curve = SubResource("Curve2D_pb851")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D4" unique_id=2075188917]
+position = Vector2(39, 4)
+rotates = false
+
+[node name="Butterfly" parent="Path2D4/PathFollow2D" unique_id=1461472895 node_paths=PackedStringArray("path_follow") instance=ExtResource("10_rweay")]
+path_follow = NodePath("..")
+
+[node name="Path2D5" type="Path2D" parent="." unique_id=556027900]
+position = Vector2(-80, -185)
+curve = SubResource("Curve2D_pb851")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D5" unique_id=876312551]
+position = Vector2(39, 4)
+rotates = false
+
+[node name="Butterfly" parent="Path2D5/PathFollow2D" unique_id=752547774 node_paths=PackedStringArray("path_follow") instance=ExtResource("10_rweay")]
+path_follow = NodePath("..")
+
+[node name="Path2D6" type="Path2D" parent="." unique_id=232223490]
+position = Vector2(80, -185)
+curve = SubResource("Curve2D_pb851")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D6" unique_id=932353299]
+position = Vector2(39, 4)
+rotates = false
+
+[node name="Butterfly" parent="Path2D6/PathFollow2D" unique_id=789067565 node_paths=PackedStringArray("path_follow") instance=ExtResource("10_rweay")]
+path_follow = NodePath("..")
+
+[node name="Path2D7" type="Path2D" parent="." unique_id=1937311623]
+position = Vector2(65, -250)
+curve = SubResource("Curve2D_pb851")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D7" unique_id=785666669]
+position = Vector2(39, 4)
+rotates = false
+
+[node name="Butterfly" parent="Path2D7/PathFollow2D" unique_id=639980042 node_paths=PackedStringArray("path_follow") instance=ExtResource("10_rweay")]
+path_follow = NodePath("..")
+
+[node name="Path2D8" type="Path2D" parent="." unique_id=779068722]
+position = Vector2(-59, -225)
+curve = SubResource("Curve2D_pb851")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D8" unique_id=1471785195]
+position = Vector2(39, 4)
+rotates = false
+
+[node name="Butterfly" parent="Path2D8/PathFollow2D" unique_id=416428666 node_paths=PackedStringArray("path_follow") instance=ExtResource("10_rweay")]
+path_follow = NodePath("..")
+
+[node name="Path2D9" type="Path2D" parent="." unique_id=1703210846]
+position = Vector2(-35, -270)
+curve = SubResource("Curve2D_pb851")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D9" unique_id=922308533]
+position = Vector2(39, 4)
+rotates = false
+
+[node name="Butterfly" parent="Path2D9/PathFollow2D" unique_id=656433684 node_paths=PackedStringArray("path_follow") instance=ExtResource("10_rweay")]
+path_follow = NodePath("..")
+
+[node name="Path2D10" type="Path2D" parent="." unique_id=763980961]
+position = Vector2(-180, -185)
+curve = SubResource("Curve2D_pb851")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D10" unique_id=1152586221]
+position = Vector2(39, 4)
+rotates = false
+
+[node name="Butterfly" parent="Path2D10/PathFollow2D" unique_id=421795320 node_paths=PackedStringArray("path_follow") instance=ExtResource("10_rweay")]
+path_follow = NodePath("..")
+
+[node name="Path2D11" type="Path2D" parent="." unique_id=1575226847]
+position = Vector2(180, -185)
+curve = SubResource("Curve2D_pb851")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D11" unique_id=263974099]
+position = Vector2(39, 4)
+rotates = false
+
+[node name="Butterfly" parent="Path2D11/PathFollow2D" unique_id=154887437 node_paths=PackedStringArray("path_follow") instance=ExtResource("10_rweay")]
+path_follow = NodePath("..")

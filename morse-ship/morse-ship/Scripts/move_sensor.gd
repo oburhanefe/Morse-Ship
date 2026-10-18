@@ -88,5 +88,6 @@ func recalc():
 
 func on_player_entered(body : Node2D) -> void:
 	if body.is_in_group("Player"):
-		plr.is_dead = true
-		print("dying")
+		if not plr.is_dead and not plr.is_dying:
+			plr.is_dead = true
+			print("dying")
