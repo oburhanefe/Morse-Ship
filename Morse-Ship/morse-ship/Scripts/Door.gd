@@ -18,9 +18,9 @@ func _check_salters(_is_on: bool) -> void:
 
 func open() -> void:
 	collision.set_deferred("disabled", true)
-	sprite.play("open")
+	sprite.play("opened")
 	print("kapı açıldı")
 
 func close() -> void:
 	collision.set_deferred("disabled", false)
-	sprite.play("close")
+	sprite.play("closed")

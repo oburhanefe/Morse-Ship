@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cwvqbr6noy5ti" path="res://assets/sprites/karakter aydılı 1.png" id="2_lh3f8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4kxuq"]
-size = Vector2(10, 20)
+size = Vector2(32, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jb6ol"]
 atlas = ExtResource("2_lh3f8")
@@ -107,12 +107,12 @@ animations = [{
 script = ExtResource("1_p0e35")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1620972733]
-position = Vector2(-5, 0)
+position = Vector2(6, 8.5)
 shape = SubResource("RectangleShape2D_4kxuq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=475599317]
-position = Vector2(-4.5, 0)
-scale = Vector2(0.96875, 1)
+position = Vector2(8.000001, 9.5)
+scale = Vector2(2.75, 2.4375)
 sprite_frames = SubResource("SpriteFrames_mm1bc")
 animation = &"closed"
 autoplay = "closed"
