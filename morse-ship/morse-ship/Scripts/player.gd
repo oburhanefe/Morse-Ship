@@ -113,3 +113,8 @@ func select_boss(b : Boss) -> void:
 	current_boss = b
 	decipher.command.clear()
 	inp.ilk_deger_silme = true
+
+func die():
+	if is_dead:
+		return
+	is_dead = true
