@@ -21,11 +21,20 @@ var cmd : String = ""
 var current_accessed_bot : Bot
 var bots : Array[Bot]
 var look_dir : Vector2
+var is_dead : bool = false
+var is_dying : bool = false
 
 func _ready() -> void:
 	bots.assign(get_tree().get_nodes_in_group("Bot"))
 
 func _process(delta: float) -> void:
+	if is_dead:
+		if not is_dying:
+			is_dying = true
+			sprite.play("dead")
+			await sprite.animation_finished
+			var _reload = get_tree().reload_current_scene()
+		return
 	position.x = clamp(position.x, left_limit, right_limit)
 	position.y = clamp(position.y, up_limit, bottom_limit) 
 	inp.update(delta)
@@ -49,7 +58,6 @@ func _process(delta: float) -> void:
 					current_accessed_bot.accessed = true
 					inp.ilk_deger_silme = true
 			print(current_accessed_bot.name)
-			
 	for b in get_tree().get_nodes_in_group("Boss"):
 		if b.mouse_ustunde_mi and Input.is_action_just_pressed("click"):
 			if current_boss != b:

@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://414iwvrvr8n0" path="res://Scripts/morse_decipher.gd" id="6_3smsa"]
 [ext_resource type="Texture2D" uid="uid://dkwamiule8ce6" path="res://assets/sprites/karakter aydılı 2.png" id="7_3smsa"]
 [ext_resource type="AudioStream" uid="uid://cqfibu1kflwuj" path="res://assets/SFX/walk.wav" id="9_f1ek2"]
+[ext_resource type="Texture2D" uid="uid://c5dmowudjm8kh" path="res://assets/sprites/Death,.png" id="10_pu2lt"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_y1nys"]
 light_mode = 1
@@ -24,6 +25,46 @@ outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_f1ek2"]
 light_mode = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nv4vc"]
+atlas = ExtResource("10_pu2lt")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8gxox"]
+atlas = ExtResource("10_pu2lt")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11gg7"]
+atlas = ExtResource("10_pu2lt")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qpa8y"]
+atlas = ExtResource("10_pu2lt")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sbwqj"]
+atlas = ExtResource("10_pu2lt")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r7t2e"]
+atlas = ExtResource("10_pu2lt")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmr2m"]
+atlas = ExtResource("10_pu2lt")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ax3m3"]
+atlas = ExtResource("10_pu2lt")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3vlem"]
+atlas = ExtResource("10_pu2lt")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8eeqe"]
+atlas = ExtResource("10_pu2lt")
+region = Rect2(144, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8erm5"]
 atlas = ExtResource("7_3smsa")
@@ -155,6 +196,41 @@ region = Rect2(16, 80, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dm18x"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nv4vc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8gxox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_11gg7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qpa8y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sbwqj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r7t2e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nmr2m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ax3m3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3vlem")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8eeqe")
+}],
+"loop": 0,
+"name": &"dead",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8erm5")
@@ -371,7 +447,7 @@ light_mask = 3
 material = SubResource("CanvasItemMaterial_f1ek2")
 scale = Vector2(8.772725, 8.528659)
 sprite_frames = SubResource("SpriteFrames_dm18x")
-animation = &"walk_up"
+animation = &"dead"
 autoplay = "idle_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=322076456]

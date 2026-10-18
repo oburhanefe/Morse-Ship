@@ -204,7 +204,10 @@ radius = 500.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_ap1r1"]
 radius = 87.5
 
-[node name="move_signal_bot" type="CharacterBody2D" unique_id=1158500834 node_paths=PackedStringArray("nav", "area", "move_comp", "drone_sprite", "timer") groups=["Bot"]]
+[sub_resource type="CircleShape2D" id="CircleShape2D_moenx"]
+radius = 79.05694
+
+[node name="move_signal_bot" type="CharacterBody2D" unique_id=1158500834 node_paths=PackedStringArray("nav", "area", "move_comp", "drone_sprite", "timer", "death_area") groups=["Bot"]]
 scale = Vector2(0.08, 0.08)
 motion_mode = 1
 wall_min_slide_angle = 0.0
@@ -215,6 +218,7 @@ move_comp = NodePath("movement_comp")
 drone_sprite = NodePath("DroneSprite2D")
 timer = NodePath("Timer")
 outline_shader = SubResource("ShaderMaterial_ap1r1")
+death_area = NodePath("DeathArea")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=2100498039]
 path_desired_distance = 8.0
@@ -253,3 +257,9 @@ debug_color = Color(0.9538885, 0.1598025, 0.3763967, 0.41960785)
 [node name="Timer" type="Timer" parent="." unique_id=1471329568]
 wait_time = 0.2
 autostart = true
+
+[node name="DeathArea" type="Area2D" parent="." unique_id=337901222]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathArea" unique_id=1604010206]
+shape = SubResource("CircleShape2D_moenx")
+debug_color = Color(0, 0, 0, 0.41960785)

@@ -11,7 +11,7 @@ extends CharacterBody2D
 @export var timer : Timer
 @export var outline_shader : Material
 @export var patrol : bool = false
-
+@export var death_area : Area2D
 var look_dir : Vector2
 var plr : player
 var curr_material : Material
@@ -22,19 +22,20 @@ var mouse_ustunde_mi : bool = false
 var accessed : bool = false
 var last_pos : Vector2
 func _ready() -> void:
+	plr = get_tree().get_first_node_in_group("Player")
 	last_pos = global_position
 	if outline_shader:
 		outline_shader = outline_shader.duplicate()
 	drone_sprite.material = outline_shader
 	if not patrol:
 		timer.timeout.connect(recalc)
-		plr = get_tree().get_first_node_in_group("Player")
+		
 		nav.velocity_computed.connect(_on_velocity_computed)
 		if plr:
 			nav.target_position = plr.global_position
 	area.mouse_entered.connect(func(): mouse_ustunde_mi = true)
 	area.mouse_exited.connect(func(): mouse_ustunde_mi = false)
-
+	death_area.body_entered.connect(on_player_entered)
 func _physics_process(delta: float) -> void:
 	if accessed:
 		outline_shader.set_shader_parameter("outline_color", Color.RED)
@@ -83,3 +84,9 @@ func recalc():
 	var snapped := NavigationServer2D.map_get_closest_point(map, plr.global_position)
 	if nav.target_position.distance_to(snapped) > 8.0:
 		nav.target_position = snapped
+
+
+func on_player_entered(body : Node2D) -> void:
+	if body.is_in_group("Player"):
+		plr.is_dead = true
+		print("dying")
