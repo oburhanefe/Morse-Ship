@@ -867,10 +867,7 @@ platforms = [NodePath("../BoxPlatforms/BoxPlatform"), NodePath("../BoxPlatforms/
 navigation_polygon = SubResource("NavigationPolygon_ycyol")
 
 [node name="move_signal_bot2" parent="." unique_id=764611332 instance=ExtResource("19_r0p7w")]
-position = Vector2(100, -300)
-
-[node name="move_signal_bot3" parent="." unique_id=1148495531 instance=ExtResource("19_r0p7w")]
-position = Vector2(-100, -300)
+position = Vector2(-2, -201)
 
 [node name="Path2D" type="Path2D" parent="." unique_id=795542816]
 rotation = 1.5707964

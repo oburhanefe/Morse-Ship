@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://m6rtx2w1dvb5" path="res://Scenes/door.tscn" id="7_wjfmc"]
 [ext_resource type="PackedScene" uid="uid://dkbfdlusqg5k2" path="res://Scenes/salter.tscn" id="8_xbo50"]
 [ext_resource type="PackedScene" uid="uid://bwbjppr3by4a3" path="res://Scenes/Chips.tscn" id="9_xbo50"]
+[ext_resource type="PackedScene" uid="uid://bhaetolaexnxk" path="res://Scenes/patrol_spider.tscn" id="10_lyu63"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_lsmp6"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -465,10 +466,11 @@ sources/2 = SubResource("TileSetAtlasSource_2ff8t")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ifksc"]
 size = Vector2(52, 20)
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_ycyol"]
-vertices = PackedVector2Array(-79.32031, 237.21094, -125, 236.21094, -125, 107.0625, -71.890625, 117.078125, 76.78125, 234, -72.89844, 8.3125, 70.203125, 12.703125, 72.21875, 104, 80.77344, 421.8203, -73.32031, 419.15625, 119.13281, 104, 120.859375, 234)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(3, 5, 6, 7), PackedInt32Array(4, 8, 9, 0), PackedInt32Array(4, 3, 7, 10, 11)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-83, 429, 91, 432, 87, 244, 131, 244, 129, 94, 82, 94, 80, 3, -83, -2, -82, 105, -135, 95, -135, 246, -89, 247)])
+[sub_resource type="Curve2D" id="Curve2D_5tsi4"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -63.999992, 47.00001, 0, 0, 0, 0, 62.000008, 45.99999, 0, 0, 0, 0, 62.000008, 47.99999, 0, 0, 0, 0, -64.99999, 49.00001, 0, 0, 0, 0, -63.999992, 46.00001)
+}
+point_count = 5
 
 [node name="L3" type="Node2D" unique_id=1106388473]
 metadata/_edit_vertical_guides_ = [-221.0, 0.0, -62.0]
@@ -537,3 +539,44 @@ position = Vector2(-88, 104)
 [node name="Chips" parent="." unique_id=772896485 instance=ExtResource("9_xbo50")]
 position = Vector2(-72, 523)
 unlocked_code = "slow"
+
+[node name="Path2D" type="Path2D" parent="." unique_id=857014741]
+rotation = 6.2831855
+curve = SubResource("Curve2D_5tsi4")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=572673085]
+position = Vector2(-63.999992, 47.00001)
+rotates = false
+
+[node name="patrol_spider" parent="Path2D/PathFollow2D" unique_id=1210112188 node_paths=PackedStringArray("path_follow") instance=ExtResource("10_lyu63")]
+position = Vector2(0, -1)
+path_follow = NodePath("..")
+patrol = true
+
+[node name="Path2D2" type="Path2D" parent="." unique_id=707415859]
+position = Vector2(0, 50)
+rotation = 6.2831855
+curve = SubResource("Curve2D_5tsi4")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D2" unique_id=1425214457]
+position = Vector2(-63.999992, 47.00001)
+rotates = false
+
+[node name="patrol_spider" parent="Path2D2/PathFollow2D" unique_id=1781107103 node_paths=PackedStringArray("path_follow") instance=ExtResource("10_lyu63")]
+position = Vector2(0, -1)
+path_follow = NodePath("..")
+patrol = true
+
+[node name="Path2D3" type="Path2D" parent="." unique_id=1632787233]
+position = Vector2(0, 200)
+rotation = 6.2831855
+curve = SubResource("Curve2D_5tsi4")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D3" unique_id=766082342]
+position = Vector2(-63.999992, 47.00001)
+rotates = false
+
+[node name="patrol_spider" parent="Path2D3/PathFollow2D" unique_id=12567418 node_paths=PackedStringArray("path_follow") instance=ExtResource("10_lyu63")]
+position = Vector2(0, -1)
+path_follow = NodePath("..")
+patrol = true
