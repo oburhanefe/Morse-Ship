@@ -14,7 +14,7 @@ var valid_commands = {
 		"0101" : "mad_cow"
 }
 
-var stun_dur = 1.5
+var stun_dur = 5.0
 var slow_dur = 2.0
 
 
@@ -46,8 +46,10 @@ func execute_com(bot : Bot, cmd : String):
 			var orj_speed = bot.move_comp.speed
 			bot.move_comp.speed = Vector2.ZERO
 			stun_timer.start()
+			bot.stunned = true
 			await  stun_timer.timeout
 			bot.move_comp.speed = orj_speed
+			bot.stunned = false
 			command_finsihed.emit()
 			stun_timer.queue_free()
 
@@ -75,9 +77,11 @@ func execute_com(bot : Bot, cmd : String):
 			confused_timer.wait_time = 3
 			bot.add_child(confused_timer)
 			confused_timer.start()
+			bot.short_circutied = true
 			bot.move_comp.speed *= -1
 			await confused_timer.timeout
 			bot.move_comp.speed *= -1
+			bot.short_circutied = false
 			command_finsihed.emit()
 			confused_timer.queue_free()
 

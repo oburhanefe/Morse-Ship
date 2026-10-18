@@ -29,6 +29,9 @@ func update(delta) -> void:
 	
 	move_dir = Input.get_vector("left","right","up","down")
 	
+	
+	
+	
 	if not Input.is_action_pressed("click"):
 		is_clicking = false
 	
@@ -47,7 +50,6 @@ func update(delta) -> void:
 			label.text = ""
 			click_on_cd = true
 			not_clicked_time = 5.0
-			
 
 	if click_on_cd:
 		click_cd -= delta

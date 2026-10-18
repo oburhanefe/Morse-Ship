@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://bwbjppr3by4a3"]
+
+[ext_resource type="Script" uid="uid://bycqo227ef5v" path="res://Scripts/Chip.gd" id="1_ipv5w"]
+[ext_resource type="Texture2D" uid="uid://bpm435v7phx7g" path="res://assets/sprites/blue_chip.png" id="2_wfh4c"]
+[ext_resource type="Texture2D" uid="uid://c8nsx31wmytfo" path="res://assets/sprites/stun_chip.png" id="3_q0oxk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u7krg"]
+atlas = ExtResource("2_wfh4c")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tx0tn"]
+atlas = ExtResource("3_q0oxk")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_moenx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u7krg")
+}],
+"loop": 1,
+"name": &"blue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tx0tn")
+}],
+"loop": 1,
+"name": &"yellow",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_moenx"]
+radius = 16.124516
+
+[node name="Chips" type="Node2D" unique_id=772896485]
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_ipv5w")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1388690157]
+sprite_frames = SubResource("SpriteFrames_moenx")
+animation = &"yellow"
+
+[node name="UnlockChip" type="Area2D" parent="." unique_id=492360133]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UnlockChip" unique_id=2090319666]
+shape = SubResource("CircleShape2D_moenx")

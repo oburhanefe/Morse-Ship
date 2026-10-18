@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://dqcw10oq4mx58" path="res://assets/sprites/dron enemypng.png" id="2_fq1gx"]
 [ext_resource type="Script" uid="uid://dalxrh464o2vh" path="res://Scripts/movement.gd" id="4_kiru7"]
 [ext_resource type="Script" uid="uid://bnqw2du0reg0" path="res://Scripts/animation_component.gd" id="5_ap1r1"]
+[ext_resource type="Texture2D" uid="uid://cxwd8spfoc6fh" path="res://assets/sprites/elektrik_efekt.png" id="6_ucwsu"]
+[ext_resource type="Texture2D" uid="uid://dtlrftxwq7nr5" path="res://assets/sprites/smoke_effect.png" id="7_i4kdl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ap1r1"]
 shader = ExtResource("2_ap1r1")
@@ -207,7 +209,90 @@ radius = 87.5
 [sub_resource type="CircleShape2D" id="CircleShape2D_moenx"]
 radius = 79.05694
 
-[node name="move_signal_bot" type="CharacterBody2D" unique_id=1158500834 node_paths=PackedStringArray("nav", "area", "move_comp", "drone_sprite", "timer", "death_area") groups=["Bot"]]
+[sub_resource type="AtlasTexture" id="AtlasTexture_v75nk"]
+atlas = ExtResource("6_ucwsu")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5m4qr"]
+atlas = ExtResource("6_ucwsu")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7o3ng"]
+atlas = ExtResource("6_ucwsu")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28uut"]
+atlas = ExtResource("6_ucwsu")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5cb6t"]
+atlas = ExtResource("6_ucwsu")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cwrjo"]
+atlas = ExtResource("7_i4kdl")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wp4ny"]
+atlas = ExtResource("7_i4kdl")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_orhah"]
+atlas = ExtResource("7_i4kdl")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7n1kb"]
+atlas = ExtResource("7_i4kdl")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8fsg"]
+atlas = ExtResource("7_i4kdl")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_moenx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v75nk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5m4qr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7o3ng")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_28uut")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5cb6t")
+}],
+"loop": 1,
+"name": &"electric",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cwrjo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wp4ny")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_orhah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7n1kb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8fsg")
+}],
+"loop": 1,
+"name": &"smoke",
+"speed": 5.0
+}]
+
+[node name="move_signal_bot" type="CharacterBody2D" unique_id=1158500834 node_paths=PackedStringArray("nav", "area", "move_comp", "drone_sprite", "effect_sprite", "timer", "death_area") groups=["Bot"]]
 scale = Vector2(0.08, 0.08)
 motion_mode = 1
 wall_min_slide_angle = 0.0
@@ -216,6 +301,7 @@ nav = NodePath("NavigationAgent2D")
 area = NodePath("ClickArea")
 move_comp = NodePath("movement_comp")
 drone_sprite = NodePath("DroneSprite2D")
+effect_sprite = NodePath("EffectSprite")
 timer = NodePath("Timer")
 outline_shader = SubResource("ShaderMaterial_ap1r1")
 death_area = NodePath("DeathArea")
@@ -262,3 +348,10 @@ autostart = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathArea" unique_id=1604010206]
 shape = SubResource("CircleShape2D_moenx")
 debug_color = Color(0, 0, 0, 0.41960785)
+
+[node name="EffectSprite" type="AnimatedSprite2D" parent="." unique_id=441429653]
+position = Vector2(-9.536743e-07, -50.000004)
+scale = Vector2(8.3125, 9.09375)
+sprite_frames = SubResource("SpriteFrames_moenx")
+animation = &"electric"
+frame_progress = 0.62809044

@@ -7,6 +7,7 @@ extends CharacterBody2D
 @export var area : Area2D
 @export var move_comp : movement_comp
 @export var drone_sprite : AnimatedSprite2D
+@export var effect_sprite : AnimatedSprite2D
 @export var waypoints : Array[Node2D]
 @export var timer : Timer
 @export var outline_shader : Material
@@ -21,7 +22,15 @@ var code : String
 var mouse_ustunde_mi : bool = false
 var accessed : bool = false
 var last_pos : Vector2
+
+var stunned : bool
+var slowed : bool 
+var short_circutied : bool
+var mad : bool
+
+
 func _ready() -> void:
+	effect_sprite.visible = false
 	plr = get_tree().get_first_node_in_group("Player")
 	last_pos = global_position
 	if outline_shader:
@@ -37,6 +46,16 @@ func _ready() -> void:
 	area.mouse_exited.connect(func(): mouse_ustunde_mi = false)
 	death_area.body_entered.connect(on_player_entered)
 func _physics_process(delta: float) -> void:
+	if stunned:
+		effect_sprite.visible = true
+		effect_sprite.play("smoke")
+	elif short_circutied:
+		effect_sprite.visible = true
+		effect_sprite.play("electric")
+	else:
+		effect_sprite.visible = false
+		effect_sprite.stop()
+
 	if accessed:
 		outline_shader.set_shader_parameter("outline_color", Color.RED)
 	else: 

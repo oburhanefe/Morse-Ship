@@ -28,6 +28,10 @@ func _ready() -> void:
 	bots.assign(get_tree().get_nodes_in_group("Bot"))
 
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("Restart"):
+		var _reload = get_tree().reload_current_scene()
+		return
+	
 	if is_dead:
 		if not is_dying:
 			is_dying = true
@@ -78,10 +82,11 @@ func _process(delta: float) -> void:
 			if current_boss:
 				decipher.execute_on_boss(current_boss, cmd_name)
 			else:
-				decipher.execute_com(current_accessed_bot, cmd_name)
-				await decipher.command_finsihed
-				inp.label.text = ""
-				print(current_accessed_bot.move_comp.speed)
+				if cmd_name in SaveManager.unlocked_commands:
+					decipher.execute_com(current_accessed_bot, cmd_name)
+					await decipher.command_finsihed
+					inp.label.text = ""
+					print(current_accessed_bot.move_comp.speed)
 	
 	anim.update_anim(sprite, inp.move_dir, look_dir, walk_audio)
 	move.dir = inp.move_dir

@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://cd1j73wdub6v" path="res://Scripts/l1_door.gd" id="6_48a18"]
 [ext_resource type="PackedScene" uid="uid://m6rtx2w1dvb5" path="res://Scenes/door.tscn" id="7_wjfmc"]
 [ext_resource type="PackedScene" uid="uid://dkbfdlusqg5k2" path="res://Scenes/salter.tscn" id="8_xbo50"]
-[ext_resource type="PackedScene" uid="uid://rplcv4woaoy5" path="res://Scenes/move_signal_bot.tscn" id="9_xbo50"]
+[ext_resource type="PackedScene" uid="uid://bwbjppr3by4a3" path="res://Scenes/Chips.tscn" id="9_xbo50"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_lsmp6"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -534,20 +534,6 @@ position = Vector2(88, 104)
 [node name="şalter2" parent="şalter" unique_id=1171136741 instance=ExtResource("8_xbo50")]
 position = Vector2(-88, 104)
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=2045096132]
-navigation_polygon = SubResource("NavigationPolygon_ycyol")
-
-[node name="move_signal_bot" parent="." unique_id=1158500834 instance=ExtResource("9_xbo50")]
-position = Vector2(100, 225)
-
-[node name="move_signal_bot2" parent="." unique_id=418465862 instance=ExtResource("9_xbo50")]
-position = Vector2(-100, 225)
-
-[node name="move_signal_bot3" parent="." unique_id=63109883 instance=ExtResource("9_xbo50")]
-position = Vector2(63, 333)
-
-[node name="move_signal_bot4" parent="." unique_id=1162668323 instance=ExtResource("9_xbo50")]
-position = Vector2(-62, 333)
-
-[node name="move_signal_bot5" parent="." unique_id=496686503 instance=ExtResource("9_xbo50")]
-position = Vector2(0, 375)
+[node name="Chips" parent="." unique_id=772896485 instance=ExtResource("9_xbo50")]
+position = Vector2(-72, 523)
+unlocked_code = "slow"

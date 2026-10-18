@@ -5,6 +5,8 @@
 [ext_resource type="Shader" uid="uid://bnircgc3jqkcg" path="res://Scripts/outline_shader.gdshader" id="2_ehupv"]
 [ext_resource type="Script" uid="uid://bnqw2du0reg0" path="res://Scripts/animation_component.gd" id="3_ehupv"]
 [ext_resource type="Script" uid="uid://dalxrh464o2vh" path="res://Scripts/movement.gd" id="5_ehupv"]
+[ext_resource type="Texture2D" uid="uid://cxwd8spfoc6fh" path="res://assets/sprites/elektrik_efekt.png" id="6_yi2dl"]
+[ext_resource type="Texture2D" uid="uid://dtlrftxwq7nr5" path="res://assets/sprites/smoke_effect.png" id="7_h2p55"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aamul"]
 shader = ExtResource("2_ehupv")
@@ -187,14 +189,98 @@ radius = 5.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_1qvev"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k3g8s"]
-radius = 8.0
+radius = 8.062258
 
-[node name="patrol_spider" type="CharacterBody2D" unique_id=1210112188 node_paths=PackedStringArray("nav", "area", "move_comp", "drone_sprite", "timer", "death_area") groups=["Bot"]]
+[sub_resource type="AtlasTexture" id="AtlasTexture_v75nk"]
+atlas = ExtResource("6_yi2dl")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5m4qr"]
+atlas = ExtResource("6_yi2dl")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7o3ng"]
+atlas = ExtResource("6_yi2dl")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28uut"]
+atlas = ExtResource("6_yi2dl")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5cb6t"]
+atlas = ExtResource("6_yi2dl")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cwrjo"]
+atlas = ExtResource("7_h2p55")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wp4ny"]
+atlas = ExtResource("7_h2p55")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_orhah"]
+atlas = ExtResource("7_h2p55")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7n1kb"]
+atlas = ExtResource("7_h2p55")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8fsg"]
+atlas = ExtResource("7_h2p55")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mf7vc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v75nk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5m4qr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7o3ng")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_28uut")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5cb6t")
+}],
+"loop": 1,
+"name": &"electric",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cwrjo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wp4ny")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_orhah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7n1kb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8fsg")
+}],
+"loop": 1,
+"name": &"smoke",
+"speed": 5.0
+}]
+
+[node name="patrol_spider" type="CharacterBody2D" unique_id=1210112188 node_paths=PackedStringArray("nav", "area", "move_comp", "drone_sprite", "effect_sprite", "timer", "death_area") groups=["Bot"]]
 script = ExtResource("1_lfgf6")
 nav = NodePath("NavigationAgent2D")
 area = NodePath("ClickArea")
 move_comp = NodePath("movement_comp")
 drone_sprite = NodePath("SpiderSprite")
+effect_sprite = NodePath("EffectSprite")
 timer = NodePath("Timer")
 outline_shader = SubResource("ShaderMaterial_aamul")
 death_area = NodePath("DeathArea")
@@ -230,3 +316,9 @@ metadata/_custom_type_script = "uid://dalxrh464o2vh"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathArea" unique_id=426923981]
 shape = SubResource("CircleShape2D_k3g8s")
 debug_color = Color(0, 0, 0, 0.41960785)
+
+[node name="EffectSprite" type="AnimatedSprite2D" parent="." unique_id=2047806173]
+position = Vector2(9.536743e-07, -5)
+scale = Vector2(1.125, 1.0000005)
+sprite_frames = SubResource("SpriteFrames_mf7vc")
+animation = &"smoke"
