@@ -12,6 +12,10 @@
 [ext_resource type="Texture2D" uid="uid://dkwamiule8ce6" path="res://assets/sprites/karakter aydılı 2.png" id="7_3smsa"]
 [ext_resource type="AudioStream" uid="uid://cqfibu1kflwuj" path="res://assets/SFX/walk.wav" id="9_f1ek2"]
 [ext_resource type="Texture2D" uid="uid://c5dmowudjm8kh" path="res://assets/sprites/Death,.png" id="10_pu2lt"]
+[ext_resource type="Texture2D" uid="uid://c8nsx31wmytfo" path="res://assets/sprites/stun_chip.png" id="13_7dp3o"]
+[ext_resource type="Texture2D" uid="uid://bpm435v7phx7g" path="res://assets/sprites/blue_chip.png" id="14_h4iuc"]
+[ext_resource type="Texture2D" uid="uid://pfqla7o0p6i8" path="res://assets/sprites/return_chip_chip.png" id="15_fd4e3"]
+[ext_resource type="Texture2D" uid="uid://ba57k48r6ywsc" path="res://assets/sprites/mad_cow_chip.png" id="16_qqcod"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_y1nys"]
 light_mode = 1
@@ -377,7 +381,67 @@ fill_from = Vector2(0.5, 0.5)
 streams_count = 1
 stream_0/stream = ExtResource("9_f1ek2")
 
-[node name="Player" type="CharacterBody2D" unique_id=1629573154 node_paths=PackedStringArray("inp", "move", "anim", "decipher", "sprite") groups=["Player"]]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5x828"]
+atlas = ExtResource("13_7dp3o")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_moenx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5x828")
+}],
+"loop": 1,
+"name": &"Stun",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c1k8q"]
+atlas = ExtResource("14_h4iuc")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1qvev"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c1k8q")
+}],
+"loop": 1,
+"name": &"Slow",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6mvm"]
+atlas = ExtResource("15_fd4e3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k3g8s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e6mvm")
+}],
+"loop": 1,
+"name": &"ShortCircuit",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57lvd"]
+atlas = ExtResource("16_qqcod")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aelyl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_57lvd")
+}],
+"loop": 1,
+"name": &"MadCow",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D" unique_id=1629573154 node_paths=PackedStringArray("inp", "move", "anim", "decipher", "sprite", "stun", "slow", "short_circuit", "mad_cow") groups=["Player"]]
 modulate = Color(0.8992584, 0.8992584, 0.8992584, 1)
 scale = Vector2(0.11, 0.11)
 motion_mode = 1
@@ -387,6 +451,10 @@ move = NodePath("movement_comp")
 anim = NodePath("anim_comp")
 decipher = NodePath("MorseDecipher")
 sprite = NodePath("pivot/AnimatedSprite2D")
+stun = NodePath("Commands/Stun")
+slow = NodePath("Commands/Slow")
+short_circuit = NodePath("Commands/ShortCircuit")
+mad_cow = NodePath("Commands/MadCow")
 left_limit = -10000.0
 right_limit = 10000.0
 up_limit = -10000.0
@@ -467,3 +535,33 @@ scale = Vector2(8.772725, 8.528659)
 stream = SubResource("AudioStreamRandomizer_y1nys")
 volume_db = 1.0
 bus = &"Walk SFX"
+
+[node name="Commands" type="Node2D" parent="." unique_id=2111177133]
+
+[node name="Stun" type="AnimatedSprite2D" parent="Commands" unique_id=1144055655]
+position = Vector2(-1327.2726, -690.9091)
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_moenx")
+animation = &"Stun"
+autoplay = "Stun"
+
+[node name="Slow" type="AnimatedSprite2D" parent="Commands" unique_id=546731276]
+position = Vector2(1036.3636, -690.9091)
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_1qvev")
+animation = &"Slow"
+autoplay = "Slow"
+
+[node name="ShortCircuit" type="AnimatedSprite2D" parent="Commands" unique_id=1597162421]
+position = Vector2(-1063.6364, -690.9092)
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_k3g8s")
+animation = &"ShortCircuit"
+autoplay = "ShortCircuit"
+
+[node name="MadCow" type="AnimatedSprite2D" parent="Commands" unique_id=682872947]
+position = Vector2(1300, -690.9092)
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_aelyl")
+animation = &"MadCow"
+autoplay = "MadCow"

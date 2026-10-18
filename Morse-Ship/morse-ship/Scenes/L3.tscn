@@ -536,9 +536,10 @@ position = Vector2(88, 104)
 [node name="şalter2" parent="şalter" unique_id=1171136741 instance=ExtResource("8_xbo50")]
 position = Vector2(-88, 104)
 
-[node name="Chips" parent="." unique_id=772896485 instance=ExtResource("9_xbo50")]
+[node name="Chips" parent="." unique_id=772896485 node_paths=PackedStringArray("plr") instance=ExtResource("9_xbo50")]
 position = Vector2(-72, 523)
 unlocked_code = "slow"
+plr = NodePath("../Player")
 
 [node name="Path2D" type="Path2D" parent="." unique_id=857014741]
 rotation = 6.2831855

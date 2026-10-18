@@ -5,5 +5,6 @@ extends Node
 var dir = Vector2.ZERO 
 
 func move(body:CharacterBody2D):
-	body.velocity = speed * dir
-	body.move_and_slide()
+	if body:
+		body.velocity = speed * dir
+		body.move_and_slide()

@@ -2,6 +2,12 @@
 
 [ext_resource type="Script" uid="uid://ixelqwaeog4w" path="res://Scripts/last_boss.gd" id="1_v3gnk"]
 [ext_resource type="Texture2D" uid="uid://deuoaam3koxch" path="res://assets/sprites/kelebek_canavar.png" id="2_6np6o"]
+[ext_resource type="Shader" uid="uid://bnircgc3jqkcg" path="res://Scripts/outline_shader.gdshader" id="2_fcicw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p3gat"]
+shader = ExtResource("2_fcicw")
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/corners = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fcicw"]
 atlas = ExtResource("2_6np6o")
@@ -53,6 +59,7 @@ radius = 102.0049
 script = ExtResource("1_v3gnk")
 area = NodePath("Area2D")
 sprite = NodePath("AnimatedSprite2D")
+shader = SubResource("ShaderMaterial_p3gat")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1487711025]
 position = Vector2(119, 70)
