@@ -888,45 +888,86 @@ position = Vector2(-119, -45)
 
 [node name="Boss_attack" parent="LastBoss" unique_id=1524185509 instance=ExtResource("10_7vffm")]
 position = Vector2(50, 70)
+attack_interval = 7.8
+hit_time = 0.6
 
 [node name="Boss_attack10" parent="LastBoss" unique_id=94446137 instance=ExtResource("10_7vffm")]
-position = Vector2(135, 77)
-rotation = 0.9484689
+position = Vector2(132, 72)
+rotation = 0.8931645
+attack_interval = 7.8
+hit_time = 0.6
+start_delay = 6.0
 
-[node name="Boss_attack11" parent="LastBoss" unique_id=693355153 instance=ExtResource("10_7vffm")]
-position = Vector2(158, 93)
-rotation = 0.86075205
+[node name="Boss_attack14" parent="LastBoss" unique_id=218270314 instance=ExtResource("10_7vffm")]
+position = Vector2(158, 95)
+rotation = 0.8931645
+attack_interval = 7.8
+hit_time = 0.6
+start_delay = 6.0
 
-[node name="Boss_attack12" parent="LastBoss" unique_id=1306237980 instance=ExtResource("10_7vffm")]
-position = Vector2(187, 112)
-rotation = 0.86075205
+[node name="Boss_attack15" parent="LastBoss" unique_id=1917993949 instance=ExtResource("10_7vffm")]
+position = Vector2(185.00002, 118.00001)
+rotation = 0.8931645
+attack_interval = 7.8
+hit_time = 0.6
+start_delay = 6.0
+
+[node name="Boss_attack13" parent="LastBoss" unique_id=387848396 instance=ExtResource("10_7vffm")]
+position = Vector2(222.00002, 139)
+rotation = 0.8931645
+attack_interval = 7.8
+hit_time = 0.6
+start_delay = 6.0
 
 [node name="Boss_attack6" parent="LastBoss" unique_id=701220565 instance=ExtResource("10_7vffm")]
 position = Vector2(0, 70)
+attack_interval = 7.8
+hit_time = 0.6
 
 [node name="Boss_attack2" parent="LastBoss" unique_id=947271885 instance=ExtResource("10_7vffm")]
 position = Vector2(95, 70)
+attack_interval = 7.8
+hit_time = 0.6
 
 [node name="Boss_attack3" parent="LastBoss" unique_id=1681610565 instance=ExtResource("10_7vffm")]
 position = Vector2(147, 71)
+attack_interval = 7.8
+hit_time = 0.6
 
 [node name="Boss_attack4" parent="LastBoss" unique_id=875567783 instance=ExtResource("10_7vffm")]
 position = Vector2(189, 71)
+attack_interval = 7.8
+hit_time = 0.6
 
 [node name="Boss_attack5" parent="LastBoss" unique_id=2115316594 instance=ExtResource("10_7vffm")]
 position = Vector2(238, 71)
+attack_interval = 7.8
+hit_time = 0.6
 
 [node name="Boss_attack7" parent="LastBoss" unique_id=548666128 instance=ExtResource("10_7vffm")]
 position = Vector2(45, 96.99999)
 rotation = -1.5666022
+attack_interval = 7.8
+hit_time = 0.6
 start_delay = 3.0
 
 [node name="Boss_attack8" parent="LastBoss" unique_id=1803460537 instance=ExtResource("10_7vffm")]
-position = Vector2(47, 141)
-rotation = -1.5666022
+position = Vector2(46, 137.99998)
+rotation = -1.5560882
+attack_interval = 7.8
+hit_time = 0.6
 start_delay = 3.0
 
 [node name="Boss_attack9" parent="LastBoss" unique_id=1861756779 instance=ExtResource("10_7vffm")]
-position = Vector2(47, 195)
+position = Vector2(47, 177.99997)
 rotation = -1.5666022
+attack_interval = 7.8
+hit_time = 0.6
+start_delay = 3.0
+
+[node name="Boss_attack11" parent="LastBoss" unique_id=749926074 instance=ExtResource("10_7vffm")]
+position = Vector2(47.999992, 215)
+rotation = -1.5666022
+attack_interval = 7.8
+hit_time = 0.6
 start_delay = 3.0

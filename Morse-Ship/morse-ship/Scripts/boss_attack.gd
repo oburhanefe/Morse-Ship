@@ -17,6 +17,7 @@ var plr : player
 func _ready() -> void:
 	
 	plr = get_tree().get_first_node_in_group("Player")
+	sprite.hide()
 	await get_tree().create_timer(start_delay).timeout
 	attack_loop()
 	#boss = get_tree().get_first_node_in_group("Boss")
@@ -33,6 +34,7 @@ func attack_loop():
 
 	
 func do_attack():
+	sprite.show()
 	if sprite:
 		sprite.modulate = Color(1, 0.5, 0.5)
 	sprite.play("before_attack")
@@ -44,7 +46,7 @@ func do_attack():
 	did_hit = false
 	sprite.play("on_attack")
 	await get_tree().create_timer(hit_time).timeout
-	sprite.play("before_attack")
+	sprite.hide()
 	is_attacking = false
 	
 	

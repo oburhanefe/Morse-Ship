@@ -5,6 +5,8 @@
 [ext_resource type="Shader" uid="uid://bnircgc3jqkcg" path="res://Scripts/outline_shader.gdshader" id="2_fwxr8"]
 [ext_resource type="Script" uid="uid://dalxrh464o2vh" path="res://Scripts/movement.gd" id="4_lcpvf"]
 [ext_resource type="Script" uid="uid://bnqw2du0reg0" path="res://Scripts/animation_component.gd" id="5_fwxr8"]
+[ext_resource type="Texture2D" uid="uid://cxwd8spfoc6fh" path="res://assets/sprites/elektrik_efekt.png" id="6_077yx"]
+[ext_resource type="Texture2D" uid="uid://dtlrftxwq7nr5" path="res://assets/sprites/smoke_effect.png" id="7_6v3p2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ycyol"]
 shader = ExtResource("2_fwxr8")
@@ -277,12 +279,96 @@ radius = 8.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_ycyol"]
 radius = 16.0
 
-[node name="Butterfly" type="CharacterBody2D" unique_id=1050861220 node_paths=PackedStringArray("nav", "area", "move_comp", "drone_sprite", "timer", "death_area") groups=["Bot"]]
+[sub_resource type="AtlasTexture" id="AtlasTexture_v75nk"]
+atlas = ExtResource("6_077yx")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5m4qr"]
+atlas = ExtResource("6_077yx")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7o3ng"]
+atlas = ExtResource("6_077yx")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28uut"]
+atlas = ExtResource("6_077yx")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5cb6t"]
+atlas = ExtResource("6_077yx")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cwrjo"]
+atlas = ExtResource("7_6v3p2")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wp4ny"]
+atlas = ExtResource("7_6v3p2")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_orhah"]
+atlas = ExtResource("7_6v3p2")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7n1kb"]
+atlas = ExtResource("7_6v3p2")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8fsg"]
+atlas = ExtResource("7_6v3p2")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_huvth"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v75nk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5m4qr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7o3ng")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_28uut")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5cb6t")
+}],
+"loop": 1,
+"name": &"electric",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cwrjo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wp4ny")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_orhah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7n1kb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8fsg")
+}],
+"loop": 1,
+"name": &"smoke",
+"speed": 5.0
+}]
+
+[node name="Butterfly" type="CharacterBody2D" unique_id=1050861220 node_paths=PackedStringArray("nav", "area", "move_comp", "drone_sprite", "effect_sprite", "timer", "death_area") groups=["Bot"]]
 script = ExtResource("1_htf8t")
 nav = NodePath("NavigationAgent2D")
 area = NodePath("ClickArea")
 move_comp = NodePath("movement_comp")
 drone_sprite = NodePath("AnimatedSprite2D")
+effect_sprite = NodePath("EffectSprite")
 timer = NodePath("Timer")
 outline_shader = SubResource("ShaderMaterial_ycyol")
 patrol = true
@@ -320,3 +406,9 @@ debug_color = Color(0.98432964, 0, 0.3490599, 0.41960785)
 [node name="anim_comp" type="Node" parent="." unique_id=957680517]
 script = ExtResource("5_fwxr8")
 metadata/_custom_type_script = "uid://bnqw2du0reg0"
+
+[node name="EffectSprite" type="AnimatedSprite2D" parent="." unique_id=420996400]
+position = Vector2(-1.0000038, -10)
+scale = Vector2(1.4062501, 1.4843752)
+sprite_frames = SubResource("SpriteFrames_huvth")
+animation = &"electric"

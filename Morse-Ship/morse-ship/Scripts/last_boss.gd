@@ -8,7 +8,7 @@ signal died
 @export var max_can := 100.0
 @export var area : Area2D
 @export var sprite : AnimatedSprite2D
-@export var hit_cd := 15.00
+@export var hit_cd := 8.50
 @export_range(0.0, 1.0) var stun_dmg_ratio := 0.25 
 
 var healt : float

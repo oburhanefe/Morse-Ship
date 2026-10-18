@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://3x7sgyorw2pc" path="res://Scripts/boss_attack.gd" id="1_ad8sn"]
 [ext_resource type="Texture2D" uid="uid://gh8xxxsqlj87" path="res://assets/sprites/danger_zone.png" id="1_uwr0c"]
-[ext_resource type="Texture2D" uid="uid://bhcul20k67po6" path="res://assets/sprites/elektrik.png" id="2_4858y"]
+[ext_resource type="Texture2D" uid="uid://cs780lquab4r6" path="res://assets/sprites/elektrik_saldırısı.png" id="3_ad8sn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4kxuq"]
 size = Vector2(20, 166)
@@ -11,9 +11,17 @@ size = Vector2(20, 166)
 atlas = ExtResource("1_uwr0c")
 region = Rect2(0, 0, 320, 180)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ad8sn"]
-atlas = ExtResource("2_4858y")
-region = Rect2(0, 0, 320, 180)
+[sub_resource type="AtlasTexture" id="AtlasTexture_el68f"]
+atlas = ExtResource("3_ad8sn")
+region = Rect2(0, 0, 32, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7i36"]
+atlas = ExtResource("3_ad8sn")
+region = Rect2(32, 0, 32, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j323l"]
+atlas = ExtResource("3_ad8sn")
+region = Rect2(64, 0, 32, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4kxuq"]
 animations = [{
@@ -27,7 +35,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ad8sn")
+"texture": SubResource("AtlasTexture_el68f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l7i36")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j323l")
 }],
 "loop": 1,
 "name": &"on_attack",
@@ -46,7 +60,8 @@ position = Vector2(0, 73)
 shape = SubResource("RectangleShape2D_4kxuq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=225065781]
-position = Vector2(-4, 75.5)
-scale = Vector2(0.16249993, 1.5055556)
+position = Vector2(-4, 74.00001)
+scale = Vector2(0.19062498, 1.4444444)
 sprite_frames = SubResource("SpriteFrames_4kxuq")
 animation = &"before_attack"
+frame_progress = 0.55456257
