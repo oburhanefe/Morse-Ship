@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://crk7g7hfbu1xe"]
+
+[ext_resource type="Script" uid="uid://3x7sgyorw2pc" path="res://Scripts/boss_attack.gd" id="1_ad8sn"]
+[ext_resource type="Texture2D" uid="uid://gh8xxxsqlj87" path="res://assets/sprites/danger_zone.png" id="1_uwr0c"]
+[ext_resource type="Texture2D" uid="uid://bhcul20k67po6" path="res://assets/sprites/elektrik.png" id="2_4858y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4kxuq"]
+size = Vector2(20, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4858y"]
+atlas = ExtResource("1_uwr0c")
+region = Rect2(0, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ad8sn"]
+atlas = ExtResource("2_4858y")
+region = Rect2(0, 0, 320, 180)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4kxuq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4858y")
+}],
+"loop": 1,
+"name": &"before_attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ad8sn")
+}],
+"loop": 1,
+"name": &"on_attack",
+"speed": 5.0
+}]
+
+[node name="Boss_attack" type="Node2D" unique_id=94446137 node_paths=PackedStringArray("area", "sprite")]
+script = ExtResource("1_ad8sn")
+area = NodePath("Area2D")
+sprite = NodePath("AnimatedSprite2D")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1120867836]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1557058519]
+position = Vector2(0, 73)
+shape = SubResource("RectangleShape2D_4kxuq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=225065781]
+position = Vector2(-4, 75.5)
+scale = Vector2(0.16249993, 1.5055556)
+sprite_frames = SubResource("SpriteFrames_4kxuq")
+animation = &"before_attack"

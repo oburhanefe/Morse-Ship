@@ -23,6 +23,8 @@ func _ready() -> void:
 	area.mouse_exited.connect(func(): mouse_ustunde_mi = false)
 	healt_changed.emit(healt, max_can)
 	
+	
+	
 func take_hit():
 	if not can_be_hit or healt <= 0.0:
 		return
