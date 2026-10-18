@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://cuojgkdku0esg" path="res://Scripts/r2_door.gd" id="7_wtesn"]
 [ext_resource type="PackedScene" uid="uid://dkbfdlusqg5k2" path="res://Scenes/salter.tscn" id="8_grens"]
 [ext_resource type="PackedScene" uid="uid://m6rtx2w1dvb5" path="res://Scenes/door.tscn" id="9_rweay"]
+[ext_resource type="PackedScene" uid="uid://c8gcs5p1qkef8" path="res://Scenes/light.tscn" id="10_pb851"]
 [ext_resource type="PackedScene" uid="uid://d0j0feqgdpwh7" path="res://Scenes/butterfly.tscn" id="10_rweay"]
 [ext_resource type="PackedScene" uid="uid://o5uob7ltutao" path="res://Scenes/botanic_key.tscn" id="11_pb851"]
 
@@ -781,14 +782,22 @@ salters = [NodePath("../şalters/şalter"), NodePath("../şalters/şalter2"), No
 [node name="şalter" parent="şalters" unique_id=229412278 instance=ExtResource("8_grens")]
 position = Vector2(-160, -332)
 
+[node name="Light" parent="şalters/şalter" unique_id=1783452375 instance=ExtResource("10_pb851")]
+
 [node name="şalter2" parent="şalters" unique_id=990519731 instance=ExtResource("8_grens")]
 position = Vector2(188, -121)
+
+[node name="Light" parent="şalters/şalter2" unique_id=771498261 instance=ExtResource("10_pb851")]
 
 [node name="şalter3" parent="şalters" unique_id=315468526 instance=ExtResource("8_grens")]
 position = Vector2(-148, -121)
 
+[node name="Light" parent="şalters/şalter3" unique_id=540889442 instance=ExtResource("10_pb851")]
+
 [node name="şalter4" parent="şalters" unique_id=792785920 instance=ExtResource("8_grens")]
 position = Vector2(168, -328)
+
+[node name="Light" parent="şalters/şalter4" unique_id=1560033271 instance=ExtResource("10_pb851")]
 
 [node name="Path2D" type="Path2D" parent="." unique_id=670733668]
 position = Vector2(0, -220)

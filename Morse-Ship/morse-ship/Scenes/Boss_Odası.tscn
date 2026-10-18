@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://bcv07mv78aeb3"]
 
 [ext_resource type="Texture2D" uid="uid://f4nnd6cla2fc" path="res://assets/sprites/Bilgisiyar_odası.png" id="1_7vffm"]
+[ext_resource type="Script" uid="uid://cj76c0ny4wthx" path="res://Scripts/boss_odası.gd" id="1_ih211"]
 [ext_resource type="Texture2D" uid="uid://cb5mq6wm8mcfw" path="res://assets/sprites/botanic_tile_set.png" id="2_ih211"]
 [ext_resource type="Texture2D" uid="uid://c61xkpbhn6sxj" path="res://assets/sprites/komuta_komuta odasuıı.png" id="3_nbutv"]
 [ext_resource type="Texture2D" uid="uid://4ffue2mqjapk" path="res://assets/sprites/tiayl set.png" id="4_yei55"]
@@ -11,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://crk7g7hfbu1xe" path="res://Scenes/boss_attack.tscn" id="10_7vffm"]
 [ext_resource type="FontFile" uid="uid://cpsv1swaddatx" path="res://assets/fonts/PixelOperator8.ttf" id="11_7vffm"]
 [ext_resource type="Script" uid="uid://bvqxatrn0fm13" path="res://Scripts/maindoorintro.gd" id="11_eb26c"]
+[ext_resource type="AudioStream" uid="uid://badglhimkhaua" path="res://assets/SFX/morsshort.wav" id="13_yei55"]
+[ext_resource type="AudioStream" uid="uid://hsodfi3gk4x1" path="res://assets/SFX/morslong.wav" id="14_6i8ts"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ofbfl"]
 polygon = PackedVector2Array(8, -8, 8, 8, -8, 8, -8, -8)
@@ -840,7 +843,12 @@ font_color = Color(0.8, 0, 0, 1)
 outline_size = 8
 outline_color = Color(0, 0, 0, 1)
 
-[node name="Boss_odasi" type="Node2D" unique_id=963163068]
+[node name="Boss_odasi" type="Node2D" unique_id=963163068 node_paths=PackedStringArray("boss", "plr", "long", "short")]
+script = ExtResource("1_ih211")
+boss = NodePath("LastBoss")
+plr = NodePath("Player")
+long = NodePath("morse_long")
+short = NodePath("morse_short")
 metadata/_edit_horizontal_guides_ = [368.0]
 
 [node name="Tilemap" type="TileMap" parent="." unique_id=2007807059]
@@ -987,3 +995,12 @@ offset_right = 93.0
 offset_bottom = 233.0
 text = "STUN IT!!!"
 label_settings = SubResource("LabelSettings_ycyol")
+
+[node name="morse_short" type="AudioStreamPlayer2D" parent="." unique_id=191778425]
+stream = ExtResource("13_yei55")
+pitch_scale = 1.1
+bus = &"Morse SFX"
+
+[node name="morse_long" type="AudioStreamPlayer2D" parent="." unique_id=645310671]
+stream = ExtResource("14_6i8ts")
+bus = &"Morse SFX"

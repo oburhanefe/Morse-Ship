@@ -33,11 +33,12 @@ func take_hit():
 	healt_changed.emit(healt, max_can)
 	
 	var tw := create_tween()
-	tw.tween_property(sprite, "modulate", Color.RED, 0.1)
-	tw.tween_property(sprite, "modulate", Color.WHITE, 0.2)
+	tw.tween_property(sprite, "modulate", Color.RED, 0.2)
+	tw.tween_property(sprite, "modulate", Color.WHITE, 0.4)
 	
 	if healt <= 0:
 		died.emit()
+		get_tree().change_scene_to_file("res://Scenes/the_end.tscn")
 		queue_free()
 		return
 
