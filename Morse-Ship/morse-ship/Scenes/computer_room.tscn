@@ -18,6 +18,8 @@
 [ext_resource type="Texture2D" uid="uid://donjj4kc0mups" path="res://assets/plakalar_kutualr/yeşil_kutu .png" id="16_12bvl"]
 [ext_resource type="Texture2D" uid="uid://btifksac23as5" path="res://assets/plakalar_kutualr/sarı_kutu.png" id="17_7heq7"]
 [ext_resource type="PackedScene" uid="uid://b4o42185jrnib" path="res://Scenes/color_door.tscn" id="18_wmidc"]
+[ext_resource type="PackedScene" uid="uid://rplcv4woaoy5" path="res://Scenes/move_signal_bot.tscn" id="19_r0p7w"]
+[ext_resource type="PackedScene" uid="uid://bhaetolaexnxk" path="res://Scenes/patrol_spider.tscn" id="20_12bvl"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ofbfl"]
 polygon = PackedVector2Array(8, -8, 8, 8, -8, 8, -8, -8)
@@ -722,6 +724,17 @@ sources/3 = SubResource("TileSetAtlasSource_ftsdb")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ycyol"]
 size = Vector2(46, 11)
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ycyol"]
+vertices = PackedVector2Array(-104.46094, -73.25, -217.40625, -70.28125, -215.53125, -104.90625, -106.27344, -103.90625, 42.75, -313.3125, 40.75, -340.14844, 228.17969, -342.85156, 230.8125, -202.92188, 101.5625, -201.92188, -231, -356.14063, -44.429688, -358.84375, -46.4375, -310.6875, -231, -319.92188, -103.74219, -198.75781, -232.84375, -201.75781, 104.42969, -135.90625, 216.75781, -136.89844, 215.22656, -70.3125, 87, -74.32031, 87, -9.8515625, -101.453125, -7.1328125)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7, 8), PackedInt32Array(9, 10, 11, 12), PackedInt32Array(13, 14, 12, 11, 8), PackedInt32Array(15, 16, 17, 18, 3), PackedInt32Array(18, 19, 20, 0), PackedInt32Array(18, 0, 3), PackedInt32Array(15, 3, 13, 8), PackedInt32Array(8, 11, 4)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-241, -320, -243, -192, -114, -189, -116, -114, -225, -115, -228, -60, -114, -63, -111, 3, 97, 0, 97, -64, 225, -60, 227, -147, 114, -146, 112, -192, 241, -193, 238, -353, 30, -350, 32, -323, -36, -321, -34, -369, -241, -366)])
+
+[sub_resource type="Curve2D" id="Curve2D_7heq7"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -80, -55, 0, 0, 0, 0, -80, 72, 0, 0, 0, 0, -79, 71, 0, 0, 0, 0, -79, -54, 0, 0, 0, 0, -80, -55)
+}
+point_count = 5
+
 [node name="Computer_room" type="Node2D" unique_id=267335947]
 metadata/_edit_horizontal_guides_ = [256.0]
 
@@ -849,3 +862,50 @@ texture = ExtResource("17_7heq7")
 [node name="ColorDoor" parent="." unique_id=986398543 node_paths=PackedStringArray("platforms") instance=ExtResource("18_wmidc")]
 position = Vector2(-7, -362)
 platforms = [NodePath("../BoxPlatforms/BoxPlatform"), NodePath("../BoxPlatforms/BoxPlatform2"), NodePath("../BoxPlatforms/BoxPlatform3"), NodePath("../BoxPlatforms/BoxPlatform4")]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1243040846]
+navigation_polygon = SubResource("NavigationPolygon_ycyol")
+
+[node name="move_signal_bot" parent="." unique_id=1158500834 instance=ExtResource("19_r0p7w")]
+position = Vector2(0, -200)
+
+[node name="Path2D" type="Path2D" parent="." unique_id=795542816]
+rotation = 1.5707964
+curve = SubResource("Curve2D_7heq7")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=1707481568]
+position = Vector2(-80, -55)
+rotates = false
+
+[node name="patrol_spider" parent="Path2D/PathFollow2D" unique_id=1210112188 node_paths=PackedStringArray("path_follow") instance=ExtResource("20_12bvl")]
+position = Vector2(0, -1)
+path_follow = NodePath("..")
+patrol = true
+
+[node name="Path2D2" type="Path2D" parent="." unique_id=1561917964]
+position = Vector2(0, -80)
+rotation = 1.5707964
+curve = SubResource("Curve2D_7heq7")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D2" unique_id=844052140]
+position = Vector2(-80, -55)
+rotates = false
+
+[node name="patrol_spider" parent="Path2D2/PathFollow2D" unique_id=1592807224 node_paths=PackedStringArray("path_follow") instance=ExtResource("20_12bvl")]
+position = Vector2(0, -1)
+path_follow = NodePath("..")
+patrol = true
+
+[node name="Path2D3" type="Path2D" parent="." unique_id=945658404]
+position = Vector2(0, -200)
+rotation = -1.5707964
+curve = SubResource("Curve2D_7heq7")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D3" unique_id=1832777830]
+position = Vector2(-80, -55)
+rotates = false
+
+[node name="patrol_spider" parent="Path2D3/PathFollow2D" unique_id=385730590 node_paths=PackedStringArray("path_follow") instance=ExtResource("20_12bvl")]
+position = Vector2(0, -1)
+path_follow = NodePath("..")
+patrol = true
