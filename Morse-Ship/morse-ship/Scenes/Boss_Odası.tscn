@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://chxvt5qej2d6d" path="res://Scenes/player.tscn" id="7_c6l0x"]
 [ext_resource type="PackedScene" uid="uid://chciqhf7fw07i" path="res://Scenes/last_boss.tscn" id="9_p3gat"]
 [ext_resource type="PackedScene" uid="uid://crk7g7hfbu1xe" path="res://Scenes/boss_attack.tscn" id="10_7vffm"]
+[ext_resource type="FontFile" uid="uid://cpsv1swaddatx" path="res://assets/fonts/PixelOperator8.ttf" id="11_7vffm"]
 [ext_resource type="Script" uid="uid://bvqxatrn0fm13" path="res://Scripts/maindoorintro.gd" id="11_eb26c"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ofbfl"]
@@ -832,7 +833,14 @@ sources/4 = SubResource("TileSetAtlasSource_a1xgt")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ea6c3"]
 size = Vector2(52, 10)
 
-[node name="Kaptan_odasi" type="Node2D" unique_id=963163068]
+[sub_resource type="LabelSettings" id="LabelSettings_ycyol"]
+font = ExtResource("11_7vffm")
+font_size = 24
+font_color = Color(0.8, 0, 0, 1)
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Boss_odasi" type="Node2D" unique_id=963163068]
 metadata/_edit_horizontal_guides_ = [368.0]
 
 [node name="Tilemap" type="TileMap" parent="." unique_id=2007807059]
@@ -971,3 +979,11 @@ rotation = -1.5666022
 attack_interval = 7.8
 hit_time = 0.6
 start_delay = 3.0
+
+[node name="Label" type="Label" parent="." unique_id=603100276]
+offset_left = -84.0
+offset_top = 209.0
+offset_right = 93.0
+offset_bottom = 233.0
+text = "STUN IT!!!"
+label_settings = SubResource("LabelSettings_ycyol")

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://5jkxujh1x2od"]
+
+[ext_resource type="Texture2D" uid="uid://48wqvxn1ek13" path="res://assets/sprites/outro.png" id="1_dwy7s"]
+
+[node name="the_end" type="Node2D" unique_id=508317776]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1470311001]
+z_index = 100
+position = Vector2(162.00002, 89.32923)
+scale = Vector2(0.11999997, 0.089670755)
+texture = ExtResource("1_dwy7s")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1890269923]
+offset_left = -12.0
+offset_top = -15.0
+offset_right = 425.0
+offset_bottom = 200.0
+color = Color(0, 0, 0, 1)
