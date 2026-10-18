@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cskbckkstyq3l"]
+
+[ext_resource type="Script" uid="uid://ca2kownmqk2ul" path="res://Scripts/comp_key.gd" id="1_01805"]
+[ext_resource type="Texture2D" uid="uid://bot74jucp2iet" path="res://assets/sprites/anahtar1.png" id="2_mpf5o"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4kxuq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_mpf5o")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4kxuq"]
+radius = 12.0415945
+
+[node name="comp_key" type="Node2D" unique_id=1061194641 node_paths=PackedStringArray("sprite", "area") groups=["key1"]]
+script = ExtResource("1_01805")
+sprite = NodePath("AnimatedSprite2D")
+area = NodePath("Area2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=356657113]
+sprite_frames = SubResource("SpriteFrames_4kxuq")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=902073563]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1988613001]
+shape = SubResource("CircleShape2D_4kxuq")

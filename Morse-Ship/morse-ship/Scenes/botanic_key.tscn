@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://o5uob7ltutao"]
+
+[ext_resource type="Script" uid="uid://ct4jhdmw2u7np" path="res://Scripts/botanic_key.gd" id="1_f5mdk"]
+[ext_resource type="Texture2D" uid="uid://cmk4xhcu6xds0" path="res://assets/sprites/anahtar2.png" id="2_mvnmg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mti6b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_mvnmg")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4kxuq"]
+radius = 12.0
+
+[node name="botanic_key" type="Node2D" unique_id=221548711 node_paths=PackedStringArray("sprite", "area") groups=["key1"]]
+script = ExtResource("1_f5mdk")
+sprite = NodePath("AnimatedSprite2D")
+area = NodePath("Area2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1200695848]
+sprite_frames = SubResource("SpriteFrames_mti6b")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=173548982]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1880149399]
+shape = SubResource("CircleShape2D_4kxuq")
