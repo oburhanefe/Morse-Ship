@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://dxutdxa2h2lnc"]
+
+[ext_resource type="Script" uid="uid://3vv6ttym8igd" path="res://Scripts/intro_cutscene.gd" id="1_7iewc"]
+[ext_resource type="Texture2D" uid="uid://cfekiujeyypce" path="res://assets/sprites/intro1.png" id="2_do3jr"]
+[ext_resource type="Texture2D" uid="uid://cw55lrci6snox" path="res://assets/sprites/intro2.png" id="3_fr0y8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ycyol"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_do3jr")
+}],
+"loop": 0,
+"name": &"page1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_fr0y8")
+}],
+"loop": 0,
+"name": &"page2",
+"speed": 5.0
+}]
+
+[node name="intro_cutscene" type="Node2D" unique_id=1660067609]
+script = ExtResource("1_7iewc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1431102898]
+z_index = 5
+scale = Vector2(0.1779649, 0.1719556)
+sprite_frames = SubResource("SpriteFrames_ycyol")
+animation = &"page1"
+autoplay = "page1"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=511809765]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=815165730]
+offset_left = -169.0
+offset_top = -116.0
+offset_right = 198.0
+offset_bottom = 126.0
+color = Color(0, 0, 0, 1)

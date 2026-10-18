@@ -8,6 +8,11 @@ extends CharacterBody2D
 @export var sprite : AnimatedSprite2D
 
 
+@export var stun : AnimatedSprite2D
+@export var slow : AnimatedSprite2D
+@export var short_circuit : AnimatedSprite2D
+@export var mad_cow : AnimatedSprite2D
+
 @onready var walk_audio: AudioStreamPlayer2D = $Walk_Audio
 
 @export var left_limit : float
@@ -25,6 +30,8 @@ var is_dead : bool = false
 var is_dying : bool = false
 
 func _ready() -> void:
+	slow.visible = false
+	mad_cow.visible = false
 	bots.assign(get_tree().get_nodes_in_group("Bot"))
 
 func _process(delta: float) -> void:
