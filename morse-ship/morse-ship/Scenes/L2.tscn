@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://cd1j73wdub6v" path="res://Scripts/l1_door.gd" id="8_gomgp"]
 [ext_resource type="Script" uid="uid://bvx0kkbead7eq" path="res://Scripts/computerdoor.gd" id="9_u1i0o"]
 [ext_resource type="PackedScene" uid="uid://rplcv4woaoy5" path="res://Scenes/move_signal_bot.tscn" id="10_d05y1"]
+[ext_resource type="PackedScene" uid="uid://cskbckkstyq3l" path="res://Scenes/comp_key.tscn" id="11_qgqk2"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ofbfl"]
 polygon = PackedVector2Array(8, -8, 8, 8, -8, 8, -8, -8)
@@ -679,3 +680,6 @@ position = Vector2(-60, -100)
 
 [node name="move_signal_bot8" parent="." unique_id=297724817 instance=ExtResource("10_d05y1")]
 position = Vector2(60, -100)
+
+[node name="comp_key" parent="." unique_id=1061194641 instance=ExtResource("11_qgqk2")]
+position = Vector2(-2, 47)

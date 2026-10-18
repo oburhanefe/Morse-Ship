@@ -7,6 +7,8 @@
 [ext_resource type="FontFile" uid="uid://cpsv1swaddatx" path="res://assets/fonts/PixelOperator8.ttf" id="5_hwjxs"]
 [ext_resource type="Script" uid="uid://h4ae62wkg2dp" path="res://Scripts/npc.gd" id="5_rsiac"]
 [ext_resource type="Script" uid="uid://lj0dv0idgkll" path="res://Scripts/commandintrodoor.gd" id="7_3bmuq"]
+[ext_resource type="PackedScene" uid="uid://o5uob7ltutao" path="res://Scenes/botanic_key.tscn" id="8_b26wi"]
+[ext_resource type="PackedScene" uid="uid://cskbckkstyq3l" path="res://Scenes/comp_key.tscn" id="9_ewknp"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_lsmp6"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -322,3 +324,9 @@ target_room = "uid://d3esyhq6txlb3"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="commandintrodoor" unique_id=1421879043]
 shape = SubResource("RectangleShape2D_ycyol")
+
+[node name="comp_key" parent="." unique_id=1061194641 instance=ExtResource("9_ewknp")]
+position = Vector2(18, 17)
+
+[node name="botanic_key" parent="." unique_id=221548711 instance=ExtResource("8_b26wi")]
+position = Vector2(-16, 3)

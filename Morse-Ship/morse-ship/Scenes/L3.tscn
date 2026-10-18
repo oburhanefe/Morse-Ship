@@ -537,7 +537,7 @@ position = Vector2(88, 104)
 position = Vector2(-88, 104)
 
 [node name="Chips" parent="." unique_id=772896485 node_paths=PackedStringArray("plr") instance=ExtResource("9_xbo50")]
-position = Vector2(-72, 523)
+position = Vector2(-67, 524)
 unlocked_code = "slow"
 plr = NodePath("../Player")
 

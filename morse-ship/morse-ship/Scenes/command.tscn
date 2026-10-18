@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://dwinb5yycjjcu"]
 
 [ext_resource type="Texture2D" uid="uid://f4nnd6cla2fc" path="res://assets/sprites/Bilgisiyar_odası.png" id="1_pc40f"]
+[ext_resource type="Script" uid="uid://bo2itr4k07kea" path="res://Scripts/command.gd" id="1_vwanj"]
 [ext_resource type="Texture2D" uid="uid://cb5mq6wm8mcfw" path="res://assets/sprites/botanic_tile_set.png" id="2_77iu2"]
 [ext_resource type="Texture2D" uid="uid://c61xkpbhn6sxj" path="res://assets/sprites/komuta_komuta odasuıı.png" id="3_vwanj"]
 [ext_resource type="Texture2D" uid="uid://4ffue2mqjapk" path="res://assets/sprites/tiayl set.png" id="4_vlgi3"]
@@ -831,6 +832,7 @@ sources/4 = SubResource("TileSetAtlasSource_4bdf4")
 size = Vector2(80, 12)
 
 [node name="command" type="Node2D" unique_id=1682797788]
+script = ExtResource("1_vwanj")
 metadata/_edit_horizontal_guides_ = [368.0]
 
 [node name="Tilemap" type="TileMap" parent="." unique_id=1405454514]

@@ -19,7 +19,7 @@ func _ready() -> void:
 		ChipTypes.Slow:
 			sprite.play("blue")
 			
-		ChipTypes.Slow:
+		ChipTypes.MadCow:
 			sprite.play("yellow")
 			
 func _on_unlock(body : Node2D):

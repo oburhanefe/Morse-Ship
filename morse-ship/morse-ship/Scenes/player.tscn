@@ -539,6 +539,7 @@ bus = &"Walk SFX"
 [node name="Commands" type="Node2D" parent="." unique_id=2111177133]
 
 [node name="Stun" type="AnimatedSprite2D" parent="Commands" unique_id=1144055655]
+z_index = 4096
 position = Vector2(-1327.2726, -690.9091)
 scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_moenx")
@@ -546,6 +547,7 @@ animation = &"Stun"
 autoplay = "Stun"
 
 [node name="Slow" type="AnimatedSprite2D" parent="Commands" unique_id=546731276]
+z_index = 4096
 position = Vector2(1036.3636, -690.9091)
 scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_1qvev")
@@ -553,6 +555,7 @@ animation = &"Slow"
 autoplay = "Slow"
 
 [node name="ShortCircuit" type="AnimatedSprite2D" parent="Commands" unique_id=1597162421]
+z_index = 4096
 position = Vector2(-1063.6364, -690.9092)
 scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_k3g8s")
@@ -560,6 +563,7 @@ animation = &"ShortCircuit"
 autoplay = "ShortCircuit"
 
 [node name="MadCow" type="AnimatedSprite2D" parent="Commands" unique_id=682872947]
+z_index = 4096
 position = Vector2(1300, -690.9092)
 scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_aelyl")
