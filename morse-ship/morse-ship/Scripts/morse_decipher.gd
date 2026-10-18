@@ -2,6 +2,8 @@ class_name Decipher
 extends Node
 
 
+signal command_finsihed
+
 @export var inp : input_comp
 
 var command : Array[String] = []
@@ -29,8 +31,6 @@ func build_command() -> String:
 func execute_com(bot : Bot, cmd : String):
 	match cmd:
 		"stun":
-			
-
 			print("stun çalıştı, boss sayısı: ", bot.get_tree().get_nodes_in_group("Boss").size())
 			
 			for boss in bot.get_tree().get_nodes_in_group("Boss"):
@@ -48,6 +48,7 @@ func execute_com(bot : Bot, cmd : String):
 			stun_timer.start()
 			await  stun_timer.timeout
 			bot.move_comp.speed = orj_speed
+			command_finsihed.emit()
 			stun_timer.queue_free()
 
 		"slow":
@@ -65,6 +66,7 @@ func execute_com(bot : Bot, cmd : String):
 			await  slow_timer.timeout
 			for i in plr.bots:
 				i.move_comp.speed = orj_speed
+			command_finsihed.emit()
 			slow_timer.queue_free()
 		
 
@@ -78,6 +80,7 @@ func execute_com(bot : Bot, cmd : String):
 			bot.move_comp.speed *= -1
 			await confused_timer.timeout
 			bot.move_comp.speed *= -1
+			command_finsihed.emit()
 			confused_timer.queue_free()
 
 		"mad_cow":#Tam kafama oturmadı öylesine ekledim
@@ -95,6 +98,7 @@ func execute_com(bot : Bot, cmd : String):
 				await bot.get_tree().create_timer(0.1).timeout
 				elapsed_time += 0.1
 			bot.move_comp.speed = orj_speed
+			command_finsihed.emit()
 			mad_timer.queue_free()
 		_:
 			print("Komut Çalışmadı")

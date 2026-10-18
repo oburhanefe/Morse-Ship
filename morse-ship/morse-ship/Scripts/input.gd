@@ -101,6 +101,7 @@ func update_command(cmd : String) -> String:
 		morse.command.append("1" if is_long else "0")
 		if ilk_deger_silme:
 			morse.command.clear()
+			label.text = ""
 			ilk_deger_silme = false
 		
 		print(morse.command)
@@ -111,6 +112,4 @@ func update_command(cmd : String) -> String:
 			print(morse.valid_commands[cmd])
 			morse.command.clear()
 		
-	
-	
 	return cmd

@@ -33,6 +33,7 @@ func _process(delta: float) -> void:
 			is_dying = true
 			sprite.play("dead")
 			await sprite.animation_finished
+			await  get_tree().create_timer(0.6).timeout
 			var _reload = get_tree().reload_current_scene()
 		return
 	position.x = clamp(position.x, left_limit, right_limit)
@@ -78,6 +79,8 @@ func _process(delta: float) -> void:
 				decipher.execute_on_boss(current_boss, cmd_name)
 			else:
 				decipher.execute_com(current_accessed_bot, cmd_name)
+				await decipher.command_finsihed
+				inp.label.text = ""
 				print(current_accessed_bot.move_comp.speed)
 	
 	anim.update_anim(sprite, inp.move_dir, look_dir, walk_audio)
