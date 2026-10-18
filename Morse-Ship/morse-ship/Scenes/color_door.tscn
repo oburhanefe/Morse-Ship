@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://drr484ib1m36q" path="res://assets/sprites/Enemy spider.png" id="2_up3he"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4kxuq"]
-size = Vector2(20, 59)
+size = Vector2(33, 59)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r8pdd"]
 atlas = ExtResource("2_up3he")
@@ -95,7 +95,7 @@ animations = [{
 script = ExtResource("1_eif7t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1520464010]
-position = Vector2(0, 19.5)
+position = Vector2(6.5, 19.5)
 shape = SubResource("RectangleShape2D_4kxuq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=823061812]

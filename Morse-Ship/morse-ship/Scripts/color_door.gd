@@ -21,11 +21,11 @@ func check_platforms(is_on : bool):
 
 
 func open() -> void:
-	#collision.set_deferred("disabled", true)
+	collision.set_deferred("disabled", true)
 	#sprite.play("open")
 	print("kapı açıldı")
 
 func close() -> void:
-	#collision.set_deferred("disabled", false)
+	collision.set_deferred("disabled", false)
 	#sprite.play("close")
 	pass

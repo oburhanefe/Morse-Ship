@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ixelqwaeog4w" path="res://Scripts/last_boss.gd" id="1_v3gnk"]
 [ext_resource type="Texture2D" uid="uid://deuoaam3koxch" path="res://assets/sprites/kelebek_canavar.png" id="2_6np6o"]
+[ext_resource type="PackedScene" uid="uid://chxvt5qej2d6d" path="res://Scenes/player.tscn" id="3_6np6o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fcicw"]
 atlas = ExtResource("2_6np6o")
@@ -66,3 +67,6 @@ position = Vector2(10, 9)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1075563691]
 position = Vector2(111, 63)
 shape = SubResource("CircleShape2D_mti6b")
+
+[node name="Player" parent="." unique_id=1629573154 instance=ExtResource("3_6np6o")]
+position = Vector2(253, 100)

@@ -7,6 +7,17 @@
 [ext_resource type="Script" uid="uid://cn51blpja1dsh" path="res://Scripts/decoration_layer.gd" id="5_hcqfp"]
 [ext_resource type="PackedScene" uid="uid://chxvt5qej2d6d" path="res://Scenes/player.tscn" id="6_likh3"]
 [ext_resource type="Script" uid="uid://druoaolsyepre" path="res://Scripts/l2_door.gd" id="7_wvrtu"]
+[ext_resource type="PackedScene" uid="uid://cx7yyfuksuiva" path="res://Scenes/box_platform.tscn" id="8_a2lj7"]
+[ext_resource type="Texture2D" uid="uid://mjturyruaekb" path="res://assets/plakalar_kutualr/kırmızı_plaka.png" id="9_b6naf"]
+[ext_resource type="Texture2D" uid="uid://dk41wlebr0s8l" path="res://assets/plakalar_kutualr/mavi_plaka.png" id="10_ftsdb"]
+[ext_resource type="Texture2D" uid="uid://bu2p0t1jodmub" path="res://assets/plakalar_kutualr/yeşil_plaka.png" id="11_jengk"]
+[ext_resource type="Texture2D" uid="uid://cv3boeoueya24" path="res://assets/plakalar_kutualr/sarı_plaka.png" id="12_13wwa"]
+[ext_resource type="PackedScene" uid="uid://cj8ufxxapqhly" path="res://Scenes/kutu.tscn" id="13_anth6"]
+[ext_resource type="Texture2D" uid="uid://t8tqe1miutlj" path="res://assets/plakalar_kutualr/kırmızı_kutu.png" id="14_anth6"]
+[ext_resource type="Texture2D" uid="uid://dhrqlqful2hso" path="res://assets/plakalar_kutualr/mavi_kutu.png" id="15_r0p7w"]
+[ext_resource type="Texture2D" uid="uid://donjj4kc0mups" path="res://assets/plakalar_kutualr/yeşil_kutu .png" id="16_12bvl"]
+[ext_resource type="Texture2D" uid="uid://btifksac23as5" path="res://assets/plakalar_kutualr/sarı_kutu.png" id="17_7heq7"]
+[ext_resource type="PackedScene" uid="uid://b4o42185jrnib" path="res://Scenes/color_door.tscn" id="18_wmidc"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ofbfl"]
 polygon = PackedVector2Array(8, -8, 8, 8, -8, 8, -8, -8)
@@ -762,3 +773,79 @@ target_room = "uid://bpc2vfkw6y75h"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="L2door" unique_id=198169535]
 position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_ycyol")
+
+[node name="BoxPlatforms" type="Node" parent="." unique_id=2071189696]
+
+[node name="BoxPlatform" parent="BoxPlatforms" unique_id=622235845 node_paths=PackedStringArray("specific_box") instance=ExtResource("8_a2lj7")]
+position = Vector2(-95, -27)
+specific_box = NodePath("../../boxs/kutu")
+
+[node name="Sprite2D" type="Sprite2D" parent="BoxPlatforms/BoxPlatform" unique_id=1873957230]
+position = Vector2(4.249997, 4.2499995)
+scale = Vector2(1.8437496, 1.78125)
+texture = ExtResource("9_b6naf")
+
+[node name="BoxPlatform2" parent="BoxPlatforms" unique_id=790180397 node_paths=PackedStringArray("specific_box") instance=ExtResource("8_a2lj7")]
+position = Vector2(176, -272)
+specific_box = NodePath("../../boxs/kutu2")
+
+[node name="Sprite2D" type="Sprite2D" parent="BoxPlatforms/BoxPlatform2" unique_id=2084446552]
+position = Vector2(4.3750024, 4.7499957)
+scale = Vector2(1.8281254, 1.8437498)
+texture = ExtResource("10_ftsdb")
+
+[node name="BoxPlatform3" parent="BoxPlatforms" unique_id=705691021 node_paths=PackedStringArray("specific_box") instance=ExtResource("8_a2lj7")]
+position = Vector2(-186, -279)
+specific_box = NodePath("../../boxs/kutu3")
+
+[node name="Sprite2D" type="Sprite2D" parent="BoxPlatforms/BoxPlatform3" unique_id=1733696201]
+position = Vector2(4.500002, 4.5)
+scale = Vector2(1.8124995, 1.8124998)
+texture = ExtResource("11_jengk")
+
+[node name="BoxPlatform4" parent="BoxPlatforms" unique_id=262035893 node_paths=PackedStringArray("specific_box") instance=ExtResource("8_a2lj7")]
+position = Vector2(70, -27)
+specific_box = NodePath("../../boxs/kutu4")
+
+[node name="Sprite2D" type="Sprite2D" parent="BoxPlatforms/BoxPlatform4" unique_id=247113670]
+position = Vector2(4.4999976, 4.5000005)
+scale = Vector2(1.8125002, 1.8125001)
+texture = ExtResource("12_13wwa")
+
+[node name="boxs" type="Node" parent="." unique_id=941331518]
+
+[node name="kutu" parent="boxs" unique_id=849487795 instance=ExtResource("13_anth6")]
+position = Vector2(176, -216)
+
+[node name="Sprite2D" type="Sprite2D" parent="boxs/kutu" unique_id=758824306]
+position = Vector2(3.9999964, 5.999996)
+scale = Vector2(2.5000007, 2.624999)
+texture = ExtResource("14_anth6")
+
+[node name="kutu2" parent="boxs" unique_id=781830412 instance=ExtResource("13_anth6")]
+position = Vector2(-142, -91)
+
+[node name="Sprite2D" type="Sprite2D" parent="boxs/kutu2" unique_id=1166354222]
+position = Vector2(3.9999998, 5.500003)
+scale = Vector2(2.4999998, 2.6875)
+texture = ExtResource("15_r0p7w")
+
+[node name="kutu3" parent="boxs" unique_id=2098136688 instance=ExtResource("13_anth6")]
+position = Vector2(194, -90)
+
+[node name="Sprite2D" type="Sprite2D" parent="boxs/kutu3" unique_id=1911906467]
+position = Vector2(4.499996, 2.4999998)
+scale = Vector2(2.437501, 2.6875007)
+texture = ExtResource("16_12bvl")
+
+[node name="kutu4" parent="boxs" unique_id=184798677 instance=ExtResource("13_anth6")]
+position = Vector2(-186, -219)
+
+[node name="Sprite2D" type="Sprite2D" parent="boxs/kutu4" unique_id=183420955]
+position = Vector2(3.9999998, 4.999995)
+scale = Vector2(2.4999998, 2.6250002)
+texture = ExtResource("17_7heq7")
+
+[node name="ColorDoor" parent="." unique_id=986398543 node_paths=PackedStringArray("platforms") instance=ExtResource("18_wmidc")]
+position = Vector2(-7, -362)
+platforms = [NodePath("../BoxPlatforms/BoxPlatform"), NodePath("../BoxPlatforms/BoxPlatform2"), NodePath("../BoxPlatforms/BoxPlatform3"), NodePath("../BoxPlatforms/BoxPlatform4")]

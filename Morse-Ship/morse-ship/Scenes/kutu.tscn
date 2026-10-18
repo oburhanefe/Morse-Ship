@@ -1,22 +1,10 @@
 [gd_scene format=3 uid="uid://cj8ufxxapqhly"]
 
 [ext_resource type="Script" uid="uid://dec6t3bcfy6eb" path="res://Scripts/kutu.gd" id="1_m5q4f"]
-[ext_resource type="Texture2D" uid="uid://dosvs040qw0u4" path="res://assets/sprites/sol ui.png" id="1_u7bpg"]
 [ext_resource type="Script" uid="uid://dalxrh464o2vh" path="res://Scripts/movement.gd" id="3_gshrh"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_mti6b"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_u7bpg")
-}],
-"loop": 1,
-"name": &"kutu",
-"speed": 5.0
-}]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mti6b"]
-size = Vector2(30.25, 29.25)
+size = Vector2(26.125, 25)
 
 [node name="kutu" type="CharacterBody2D" unique_id=849487795 node_paths=PackedStringArray("move") groups=["box"]]
 motion_mode = 1
@@ -27,12 +15,6 @@ move = NodePath("movement_comp")
 script = ExtResource("3_gshrh")
 metadata/_custom_type_script = "uid://dalxrh464o2vh"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1097881281]
-position = Vector2(4.5000005, 4.5)
-scale = Vector2(0.51785713, 0.15)
-sprite_frames = SubResource("SpriteFrames_mti6b")
-animation = &"kutu"
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=153664870]
-position = Vector2(4, 4)
+position = Vector2(1.9375, 2.5)
 shape = SubResource("RectangleShape2D_mti6b")
