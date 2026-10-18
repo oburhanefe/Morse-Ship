@@ -1,79 +1,32 @@
 [gd_scene format=3 uid="uid://m6rtx2w1dvb5"]
 
 [ext_resource type="Script" uid="uid://truifspsjk26" path="res://Scripts/Door.gd" id="1_p0e35"]
-[ext_resource type="Texture2D" uid="uid://cwvqbr6noy5ti" path="res://assets/sprites/karakter aydılı 1.png" id="2_lh3f8"]
+[ext_resource type="Texture2D" uid="uid://ddl0wcogdf5yi" path="res://assets/sprites/locked_door.png" id="2_p0e35"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4kxuq"]
 size = Vector2(32, 37)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jb6ol"]
-atlas = ExtResource("2_lh3f8")
-region = Rect2(0, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_fahql"]
+atlas = ExtResource("2_p0e35")
+region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2y5go"]
-atlas = ExtResource("2_lh3f8")
-region = Rect2(16, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ab4ky"]
+atlas = ExtResource("2_p0e35")
+region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rhu8j"]
-atlas = ExtResource("2_lh3f8")
-region = Rect2(32, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_a43ba"]
+atlas = ExtResource("2_p0e35")
+region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_w48wr"]
-atlas = ExtResource("2_lh3f8")
-region = Rect2(48, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xydsw"]
-atlas = ExtResource("2_lh3f8")
-region = Rect2(64, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x7rlv"]
-atlas = ExtResource("2_lh3f8")
-region = Rect2(80, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_da42f"]
-atlas = ExtResource("2_lh3f8")
-region = Rect2(96, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1mgw4"]
-atlas = ExtResource("2_lh3f8")
-region = Rect2(112, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2uiy3"]
-atlas = ExtResource("2_lh3f8")
-region = Rect2(128, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kosln"]
-atlas = ExtResource("2_lh3f8")
-region = Rect2(144, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bmhro"]
-atlas = ExtResource("2_lh3f8")
-region = Rect2(160, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4a4qo"]
-atlas = ExtResource("2_lh3f8")
-region = Rect2(176, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_burcv"]
+atlas = ExtResource("2_p0e35")
+region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mm1bc"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jb6ol")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2y5go")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rhu8j")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_w48wr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xydsw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x7rlv")
+"texture": SubResource("AtlasTexture_fahql")
 }],
 "loop": 1,
 "name": &"closed",
@@ -81,24 +34,15 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_da42f")
+"texture": SubResource("AtlasTexture_ab4ky")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1mgw4")
+"texture": SubResource("AtlasTexture_a43ba")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2uiy3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kosln")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bmhro")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4a4qo")
+"texture": SubResource("AtlasTexture_burcv")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"opened",
 "speed": 5.0
 }]
@@ -111,8 +55,8 @@ position = Vector2(6, 8.5)
 shape = SubResource("RectangleShape2D_4kxuq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=475599317]
-position = Vector2(8.000001, 9.5)
-scale = Vector2(2.75, 2.4375)
+position = Vector2(6.000001, 8.000001)
+scale = Vector2(1.1250001, 1.25)
 sprite_frames = SubResource("SpriteFrames_mm1bc")
-animation = &"closed"
+animation = &"opened"
 autoplay = "closed"

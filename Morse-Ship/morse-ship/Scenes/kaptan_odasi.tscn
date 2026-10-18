@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://d3esyhq6txlb3"]
 
 [ext_resource type="Texture2D" uid="uid://f4nnd6cla2fc" path="res://assets/sprites/Bilgisiyar_odası.png" id="1_5w6ar"]
+[ext_resource type="Script" uid="uid://dvh15vdqfm0c1" path="res://Scripts/kaptan_odasi.gd" id="1_ggcjd"]
 [ext_resource type="Texture2D" uid="uid://cb5mq6wm8mcfw" path="res://assets/sprites/botanic_tile_set.png" id="2_krh0m"]
 [ext_resource type="Texture2D" uid="uid://c61xkpbhn6sxj" path="res://assets/sprites/komuta_komuta odasuıı.png" id="3_ea6c3"]
 [ext_resource type="Texture2D" uid="uid://4ffue2mqjapk" path="res://assets/sprites/tiayl set.png" id="4_xafos"]
@@ -844,6 +845,7 @@ outline_color = Color(1, 0.29411766, 0, 1)
 size = Vector2(52, 10)
 
 [node name="Kaptan_odasi" type="Node2D" unique_id=963163068]
+script = ExtResource("1_ggcjd")
 metadata/_edit_horizontal_guides_ = [368.0]
 
 [node name="Tilemap" type="TileMap" parent="." unique_id=2007807059]

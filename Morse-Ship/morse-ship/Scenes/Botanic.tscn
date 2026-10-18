@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dkbfdlusqg5k2" path="res://Scenes/salter.tscn" id="8_grens"]
 [ext_resource type="PackedScene" uid="uid://m6rtx2w1dvb5" path="res://Scenes/door.tscn" id="9_rweay"]
 [ext_resource type="PackedScene" uid="uid://d0j0feqgdpwh7" path="res://Scenes/butterfly.tscn" id="10_rweay"]
+[ext_resource type="PackedScene" uid="uid://o5uob7ltutao" path="res://Scenes/botanic_key.tscn" id="11_pb851"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ofbfl"]
 polygon = PackedVector2Array(8, -8, 8, 8, -8, 8, -8, -8)
@@ -909,3 +910,6 @@ rotates = false
 
 [node name="Butterfly" parent="Path2D11/PathFollow2D" unique_id=154887437 node_paths=PackedStringArray("path_follow") instance=ExtResource("10_rweay")]
 path_follow = NodePath("..")
+
+[node name="botanic_key" parent="." unique_id=221548711 instance=ExtResource("11_pb851")]
+position = Vector2(-1, -406)

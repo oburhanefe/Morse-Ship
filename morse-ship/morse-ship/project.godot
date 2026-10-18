@@ -42,6 +42,7 @@ navigation="navigation"
 Bot=""
 box="box"
 Boss="Boss"
+key1="key1"
 
 [input]
 
