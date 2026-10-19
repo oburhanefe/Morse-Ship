@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://deuoaam3koxch" path="res://assets/sprites/kelebek_canavar.png" id="2_6np6o"]
 [ext_resource type="Shader" uid="uid://bnircgc3jqkcg" path="res://Scripts/outline_shader.gdshader" id="2_fcicw"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_p3gat"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ggcjd"]
 shader = ExtResource("2_fcicw")
 shader_parameter/outline_color = Color(0, 0, 0, 1)
 shader_parameter/corners = false
@@ -53,13 +53,14 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mti6b"]
-radius = 102.0049
+radius = 17.029387
 
 [node name="LastBoss" type="Node2D" unique_id=1243108489 node_paths=PackedStringArray("area", "sprite") groups=["Boss"]]
 script = ExtResource("1_v3gnk")
 area = NodePath("Area2D")
 sprite = NodePath("AnimatedSprite2D")
-shader = SubResource("ShaderMaterial_p3gat")
+hit_cd = 1.0
+outline = SubResource("ShaderMaterial_ggcjd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1487711025]
 position = Vector2(119, 70)
@@ -71,5 +72,5 @@ frame_progress = 0.6613285
 position = Vector2(10, 9)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1075563691]
-position = Vector2(111, 63)
+position = Vector2(109, 62)
 shape = SubResource("CircleShape2D_mti6b")

@@ -36,10 +36,14 @@ func update(delta) -> void:
 		is_clicking = false
 	
 	if Input.is_action_just_pressed("Delete"):
-		if plr.current_accessed_bot:
+		if plr.current_accessed_bot or plr.current_boss:
 			label.text = ""
-			plr.current_accessed_bot.accessed = false
-			plr.current_accessed_bot = null
+			if plr.current_accessed_bot:
+				plr.current_accessed_bot.accessed = false
+				plr.current_accessed_bot = null
+			elif plr.current_boss:
+				plr.current_boss.accessed = false
+				plr.current_boss = null
 			morse.command.clear()
 			ilk_deger_silme = true
 	
@@ -80,13 +84,15 @@ func update(delta) -> void:
 	if Input.is_action_just_released("click"):
 		return_click()
 		click_time = 0.0
-		if is_long and plr.current_accessed_bot:
-			label.text += "-"
-			morse_long.play()
-		elif plr.current_accessed_bot:
-			label.text += "."
-			morse_short.play()
-		label.text = label.text.right(4)
+		if is_long:
+			if plr.current_accessed_bot or plr.current_boss:
+				label.text += "-"
+				morse_long.play()
+		elif not is_long:
+			if plr.current_accessed_bot or plr.current_boss:
+				label.text += "."
+				morse_short.play()
+			label.text = label.text.right(4)
 
 	
 
@@ -106,12 +112,10 @@ func update_command(cmd : String) -> String:
 			label.text = ""
 			ilk_deger_silme = false
 		
-		print(morse.command)
 		cmd = morse.build_command()
 		
 		
 		if cmd in morse.valid_commands:
-			print(morse.valid_commands[cmd])
 			morse.command.clear()
 		
 	return cmd

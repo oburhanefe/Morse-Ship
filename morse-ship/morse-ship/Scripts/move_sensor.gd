@@ -15,7 +15,6 @@ extends CharacterBody2D
 @export var death_area : Area2D
 var look_dir : Vector2
 var plr : player
-var curr_material : Material
 
 
 var code : String 
@@ -109,4 +108,3 @@ func on_player_entered(body : Node2D) -> void:
 	if body.is_in_group("Player"):
 		if not plr.is_dead and not plr.is_dying:
 			plr.is_dead = true
-			print("dying")

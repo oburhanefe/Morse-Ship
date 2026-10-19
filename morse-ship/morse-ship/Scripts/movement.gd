@@ -4,7 +4,7 @@ extends Node
 @export var speed = Vector2.ZERO
 var dir = Vector2.ZERO 
 
-func move(body:CharacterBody2D):
+func move(body:CharacterBody2D = owner):
 	if body:
 		body.velocity = speed * dir
 		body.move_and_slide()

@@ -1,14 +1,15 @@
 extends Node2D
 
-@onready var player: player = $Player
+
 
 
 func _ready() -> void:
+	var plr = get_tree().get_first_node_in_group("Player")
 	match Transitioner.coming_from:
 		"mainhall":
-			player.global_position = Vector2(-265, -0) 
+			plr.global_position = Vector2(-265, -0) 
 		"R2":
-			player.global_position = Vector2(240, -85)
+			plr.global_position = Vector2(240, -85)
 		"R3":
-			player.global_position = Vector2(240, 90)
+			plr.global_position = Vector2(240, 90)
 	

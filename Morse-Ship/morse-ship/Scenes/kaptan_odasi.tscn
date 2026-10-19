@@ -905,10 +905,11 @@ light_mask = 3
 visibility_layer = 3
 color = Color(0.321066, 0.37810498, 0.49513286, 1)
 
-[node name="maindoor" type="Area2D" parent="." unique_id=165506118]
+[node name="maindoor" type="Area2D" parent="." unique_id=165506118 node_paths=PackedStringArray("npc")]
 position = Vector2(0, 368)
 script = ExtResource("8_krh0m")
 target_room = "uid://csndxcm3v2mtr"
+npc = NodePath("../NPC")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="maindoor" unique_id=192513567]
 position = Vector2(0, -3)

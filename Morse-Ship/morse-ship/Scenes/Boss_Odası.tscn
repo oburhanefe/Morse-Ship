@@ -899,8 +899,9 @@ script = ExtResource("11_eb26c")
 position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_ea6c3")
 
-[node name="LastBoss" parent="." unique_id=1243108489 instance=ExtResource("9_p3gat")]
+[node name="LastBoss" parent="." unique_id=1243108489 node_paths=PackedStringArray("plr") instance=ExtResource("9_p3gat")]
 position = Vector2(-119, -45)
+plr = NodePath("../Player")
 
 [node name="Boss_attack" parent="LastBoss" unique_id=1524185509 instance=ExtResource("10_7vffm")]
 position = Vector2(50, 70)

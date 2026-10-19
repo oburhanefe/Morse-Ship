@@ -19,7 +19,6 @@ func on_body_entered(body : Node2D):
 		box_on_top = true
 		is_on = true
 		toggled.emit(is_on)
-		print(box_on_top)
 
 
 func on_body_exited(body : Node2D):
@@ -27,4 +26,3 @@ func on_body_exited(body : Node2D):
 		box_on_top = false
 		is_on = false
 		toggled.emit(is_on)
-		print(box_on_top)

@@ -1,7 +1,7 @@
 extends Area2D
 
 @export_file("*.tscn") var target_room : String
-@onready var npc: CharacterBody2D = $"../NPC"
+@export var npc: CharacterBody2D
 
 func _ready() -> void:
 	body_entered.connect(main_entered)

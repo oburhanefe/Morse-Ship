@@ -39,6 +39,8 @@ func _process(delta: float) -> void:
 	
 	if "slow" in SaveManager.unlocked_commands:
 		slow.visible = true
+	elif "mad_cow" in SaveManager.unlocked_commands:
+		mad_cow.visible = true
 	
 	if Input.is_action_just_pressed("Restart"):
 		var _reload = get_tree().reload_current_scene()
@@ -70,11 +72,9 @@ func _process(delta: float) -> void:
 				if current_accessed_bot != i:
 					current_accessed_bot.accessed = false
 					if not current_accessed_bot.accessed:
-						print("shader off")
-					current_accessed_bot = i
-					current_accessed_bot.accessed = true
-					inp.ilk_deger_silme = true
-			print(current_accessed_bot.name)
+						current_accessed_bot = i
+						current_accessed_bot.accessed = true
+						inp.ilk_deger_silme = true
 	for b in get_tree().get_nodes_in_group("Boss"):
 		if b.mouse_ustunde_mi and Input.is_action_just_pressed("click"):
 			if current_boss != b:
@@ -84,7 +84,7 @@ func _process(delta: float) -> void:
 				current_boss = b
 				decipher.command.clear()
 				inp.ilk_deger_silme = true
-				print("boss seçildi")
+
 
 	if current_accessed_bot or current_boss:
 		var new_cmd = inp.update_command(cmd)
@@ -98,7 +98,6 @@ func _process(delta: float) -> void:
 					decipher.execute_com(current_accessed_bot, cmd_name)
 					await decipher.command_finsihed
 					inp.label.text = ""
-					print(current_accessed_bot.move_comp.speed)
 	
 	anim.update_anim(sprite, inp.move_dir, look_dir, walk_audio)
 	move.dir = inp.move_dir
