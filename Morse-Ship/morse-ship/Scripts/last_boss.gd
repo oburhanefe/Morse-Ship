@@ -12,6 +12,7 @@ signal died
 @export var outline : ShaderMaterial
 @export var plr : player
 @export_range(0.0, 1.0) var stun_dmg_ratio := 0.25 
+@onready var hp_bar: Label = $"../Label2"
 
 var healt : float
 var mouse_ustunde_mi = false
@@ -55,12 +56,14 @@ func take_hit():
 	can_be_hit = false
 	healt = max(healt - max_can * stun_dmg_ratio, 0.0)
 	healt_changed.emit(healt, max_can)
+	hp_bar.text = hp_bar.text.left(-1)
 	
 	var tw := create_tween()
 	tw.tween_property(sprite, "self_modulate", Color.RED, 0.2)
 	tw.tween_property(sprite, "self_modulate", Color.WHITE, 0.4)
 	if healt <= 0:
 		died.emit()
+		await get_tree().create_timer(1).timeout
 		get_tree().change_scene_to_file("res://Scenes/the_end.tscn")
 		queue_free()
 		return

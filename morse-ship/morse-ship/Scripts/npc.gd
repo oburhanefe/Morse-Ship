@@ -10,7 +10,7 @@ var can_leave = false
 func _ready():
 	label.text = "Hey you, finally awake."
 	waiting = true
-	step = 1
+	step = 0
 	
 func screenshake():
 	var camera = get_viewport().get_camera_2d()
@@ -24,6 +24,10 @@ func screenshake():
 	tween.tween_property(camera, "offset", Vector2.ZERO, 0.05)
 
 func _process(delta: float) -> void:
+	if (Input.is_action_just_pressed("click") and step == 0):
+		await get_tree().create_timer(0.2).timeout
+		step += 1
+	
 	if (Input.is_action_pressed("click") and waiting and step == 1):
 		waiting = false
 		label.text = "Welcome to our space station and congratulations on your new job."

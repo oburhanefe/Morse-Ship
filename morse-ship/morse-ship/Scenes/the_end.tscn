@@ -1,8 +1,18 @@
 [gd_scene format=3 uid="uid://5jkxujh1x2od"]
 
+[ext_resource type="Script" uid="uid://ch76fekv2bhht" path="res://Scripts/the_end.gd" id="1_0cvmb"]
 [ext_resource type="Texture2D" uid="uid://48wqvxn1ek13" path="res://assets/sprites/outro.png" id="1_dwy7s"]
+[ext_resource type="FontFile" uid="uid://cpsv1swaddatx" path="res://assets/fonts/PixelOperator8.ttf" id="3_ekukb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ou6wt"]
+font = ExtResource("3_ekukb")
+font_size = 12
+font_color = Color(0.8, 0, 0, 1)
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
 
 [node name="the_end" type="Node2D" unique_id=508317776]
+script = ExtResource("1_0cvmb")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1470311001]
 z_index = 100
@@ -16,3 +26,25 @@ offset_top = -15.0
 offset_right = 425.0
 offset_bottom = 200.0
 color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1719250043]
+offset_left = 8.0
+offset_top = 63.0
+offset_right = 83.0
+offset_bottom = 116.0
+text = "THANKS FOR PLAYING"
+label_settings = SubResource("LabelSettings_ou6wt")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="." unique_id=824292297]
+offset_left = 240.0
+offset_top = 65.0
+offset_right = 315.0
+offset_bottom = 118.0
+text = "PRESS ESC TO EXIT"
+label_settings = SubResource("LabelSettings_ou6wt")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

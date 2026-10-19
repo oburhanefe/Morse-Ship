@@ -837,6 +837,7 @@ sources/4 = SubResource("TileSetAtlasSource_a1xgt")
 size = Vector2(52, 10)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ycyol"]
+line_spacing = -15.0
 font = ExtResource("11_7vffm")
 font_size = 24
 font_color = Color(0.8, 0, 0, 1)
@@ -902,6 +903,7 @@ shape = SubResource("RectangleShape2D_ea6c3")
 [node name="LastBoss" parent="." unique_id=1243108489 node_paths=PackedStringArray("plr") instance=ExtResource("9_p3gat")]
 position = Vector2(-119, -45)
 plr = NodePath("../Player")
+stun_dmg_ratio = 0.07
 
 [node name="Boss_attack" parent="LastBoss" unique_id=1524185509 instance=ExtResource("10_7vffm")]
 position = Vector2(50, 70)
@@ -996,6 +998,17 @@ offset_right = 93.0
 offset_bottom = 233.0
 text = "STUN IT!!!"
 label_settings = SubResource("LabelSettings_ycyol")
+
+[node name="Label2" type="Label" parent="." unique_id=496902848]
+offset_left = -39.0
+offset_top = -37.0
+offset_right = 41.0
+offset_bottom = 14.0
+text = "..............."
+label_settings = SubResource("LabelSettings_ycyol")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="morse_short" type="AudioStreamPlayer2D" parent="." unique_id=191778425]
 stream = ExtResource("13_yei55")

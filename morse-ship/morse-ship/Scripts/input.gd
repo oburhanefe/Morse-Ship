@@ -107,6 +107,7 @@ func update_command(cmd : String) -> String:
 	
 	if Input.is_action_just_released("click") and target.accessed:
 		morse.command.append("1" if is_long else "0")
+		label.text.right(4)
 		if ilk_deger_silme:
 			morse.command.clear()
 			label.text = ""

@@ -21,7 +21,6 @@
 [ext_resource type="PackedScene" uid="uid://rplcv4woaoy5" path="res://Scenes/move_signal_bot.tscn" id="19_r0p7w"]
 [ext_resource type="PackedScene" uid="uid://bhaetolaexnxk" path="res://Scenes/patrol_spider.tscn" id="20_12bvl"]
 [ext_resource type="PackedScene" uid="uid://cskbckkstyq3l" path="res://Scenes/comp_key.tscn" id="21_7heq7"]
-[ext_resource type="PackedScene" uid="uid://bwbjppr3by4a3" path="res://Scenes/Chips.tscn" id="22_wmidc"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ofbfl"]
 polygon = PackedVector2Array(8, -8, 8, 8, -8, 8, -8, -8)
@@ -733,9 +732,9 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-241, -320, -243, -192,
 
 [sub_resource type="Curve2D" id="Curve2D_7heq7"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -80, -55, 0, 0, 0, 0, -80, 72, 0, 0, 0, 0, -79, 71, 0, 0, 0, 0, -79, -54, 0, 0, 0, 0, -80, -55)
+"points": PackedVector2Array(0, 0, 0, 0, -77, -91, 0, 0, 0, 0, 63, -93, 0, 0, 0, 0, 63, -91, 0, 0, 0, 0, -77, -94)
 }
-point_count = 5
+point_count = 4
 
 [node name="Computer_room" type="Node2D" unique_id=267335947]
 metadata/_edit_horizontal_guides_ = [256.0]
@@ -872,11 +871,10 @@ navigation_polygon = SubResource("NavigationPolygon_ycyol")
 position = Vector2(-2, -201)
 
 [node name="Path2D" type="Path2D" parent="." unique_id=795542816]
-rotation = 1.5707964
 curve = SubResource("Curve2D_7heq7")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=1707481568]
-position = Vector2(-80, -55)
+position = Vector2(-77, -91)
 rotates = false
 
 [node name="patrol_spider" parent="Path2D/PathFollow2D" unique_id=1210112188 node_paths=PackedStringArray("path_follow") instance=ExtResource("20_12bvl")]
@@ -886,11 +884,11 @@ patrol = true
 
 [node name="Path2D2" type="Path2D" parent="." unique_id=1561917964]
 position = Vector2(0, -80)
-rotation = 1.5707964
 curve = SubResource("Curve2D_7heq7")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D2" unique_id=844052140]
-position = Vector2(-80, -55)
+position = Vector2(-77, -91)
+rotation = -0.014284742
 rotates = false
 
 [node name="patrol_spider" parent="Path2D2/PathFollow2D" unique_id=1592807224 node_paths=PackedStringArray("path_follow") instance=ExtResource("20_12bvl")]
@@ -899,12 +897,13 @@ path_follow = NodePath("..")
 patrol = true
 
 [node name="Path2D3" type="Path2D" parent="." unique_id=945658404]
-position = Vector2(0, -200)
-rotation = -1.5707964
+position = Vector2(0, -225)
+rotation = -3.1415927
 curve = SubResource("Curve2D_7heq7")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D3" unique_id=1832777830]
-position = Vector2(-80, -55)
+position = Vector2(-77, -91)
+rotation = -0.014284742
 rotates = false
 
 [node name="patrol_spider" parent="Path2D3/PathFollow2D" unique_id=385730590 node_paths=PackedStringArray("path_follow") instance=ExtResource("20_12bvl")]
@@ -914,9 +913,3 @@ patrol = true
 
 [node name="comp_key" parent="." unique_id=1061194641 instance=ExtResource("21_7heq7")]
 position = Vector2(0, -398)
-
-[node name="Chips" parent="." unique_id=772896485 node_paths=PackedStringArray("plr") instance=ExtResource("22_wmidc")]
-position = Vector2(34, -390)
-unlocked_code = "mad_cow"
-Type = 1
-plr = NodePath("../Player")

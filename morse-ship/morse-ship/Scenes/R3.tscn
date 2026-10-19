@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://dhrqlqful2hso" path="res://assets/plakalar_kutualr/mavi_kutu.png" id="12_edb3f"]
 [ext_resource type="PackedScene" uid="uid://b4o42185jrnib" path="res://Scenes/color_door.tscn" id="13_r41u4"]
 [ext_resource type="PackedScene" uid="uid://bhaetolaexnxk" path="res://Scenes/patrol_spider.tscn" id="14_atrjw"]
+[ext_resource type="PackedScene" uid="uid://bwbjppr3by4a3" path="res://Scenes/Chips.tscn" id="15_n1o7n"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_lsmp6"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -532,3 +533,10 @@ rotates = false
 position = Vector2(0, -1)
 path_follow = NodePath("..")
 patrol = true
+
+[node name="Chips" parent="." unique_id=772896485 node_paths=PackedStringArray("plr") instance=ExtResource("15_n1o7n")]
+position = Vector2(-4, 527)
+scale = Vector2(0.8, 0.8)
+unlocked_code = "mad_cow"
+Type = 1
+plr = NodePath("../Player")

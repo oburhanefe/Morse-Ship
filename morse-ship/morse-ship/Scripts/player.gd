@@ -93,10 +93,10 @@ func _process(delta: float) -> void:
 			var cmd_name = decipher.valid_commands[new_cmd]
 			if current_boss:
 				decipher.execute_on_boss(current_boss, cmd_name)
+				inp.label.text = ""
 			else:
 				if cmd_name in SaveManager.unlocked_commands:
 					decipher.execute_com(current_accessed_bot, cmd_name)
-					await decipher.command_finsihed
 					inp.label.text = ""
 	
 	anim.update_anim(sprite, inp.move_dir, look_dir, walk_audio)
